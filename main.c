@@ -21,14 +21,15 @@
 #include "OLED.h"
 #include "OLED_menu.h"
 
-#include "spi_driver.h"
-#include "mcp2515_driver.h"
-#include "CAN_communication.h"
+//#include "spi_driver.h"
+//#include "mcp2515_driver.h"
+//#include "CAN_communication.h"
 
 
 int main(void)
 {
-    
+    //printf("Main kjører");
+
     SRAM_init();
     timer_init();
     USART_init();
@@ -37,6 +38,7 @@ int main(void)
     OLED_init();
     pos_readSettings();
     oled_clear();
+
     //mcp_init(MODE_LOOPBACK);
     // uint8_t c = 'a';
     // char* k = "halla";
@@ -47,46 +49,27 @@ int main(void)
     // char c[] = "derp";
     // oled_pos_set(3, 62);
     // oled_print(&c);
+
+    //printf("Main kjører");
     
 
-    //menu();
-
-    mcp_init(MODE_LOOPBACK);
-    uint8_t r;
+    menu();
+    //CAN_init(MODE_LOOPBACK);
 
     while (1) {
-        
-        //pos_read(&P_pos);
-        //
-        //uint8_t sliderX = ADC_read(3);
-        //uint8_t sliderY = ADC_read(2);
-        //printf("kjører");
 
-        //mcp_init(MODE_LOOPBACK);
+        printf("Main kjører");
+        //CAN_communication_test();
 
-        mcp_init(MODE_LOOPBACK);
+        // mcp_init(MODE_LOOPBACK);
 
 
-        mcp_write(MCP_CANCTRL, 0x10);
-        _delay_ms(1000);
-        r = mcp_read(MCP_CANCTRL);
+        // mcp_write(MCP_CANCTRL, 0x10);
+        //_delay_ms(1000);
+        // r = mcp_read(MCP_CANCTRL);
 
-        printf("%d\n\r", r);
+        // printf("%d\n\r", r);
 
-        // spi_master_CS(0);
-        // //mcp_write(MCP_CANCTRL, DUMMY);
-        // r = mcp_read(MCP_CANCTRL);       
-        // spi_master_CS(1);
-
-        //    char test = spi_read();
-        //    printf("test is:  %d \n \r", test);
-
-        
-        //printf("Right button pressed: %d , Left button pressed: %d  joy button pressed: %d \r", usb_button_pushed(RIGHT_BUTTON), usb_button_pushed(LEFT_BUTTON), usb_button_pushed(JOYSTICK_BUTTON) );
-        //printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
-        //  printf("Direction is: %4d \n \r", joystick_direction());
-
-    //_delay_ms(100);
   } // end main loop
 
 } //end main
