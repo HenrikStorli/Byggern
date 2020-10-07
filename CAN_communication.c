@@ -8,18 +8,19 @@ uint8_t CAN_init(uint8_t mode){
     mcp_init(mode);
 
     cli();
-
-    EMCUCR &= ~(1<<ISC2);
-
-    GICR |= (1<<INT2);
+    
+    //EMCUCR &= ~(1<<ISC2);
+    MCUCR |= (1 << ISC01);
+    MCUCR &= ~(1 << ISC00);
+    GICR |= (1 << INT0);     //(1<<INT2);
 
     sei();
 
-    mcp_write(MCP_CANINTE, 0x01);
+    mcp_write(MCP_CANINTE, MCP_RX_INT); // enable both buffers
 
 }
 
-ISR(INT2_vect){
+ISR(INT0_vect){
     flag = 1;
 }
 
@@ -52,13 +53,13 @@ uint8_t CAN_message_transmission(CAN_message_t* can_message){
         mcp_write(MCP_TXB0D0 + i, data_byte);
     }
 
-    mcp_request_to_send(0); // Litt usikker
+    mcp_request_to_send(0); // Litt usikker kan endres til enum 
 }
 
 CAN_message_t CAN_meessage_reception(){
     CAN_message_t message;
     uint8_t byte_mask = 0xE0;
-
+    uint8_t length_mask = 0x0F;
     unsigned int identifier_high = mcp_read(MCP_RXB0SIDH);
     identifier_high = (identifier_high << 8 );
     uint8_t identifier_low = mcp_read(MCP_RXB0SIDL);
@@ -66,13 +67,54 @@ CAN_message_t CAN_meessage_reception(){
 
     message.identifier = identifier_low + identifier_high;
 
-    message.data_length = mcp_read(MCP_RXB0DLC);
+    message.data_length = mcp_read(MCP_RXB0DLC)&length_mask;
 
     for(uint8_t i = 0; i < message.data_length; i++){
-        (message.data)[i] = mcp_read(MCP_RXB0DM +1);
+        (message.data)[i] = mcp_read(MCP_RXB0DM +i);
     }
-
+    
+   // mcp_bit_modify(MCP_CANINTF, 1, 0);
+    
+    //GICR |= (1 << INTF2);
     return message;
+}
+
+CAN_message_t CAN_meessage_reception2(){
+    CAN_message_t message;
+    uint8_t byte_mask = 0xE0;
+    uint8_t length_mask = 0x0F;
+    unsigned int identifier_high = mcp_read(MCP_RXB1SIDH);
+    identifier_high = (identifier_high << 8 );
+    uint8_t identifier_low = mcp_read(MCP_RXB0SIDL + 16);
+    identifier_low &= byte_mask;
+
+    message.identifier = identifier_low + identifier_high;
+
+    message.data_length = mcp_read(MCP_RXB0DLC + 16)&length_mask;
+
+    for(uint8_t i = 0; i < message.data_length; i++){
+        (message.data)[i] = mcp_read(MCP_RXB0DM +i + 16);
+    }
+    
+    //mcp_bit_modify(MCP_CANINTF, 1, 0);
+    
+    //GICR |= (1 << INTF2);
+    return message;
+}
+
+CAN_message_t message_handler(){
+    CAN_message_t message;
+    
+    if(mcp_read(MCP_CANINTF) && 0x01){
+        message = CAN_meessage_reception();
+    }
+    
+    else if(mcp_read(MCP_CANINTF) && 0x02){
+        message = CAN_meessage_reception2();
+        mcp_bit_modify(MCP_CANINTF, 1, 0);    
+    }
+    
+return message;
 }
 
 void CAN_communication_test(){ 
@@ -85,16 +127,41 @@ void CAN_communication_test(){
     (message.data)[1] = 0x11;
 
     CAN_message_transmission(&message);
-
+    _delay_ms(10);
     if(CAN_check_interrupt()){
         printf("Interrupt fungerer\n\r");
-        message_recieve = CAN_meessage_reception();
+        message_recieve = message_handler();
         printf("DATAEN er: %d\n\r",message_recieve.data[0]);
         printf("identifier : %d \r\n", message.identifier); 
         printf("data length : %d \r\n", message.data_length);
     }
     else{
         printf("IKKE Interrupt \r\n");
+
+    }
+}
+
+
+void CAN_communication_test2(){ 
+    CAN_message_t message;
+    CAN_message_t message_recieve;
+
+    message.identifier = 0x44;
+    message.data_length = 2;
+    (message.data)[0] = 0x22;
+    (message.data)[1] = 0x22;
+
+    CAN_message_transmission(&message);
+
+    if(CAN_check_interrupt()){
+        printf("Interrupt fungerer\n\r");
+        message_recieve = message_handler();
+        printf("DATAEN2 er: %d\n\r",message_recieve.data[0]);
+        printf("identifier2 : %d \r\n", message.identifier); 
+        printf("data length2 : %d \r\n", message.data_length);
+    }
+    else{
+        printf("IKKE Interrupt2 \r\n");
 
     }
 }

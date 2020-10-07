@@ -16,7 +16,10 @@ uint8_t CAN_init(uint8_t mode);
 uint8_t CAN_message_transmission(CAN_message_t* can_message);
 
 CAN_message_t CAN_meessage_reception();
+CAN_message_t CAN_meessage_reception2();
 
+CAN_message_t message_handler();
 void CAN_communication_test();
+void CAN_communication_test2();
 
 #endif /* CAN_COMMUNICATION_H_ */

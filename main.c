@@ -57,10 +57,13 @@ int main(void)
     //mcp_init(MODE_LOOPBACK);
     //uint8_t r;
     CAN_init(MODE_LOOPBACK);
-
-
+    _delay_ms(1000);
+    CAN_communication_test();
+    _delay_ms(1000);
+    CAN_communication_test2();
+    
     while (1) {
-        CAN_communication_test();
+        
         //pos_read(&P_pos);
         //
         //uint8_t sliderX = ADC_read(3);
