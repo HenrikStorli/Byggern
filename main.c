@@ -37,6 +37,8 @@ int main(void)
     OLED_init();
     pos_readSettings();
     oled_clear();
+
+    printf("MAIN kjører");
     //mcp_init(MODE_LOOPBACK);
     // uint8_t c = 'a';
     // char* k = "halla";
@@ -50,7 +52,8 @@ int main(void)
     
 
     //menu();
-
+    //CAN_init(MODE_LOOPBACK);
+    //CAN_communication_test();
     mcp_init(MODE_LOOPBACK);
     uint8_t r;
 
@@ -64,7 +67,7 @@ int main(void)
 
         //mcp_init(MODE_LOOPBACK);
 
-        mcp_init(MODE_LOOPBACK);
+        //printf("FLAG IS: %d", flag);
 
 
         mcp_write(MCP_CANCTRL, 0x10);

@@ -10,6 +10,7 @@
 
 #include <avr/io.h>
 #include <stdio.h>
+#include <stdint.h>
 #include "iom162.h"
 
 
