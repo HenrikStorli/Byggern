@@ -13,7 +13,7 @@ uint8_t CAN_init(){
 
     sei();
 
-    MCP_CANINTE |= MCP_RX_INT; //Enable buffer 1 and 0 interrupt.
+//    MCP_CANINTE |= MCP_RX_INT; //Enable buffer 1 and 0 interrupt.
 }
 
 ISR(INT2_vect){
@@ -45,7 +45,7 @@ uint8_t CAN_message_transmission(CAN_message_t* can_message){
 
 CAN_message_t CAN_meessage_reception(){
 
-    CAN_message_t.identifier = 
+//    CAN_message_t.identifier = 
 
 
 }

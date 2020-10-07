@@ -136,40 +136,28 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ADC_calibrate.c">
+    <Compile Include="ADC_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ADC_calibrate.h">
+    <Compile Include="ADC_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_communication.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_communication.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="fonts.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="interrupt_handler.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="interrupt_handler.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="mcp2515.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="mcp2515_read.c">
+    <Compile Include="mcp2515_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="mcp2515_read.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mcp2515_write.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mcp2515_write.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MSTR_ChipSelect.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MSTR_ChipSelect.h">
+    <Compile Include="mcp2515_driver.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="OLED.c">
@@ -178,69 +166,44 @@
     <Compile Include="OLED.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="OLED_menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="OLED_menu.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="pos_read.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="pos_read.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="spi_init.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="spi_init.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="spi_read.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="spi_read.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="spi_write.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="spi_write.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="timer_init.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="timer_init.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ADC_read.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ADC_read.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ADC_Test.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ADC_Test.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SRAM_init.c">
+    <Compile Include="spi_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SRAM_init.h">
+    <Compile Include="spi_driver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SRAM_Test.c">
+    <Compile Include="SRAM_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SRAM_Test.h">
+    <Compile Include="SRAM_driver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="UART_hjemmesnekk.c">
+    <Compile Include="UART_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="UART_hjemmesnekk.h">
+    <Compile Include="UART_driver.h">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
