@@ -54,11 +54,13 @@ int main(void)
     //menu();
     //CAN_init(MODE_LOOPBACK);
     //CAN_communication_test();
-    mcp_init(MODE_LOOPBACK);
-    uint8_t r;
+    //mcp_init(MODE_LOOPBACK);
+    //uint8_t r;
+    CAN_init(MODE_LOOPBACK);
+
 
     while (1) {
-        
+        CAN_communication_test();
         //pos_read(&P_pos);
         //
         //uint8_t sliderX = ADC_read(3);
@@ -70,11 +72,11 @@ int main(void)
         //printf("FLAG IS: %d", flag);
 
 
-        mcp_write(MCP_CANCTRL, 0x10);
-        _delay_ms(1000);
-        r = mcp_read(MCP_CANCTRL);
-
-        printf("%d\n\r", r);
+        //mcp_write(MCP_CANCTRL, 0x10);
+        //_delay_ms(1000);
+        //r = mcp_read(MCP_CANCTRL);
+        //
+        //printf("%d\n\r", r);
 
         // spi_master_CS(0);
         // //mcp_write(MCP_CANCTRL, DUMMY);

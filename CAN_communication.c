@@ -89,10 +89,12 @@ void CAN_communication_test(){
     if(CAN_check_interrupt()){
         printf("Interrupt fungerer\n\r");
         message_recieve = CAN_meessage_reception();
-        //printf("DATAEN er: %d\n\r",message_recieve.data[0]);
+        printf("DATAEN er: %d\n\r",message_recieve.data[0]);
+        printf("identifier : %d \r\n", message.identifier); 
+        printf("data length : %d \r\n", message.data_length);
     }
     else{
-        printf("IKKE Interrupt ");
+        printf("IKKE Interrupt \r\n");
 
     }
 }
