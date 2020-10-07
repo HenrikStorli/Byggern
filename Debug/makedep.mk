@@ -2,37 +2,23 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-ADC_calibrate.c
+ADC_driver.c
 
-interrupt_handler.c
+CAN_communication.c
 
-mcp2515_read.c
-
-mcp2515_write.c
-
-MSTR_ChipSelect.c
+mcp2515_driver.c
 
 OLED.c
 
+OLED_menu.c
+
 pos_read.c
-
-spi_init.c
-
-spi_read.c
-
-spi_write.c
-
-timer_init.c
-
-ADC_read.c
-
-ADC_Test.c
 
 main.c
 
-SRAM_init.c
+spi_driver.c
 
-SRAM_Test.c
+SRAM_driver.c
 
-UART_hjemmesnekk.c
+UART_driver.c
 
