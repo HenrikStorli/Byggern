@@ -14,8 +14,7 @@ typedef struct CAN_message{
 /**
  * @brief Updates the screen according to the given node.
  *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
+ * @param mode A pointer to the current node.
  *
  * @return True if one of the buttons are pushed, False otherwise.
  */
