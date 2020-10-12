@@ -26,11 +26,9 @@ ISR(INT0_vect){
 
 uint8_t CAN_check_interrupt(){
     if(flag){
-        flag = 0;
         return 1;
     }
-    
-    return 0;
+return 0;
 }
 
 uint8_t CAN_message_transmission(CAN_message_t* can_message){
@@ -106,12 +104,23 @@ CAN_message_t message_handler(){
     CAN_message_t message;
     
     if(mcp_read(MCP_CANINTF) && 0x01){
-        message = CAN_meessage_reception();
+        message = CAN_meessage_reception(); //reads buffer 2 register
+        printf("i reception nr1 \r\n");     
+        mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
+        if(!(mcp_read(MCP_CANINTF) && 2)   ){
+            printf("er i if nr1 \r\n");
+            flag = 0;
+        }
     }
     
     else if(mcp_read(MCP_CANINTF) && 0x02){
-        message = CAN_meessage_reception2();
-        mcp_bit_modify(MCP_CANINTF, 1, 0);    
+        message = CAN_meessage_reception2();  //reads buffer 2 register
+         printf("i reception nr2 \r\n");
+        mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
+        if(!(mcp_read(MCP_CANINTF) && 1)   ){ 
+            printf("er i if nr2 \r\n");
+            flag = 0; 
+        }
     }
     
 return message;
