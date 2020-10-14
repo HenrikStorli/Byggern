@@ -17,7 +17,11 @@ uint8_t CAN_init(uint8_t mode){
     sei(); // Enable global interrupts
 
     mcp_write(MCP_CANINTE, MCP_RX_INT); // Enable both buffers
-
+    mcp_set_mode(MODE_CONFIG);
+    mcp_write(MCP_CNF1, 0b11001010);
+    mcp_write(MCP_CNF2, 0b10101001);
+    mcp_write(MCP_CNF3, 0b00000011);
+    
 }
 
 ISR(INT0_vect){

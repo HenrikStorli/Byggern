@@ -56,10 +56,10 @@ int main(void)
     //CAN_communication_test();
     //mcp_init(MODE_LOOPBACK);
     //uint8_t r;
-    CAN_init(MODE_LOOPBACK);
-    _delay_ms(1000);
+    CAN_init(MODE_NORMAL);
+//    _delay_ms(1000);
     CAN_communication_test();
-    _delay_ms(1000);
+ //   _delay_ms(1000);
     CAN_communication_test2();
     
     while (1) {
