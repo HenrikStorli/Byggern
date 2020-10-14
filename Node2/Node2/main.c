@@ -51,6 +51,7 @@ int main(void)
         //}
         
         printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
+
    // CAN_MESSAGE can_msg;    
    // uint8_t mailbox_status = can_receive(&can_msg, 1);
    // if(can_msg.id > 0){

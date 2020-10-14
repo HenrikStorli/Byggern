@@ -26,7 +26,7 @@ calibration_values P_cal;
 /**
  * @brief Reads the values from the adc.
  *
- * @param channel The esired channal that wants to be converted.
+ * @param channel The desired channal that wants to be converted.
  *
  *   channel 0 gives joystick X value.
  *   Channel 1 gives joystick Y.
@@ -44,8 +44,14 @@ uint8_t ADC_read(uint8_t channel);
  */
 void ADC_calibrate(calibration_values* cal_pos);        // maybe store in flash?
 
+/**
+ * @brief Tests if the adc works appropriately.
+ */
 void ADC_Test(void);
 
-void timer_init(void);
+/**
+ * @brief Sets the clock signal to the adc.
+ */
+void ADC_timer_init(void);
 
 #endif /* ADC_DRIVER_H_ */

@@ -8,20 +8,20 @@
 
 #include "ADC_driver.h"
 
-//skriv d7 high for � recieve data
-//D0 og D1 LOW for channel 0
-//D0 HIGH og D1 low gir channel 1
 
 uint8_t ADC_read(uint8_t channel){
-
-    volatile char *ext_adc = (char *) 0x1400;
-
+	
+	// Pointer to base adress for ADC
+    volatile char *ext_adc = (char *) 0x1400; 
+	
+	// Write instruction choosing wich channel to read
     ext_adc[1] = 0b10000000 | channel;
 
 
     _delay_us(150);
-
-return ext_adc[1];
+	
+	// Return converted value
+	return ext_adc[1];
 }
 
 
@@ -49,7 +49,7 @@ void ADC_Test(void) {
 }
 
 
-void timer_init(void) {
+void ADC_timer_init(void) {
 
     DDRB|=(1<<PB0);  /*set OC0 pin as output*/
 

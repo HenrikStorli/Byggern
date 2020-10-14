@@ -30,7 +30,7 @@ int main(void)
 {
     
     SRAM_init();
-    timer_init();
+    ADC_timer_init();
     USART_init();
     fdevopen(USART_send, USART_receive);
     ADC_calibrate(&P_cal);
@@ -78,8 +78,9 @@ int main(void)
        uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
        uint8_t joyDirection = joystick_direction(); 
        pos_read(&P_pos);
-       printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", P_pos.posX, P_pos.posY, joyButton, joyDirection);
-       joyStick_Can_Message();
+       //printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", P_pos.posX, P_pos.posY, joyButton, joyDirection);
+       printf("Bro");
+	   joyStick_Can_Message();
         
        // revieve_message = message_handler();
         
