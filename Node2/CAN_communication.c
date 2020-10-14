@@ -107,7 +107,7 @@ CAN_message_t message_handler(){
         message = CAN_meessage_reception(); //reads buffer 2 register
         printf("i reception nr1 \r\n");     
         mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
-        if(!(mcp_read(MCP_CANINTF) && 2)   ){
+        if(!(mcp_read(MCP_CANINTF) && 2)   ){ //resets ISR flag if both interrupt bits are 0
             printf("er i if nr1 \r\n");
             flag = 0;
         }
@@ -117,7 +117,7 @@ CAN_message_t message_handler(){
         message = CAN_meessage_reception2();  //reads buffer 2 register
          printf("i reception nr2 \r\n");
         mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
-        if(!(mcp_read(MCP_CANINTF) && 1)   ){ 
+        if(!(mcp_read(MCP_CANINTF) && 1)   ){ //resets ISR flag if both interrupt bits are 0
             printf("er i if nr2 \r\n");
             flag = 0; 
         }
