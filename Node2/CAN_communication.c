@@ -3,20 +3,20 @@
 volatile int flag = 0;
 
 uint8_t CAN_init(uint8_t mode){
-    //Enable interrupt on PIN PE0 (INT2).
+    // Enable interrupt on PIN PE0 (INT2).
 
     mcp_init(mode);
 
-    cli();
+    cli(); // Disable global interrupts
     
-    //EMCUCR &= ~(1<<ISC2);
+    
     MCUCR |= (1 << ISC01);
     MCUCR &= ~(1 << ISC00);
-    GICR |= (1 << INT0);     //(1<<INT2);
+    GICR |= (1 << INT0);   
 
-    sei();
+    sei(); // Enable global interrupts
 
-    mcp_write(MCP_CANINTE, MCP_RX_INT); // enable both buffers
+    mcp_write(MCP_CANINTE, MCP_RX_INT); // Enable both buffers
 
 }
 
@@ -24,12 +24,14 @@ ISR(INT0_vect){
     flag = 1;
 }
 
+
 uint8_t CAN_check_interrupt(){
     if(flag){
         return 1;
     }
 return 0;
 }
+
 
 uint8_t CAN_message_transmission(CAN_message_t* can_message){
 
@@ -51,61 +53,73 @@ uint8_t CAN_message_transmission(CAN_message_t* can_message){
         mcp_write(MCP_TXB0D0 + i, data_byte);
     }
 
-    mcp_request_to_send(0); // Litt usikker kan endres til enum 
+    // Request to send to given buffer
+    mcp_request_to_send(0);
 }
+
 
 CAN_message_t CAN_meessage_reception(){
     CAN_message_t message;
-    uint8_t byte_mask = 0xE0;
-    uint8_t length_mask = 0x0F;
+
+    uint8_t byte_mask = 0xE0; // Mask for lower part of identifier
+    uint8_t length_mask = 0x0F; // Mask for message length register
+
+    // Reading the identifier higher byte
     unsigned int identifier_high = mcp_read(MCP_RXB0SIDH);
     identifier_high = (identifier_high << 8 );
+
+    // Reading the identifier lower byte
     uint8_t identifier_low = mcp_read(MCP_RXB0SIDL);
     identifier_low &= byte_mask;
 
     message.identifier = identifier_low + identifier_high;
 
+    // Reading the message length
     message.data_length = mcp_read(MCP_RXB0DLC)&length_mask;
 
+    // Reading the data in the message
     for(uint8_t i = 0; i < message.data_length; i++){
         (message.data)[i] = mcp_read(MCP_RXB0DM +i);
     }
     
-   // mcp_bit_modify(MCP_CANINTF, 1, 0);
-    
-    //GICR |= (1 << INTF2);
     return message;
 }
 
 CAN_message_t CAN_meessage_reception2(){
     CAN_message_t message;
-    uint8_t byte_mask = 0xE0;
-    uint8_t length_mask = 0x0F;
+
+    uint8_t byte_mask = 0xE0;   // Mask for lower part of identifier
+    uint8_t length_mask = 0x0F; // Mask for message length register
+
+    // Reading the identifier higher byte
     unsigned int identifier_high = mcp_read(MCP_RXB1SIDH);
     identifier_high = (identifier_high << 8 );
+
+    // Reading the identifier lower byte
     uint8_t identifier_low = mcp_read(MCP_RXB0SIDL + 16);
     identifier_low &= byte_mask;
 
     message.identifier = identifier_low + identifier_high;
 
+    // Reading the message length
     message.data_length = mcp_read(MCP_RXB0DLC + 16)&length_mask;
 
+    // Reading the data in the message
     for(uint8_t i = 0; i < message.data_length; i++){
         (message.data)[i] = mcp_read(MCP_RXB0DM +i + 16);
     }
     
-    //mcp_bit_modify(MCP_CANINTF, 1, 0);
-    
-    //GICR |= (1 << INTF2);
     return message;
 }
 
 CAN_message_t message_handler(){
     CAN_message_t message;
     
+    // Checks if buffer 1 is full
     if(mcp_read(MCP_CANINTF) && 0x01){
         message = CAN_meessage_reception(); //reads buffer 2 register
-        printf("i reception nr1 \r\n");     
+        printf("i reception nr1 \r\n");
+
         mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
         if(!(mcp_read(MCP_CANINTF) && 2)   ){ //resets ISR flag if both interrupt bits are 0
             printf("er i if nr1 \r\n");
@@ -113,9 +127,11 @@ CAN_message_t message_handler(){
         }
     }
     
+    // Checks if buffer 2 is full
     else if(mcp_read(MCP_CANINTF) && 0x02){
         message = CAN_meessage_reception2();  //reads buffer 2 register
          printf("i reception nr2 \r\n");
+
         mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
         if(!(mcp_read(MCP_CANINTF) && 1)   ){ //resets ISR flag if both interrupt bits are 0
             printf("er i if nr2 \r\n");
