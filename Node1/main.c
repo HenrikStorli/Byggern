@@ -38,7 +38,6 @@ int main(void)
     pos_readSettings();
     oled_clear();
 
-    printf("MAIN kjører");
     //mcp_init(MODE_LOOPBACK);
     // uint8_t c = 'a';
     // char* k = "halla";
@@ -58,11 +57,34 @@ int main(void)
     //uint8_t r;
     CAN_init(MODE_NORMAL);
 //    _delay_ms(1000);
-    CAN_communication_test();
+//    CAN_communication_test();
  //   _delay_ms(1000);
-    CAN_communication_test2();
+//    CAN_communication_test2();
     
+    CAN_message_t test_message;
+    
+    test_message.identifier = 2;
+    test_message.data[0] = 'H';
+    test_message.data[1] = 'E';
+    test_message.data[2] = 'I';
+    test_message.data_length = 3;
+    
+    CAN_message_t revieve_message;
+    printf("Initiating node 1 \n\r");
     while (1) {
+    //    CAN_message_transmission(&test_message);
+    
+    
+       uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
+       uint8_t joyDirection = joystick_direction(); 
+       pos_read(&P_pos);
+       printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", P_pos.posX, P_pos.posY, joyButton, joyDirection);
+       joyStick_Can_Message();
+        
+       // revieve_message = message_handler();
+        
+        
+        //printf("Lengden er : %d\n\r Dataen er: %d\n\r ID'en er: %d\n\r", revieve_message.data_length, revieve_message.data[0], revieve_message.data_length);
         
         //pos_read(&P_pos);
         //

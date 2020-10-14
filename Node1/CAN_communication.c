@@ -5,7 +5,7 @@ volatile int flag = 0;
 uint8_t CAN_init(uint8_t mode){
     // Enable interrupt on PIN PE0 (INT2).
 
-    mcp_init(mode);
+   
 
     cli(); // Disable global interrupts
     
@@ -15,13 +15,30 @@ uint8_t CAN_init(uint8_t mode){
     GICR |= (1 << INT0);   
 
     sei(); // Enable global interrupts
-
-    mcp_write(MCP_CANINTE, MCP_RX_INT); // Enable both buffers
-    mcp_set_mode(MODE_CONFIG);
-    mcp_write(MCP_CNF1, 0b11001010);
-    mcp_write(MCP_CNF2, 0b10101001);
-    mcp_write(MCP_CNF3, 0b00000011);
+   
+    mcp_init(MODE_CONFIG); 
     
+    mcp_write(MCP_CANINTE, MCP_RX_INT); // Enable both buffers
+    
+    mcp_write(MCP_CNF1, 0b10000001);
+    mcp_write(MCP_CNF2, 0b10101101);
+    mcp_write(MCP_CNF3, 0b00000101);
+    //if (mcp_read(MCP_CNF1) != 0b11001010)
+    //{
+    //    printf("Error på CNF1");
+    //}
+    //if (mcp_read(MCP_CNF2) != 0b10101001)
+    //{
+    //    printf("Error på CNF1");
+    //}
+    //
+    //if (mcp_read(MCP_CNF3) != 0b00000011)
+    //{
+    //    printf("Error på CNF3");
+    //}
+    mcp_set_mode(MODE_NORMAL);
+    
+
 }
 
 ISR(INT0_vect){
@@ -40,8 +57,8 @@ return 0;
 uint8_t CAN_message_transmission(CAN_message_t* can_message){
 
     //Splitting up the identifier into two bytes
-    uint8_t identifier_low = (can_message -> identifier) % 8;
-    uint8_t identifier_high = (can_message -> identifier) / 8;
+    uint8_t identifier_low = ((can_message -> identifier) << 5);
+    uint8_t identifier_high = ((can_message -> identifier) >> 3);
 
     //Writing the identifier
     mcp_write(MCP_TXB0SIDL, identifier_low);

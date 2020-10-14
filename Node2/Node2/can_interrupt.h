@@ -11,6 +11,21 @@
 
 #ifndef CAN_INTERRUPT_H_
 #define CAN_INTERRUPT_H_
+
+#include <stdio.h>
+
+typedef struct joystick_data{
+    int posX;
+    int posY;
+    uint8_t button_pushed;
+    uint8_t joystick_direction;
+}joystick_data_t;
+
+joystick_data_t received_joystick_data;
+
+
+
+
 void CAN0_Handler       ( void );
 
 

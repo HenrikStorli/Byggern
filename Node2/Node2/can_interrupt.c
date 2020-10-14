@@ -57,6 +57,12 @@ void CAN0_Handler( void )
 			if(DEBUG_INTERRUPT)printf("%d ", message.data[i]);
 		}
 		if(DEBUG_INTERRUPT)printf("\n\r");
+        
+        //Fetching joystick data
+        received_joystick_data.posX = (message.data[0]) - 128;
+        received_joystick_data.posY = (message.data[1]) - 128;  
+        received_joystick_data.button_pushed = (message.data[2]) % 2;     
+        received_joystick_data.joystick_direction = (message.data[2] >> 1);
 	}
 	
 	if(can_sr & CAN_SR_MB0)
@@ -81,4 +87,7 @@ void CAN0_Handler( void )
 	
 	NVIC_ClearPendingIRQ(ID_CAN0);
 	//sei();*/
+
+
+    
 }

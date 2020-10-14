@@ -6,6 +6,8 @@ ADC_driver.c
 
 CAN_communication.c
 
+CAN_messages.c
+
 mcp2515_driver.c
 
 OLED.c

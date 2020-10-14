@@ -24,11 +24,7 @@ char spi_read(void){
 void spi_init(void){
     DDR_SPI |= (1 << SCK) | (1 << MOSI) | (1 << SS);
 
-    SPCR |= (1 << SPE) | (1 << MSTR) |(1<<SPR0);  // Enable SPI and set as master
-
-    // // mode 0 with CPHA = 0 and CPOL = 0
-    // SPCR &= ~(1<<CPOL);
-    // SPCR &= ~(1<<CPHA);
+    SPCR |= (1 << SPE) | (1 << MSTR) | (1<<SPR0);  // Enable SPI and set as master
 
     //SPSR |= (1 << SPI2X);  // clock divider set to F_CPU/2 for highest speed
 }
