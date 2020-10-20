@@ -186,6 +186,12 @@
     <Compile Include="printf-stdarg.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="servo_ctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="servo_ctrl.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="uart.c">
       <SubType>compile</SubType>
     </Compile>

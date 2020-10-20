@@ -15,7 +15,7 @@
 #include "can_controller.h"
 #include "can_interrupt.h"
 
-#define F_CPU 84E6
+#define F_CPU 84E6 //84Mhz
 
 int main(void)
 {

@@ -7,20 +7,20 @@
 
 
 void servo_set_pwm(int joystick_position){
+	//First enable PWM clock
+	REG_PMC_PCER1 |= (1<<4); 
 	
-	//Skru av IO funksjonalitet, som pinnen er i by default
-	PIOc->PIO_PDR |= PIO_PDR_Pn //der c er port og n er pin-nummer.
+	//Turn of the PIO conteller for pin PC19. PIN 44 on shield.
+	PIOC->PIO_PDR |= PIO_PDR_P19;
 	
-	//Velge peripheral A og B
-	PIOc->PIO_ABSR |= PIO_ABSR_Pn //der c port og n er pin-nummer. 
+	//Choose peripheral B for PC19, PWMH5
+	PIOC->PIO_ABSR |= PIO_ABSR_P19; 
 	
-	REG_PWM_CLK //Sett riktig klokkefrekvens
+	//Set clock frequency for PWM, 2Mhz, CLKA.
+	REG_PWM_CLK = 0x002A0000;
 	
-	// PWML0 er peripheral B på pin PA21
-	// PWMH0 er peripheral B på pin PA8
-	
-	// n er hvilken kanal.
-	REG_PWM_CMRn //Sett riktig modus
+	//Set channel mode
+	REG_PWM_CMR5 =0x0000000C; //Sett riktig modus
 	REG_PWM_CPRD1n //Sett riktig periodetid
 	REG_PWM_CDTYn //Sett riktig kanal
 	
