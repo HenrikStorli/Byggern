@@ -14,5 +14,7 @@ main.c
 
 printf-stdarg.c
 
+servo_ctrl.c
+
 uart.c
 

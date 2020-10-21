@@ -79,7 +79,7 @@ int main(void)
        uint8_t joyDirection = joystick_direction(); 
        pos_read(&P_pos);
        //printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", P_pos.posX, P_pos.posY, joyButton, joyDirection);
-       printf("Bro");
+       //printf("Bro");
 	   joyStick_Can_Message();
         
        // revieve_message = message_handler();

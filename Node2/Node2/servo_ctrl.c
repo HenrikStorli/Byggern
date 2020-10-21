@@ -5,25 +5,41 @@
  *  Author: henri
  */ 
 
+#include "servo_ctrl.h"
 
-void servo_set_pwm(int joystick_position){
-	//First enable PWM clock
-	REG_PMC_PCER1 |= (1<<4); 
+void servo_pwm_init(void){
+		//First enable PWM clock
+		REG_PMC_PCER1 |= (1<<4);
+		
+		//Turn of the PIO conteller for pin PC19. PIN 44 on shield.
+		PIOC->PIO_PDR |= PIO_PDR_P19;
+		
+		//Choose peripheral B for PC19, PWMH5
+		PIOC->PIO_ABSR |= PIO_ABSR_P19;
+		
+		//Set clock frequency for PWM, 2Mhz, CLKA.
+		REG_PWM_CLK = 0x002A0000;
+		
+		//Set channel mode
+		REG_PWM_CMR5 = 0x0000000C;
+		
+		//Set channel period to 20ms
+		REG_PWM_CPRD5 = 0x00009C40;
+}
+
+void servo_set_pwm(int joystick_position){	
+	//Set channel duty register
+	REG_PWM_CDTY5 = 0x00008CA0;  
 	
-	//Turn of the PIO conteller for pin PC19. PIN 44 on shield.
-	PIOC->PIO_PDR |= PIO_PDR_P19;
+	//Activate PWM signal
+	REG_PWM_ENA |= 0x00000020;
 	
-	//Choose peripheral B for PC19, PWMH5
-	PIOC->PIO_ABSR |= PIO_ABSR_P19; 
+}
+
+void servo_set_pwm_test(void){	
+	//Set channel duty register
+	REG_PWM_CDTY5 = 0x00008CA0;
 	
-	//Set clock frequency for PWM, 2Mhz, CLKA.
-	REG_PWM_CLK = 0x002A0000;
-	
-	//Set channel mode
-	REG_PWM_CMR5 =0x0000000C; //Sett riktig modus
-	REG_PWM_CPRD1n //Sett riktig periodetid
-	REG_PWM_CDTYn //Sett riktig kanal
-	
-	REG_PWM_ENA //Aktiver pwm
-	
+	//Activate PWM signal
+	REG_PWM_ENA |= 0x00000020;
 }
