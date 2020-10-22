@@ -39,6 +39,4 @@ void servo_set_angle(joystick_data_t data);
  */
 void servo_set_pwm_test(void);
 	
-
-
 #endif /* SERVO_CTRL_H_ */
