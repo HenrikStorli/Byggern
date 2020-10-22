@@ -27,19 +27,44 @@ void servo_pwm_init(void){
 		REG_PWM_CPRD5 = 0x00009C40;
 }
 
-void servo_set_pwm(int joystick_position){	
+int servo_set_pwm(float duty_cycle){
+	
+	if(duty_cycle < 0.040){
+		printf("ERROR: duty cycle too low");
+		return 1;
+	}
+	else if(duty_cycle > 110){
+		printf("ERROR: duty cycle too high");
+		return 1;
+	}
+	//Value to be set in duty cycle register
+	float CDTY = 2000000*0.02*(1 - duty_cycle); //pwm_clock_frequency*period*(1-duty_cycle)
+	
 	//Set channel duty register
-	REG_PWM_CDTY5 = 0x00008CA0;  
+	REG_PWM_CDTY5 = CDTY;  
 	
 	//Activate PWM signal
 	REG_PWM_ENA |= 0x00000020;
 	
+	return 0;	
+}
+
+void servo_set_angle(joystick_data_t data){
+
+	float servo_position = data.posX;
+	
+	 //Linearization of joystick position to pulse with
+	float pulse_width = 0.006*servo_position + 1.5; 
+	
+	float duty_cycle = pulse_width / 20.0; //20.0 is PWM period.
+	
+	servo_set_pwm(duty_cycle);
 }
 
 void servo_set_pwm_test(void){	
 	//Set channel duty register
 	REG_PWM_CDTY5 = 0x00008CA0;
 	
-	//Activate PWM signal
+	//Enable PWM signal
 	REG_PWM_ENA |= 0x00000020;
 }

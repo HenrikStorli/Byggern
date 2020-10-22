@@ -43,11 +43,13 @@ int main(void)
     test_message.data[2] = 'I';
     test_message.data_length = 3;
 	
-	servo_set_pwm_test();
+	//	servo_set_pwm_test();
     
    
     while (1) 
     {
+		servo_set_angle(received_joystick_data);
+		
        // uint8_t mm = can_send(&test_message, 1);
         
         //if(mm){
