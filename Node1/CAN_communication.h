@@ -18,7 +18,6 @@ typedef struct CAN_message{
  *
  * @return 1 If something went wrong, 0 if initialized correctly.
  */
-
 uint8_t CAN_init(uint8_t mode);
 
 /**
@@ -28,53 +27,37 @@ uint8_t CAN_init(uint8_t mode);
  *
  * @return 1 if something went wrong, 0 otherwise
  */
-
 uint8_t CAN_message_transmission(CAN_message_t* can_message);
 
 /**
  * @brief Receives message on buffer 0
  *
- * @return The recieved message
+ * @return The received message
  */
-
 CAN_message_t CAN_meessage_reception();
 
 /**
  * @brief Receives message on buffer 1
  *
- * @return The recieved message
+ * @return The received message
  */
-
 CAN_message_t CAN_meessage_reception2();
 
 /**
  * @brief Checks both buffers for a message
  *
- * @return The recieved message
+ * @return The received message
  */
-
 CAN_message_t message_handler();
 
 /**
- * @brief Updates the screen according to the given node.
- *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @brief Tests the CAN controller
  */
-
 void CAN_communication_test();
 
 /**
- * @brief Updates the screen according to the given node.
- *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @brief Tests the CAN controller
  */
-
 void CAN_communication_test2();
 
 #endif /* CAN_COMMUNICATION_H_ */

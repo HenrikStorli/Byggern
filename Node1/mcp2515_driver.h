@@ -22,22 +22,80 @@
 #define SS PB4
 #define CAN_SS PB2
 
+/**
+ * @brief Initializes the mcp with the given mode
+ *
+ * @param mode The mode that should be set
+ *
+ * @return 1 If something went wrong, 0 if initialized correctly.
+ */
 uint8_t mcp_init(uint8_t mode);
 
+/**
+ * @brief Sets the given mode for the mcp
+ *
+ * @param mode The mode that should be set
+ */
 void mcp_set_mode(uint8_t mode);
 
+/**
+ * @brief Writes to the mcp controller
+ *
+ * @param adrs The adress that should be written to
+ * @param value The value that it written
+ */
 void mcp_write(uint8_t adrs, uint8_t value);
 
+/**
+ * @brief Reads a given adrs in the mcp
+ *
+ * @param adrsThe adress that should be read
+ *
+ * @return The message containt in the adrs
+ */
 uint8_t mcp_read(uint8_t adrs);
 
+/**
+ * @brief Initializes the CAN-controller with the given mode
+ *
+ * @param mode The mode that should be set
+ */
 void spi_master_CS(unsigned char state);
 
+/**
+ * @brief Initializes the CAN-controller with the given mode
+ *
+ * @param mode The mode that should be set
+ *
+ * @return 1 If something went wrong, 0 if initialized correctly.
+ */
 void mcp_reset();
 
+/**
+ * @brief Initializes the CAN-controller with the given mode
+ *
+ * @param mode The mode that should be set
+ *
+ * @return 1 If something went wrong, 0 if initialized correctly.
+ */
 void mcp_bit_modify(uint8_t adrs, uint8_t mask_byte, uint8_t data_byte);
 
+/**
+ * @brief Initializes the CAN-controller with the given mode
+ *
+ * @param mode The mode that should be set
+ *
+ * @return 1 If something went wrong, 0 if initialized correctly.
+ */
 uint8_t mcp_read_status();
 
+/**
+ * @brief Initializes the CAN-controller with the given mode
+ *
+ * @param mode The mode that should be set
+ *
+ * @return 1 If something went wrong, 0 if initialized correctly.
+ */
 void mcp_request_to_send(uint8_t buffer); //Input "3" if all TX's should be requested
 
 #endif /* MCP2515_DRIVER_H_ */

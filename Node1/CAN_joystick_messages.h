@@ -8,9 +8,14 @@
 
 #ifndef CAN_MESSAGES_H_
 #define CAN_MESSAGES_H_
+
 #include "CAN_communication.h"
 #include "pos_read.h"
 
+
+/**
+ * @brief Sends information about the joystick as a CAN message
+ */
 void joyStick_Can_Message();
 
 #endif /* CAN_MESSAGES_H_ */

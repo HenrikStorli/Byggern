@@ -38,6 +38,7 @@ int main(void)
     OLED_init();
     pos_readSettings();
     oled_clear();
+	CAN_init(MODE_NORMAL);
 
     //mcp_init(MODE_LOOPBACK);
     // uint8_t c = 'a';
@@ -50,13 +51,13 @@ int main(void)
     // oled_pos_set(3, 62);
     // oled_print(&c);
     
-
+	
     //menu();
     //CAN_init(MODE_LOOPBACK);
     //CAN_communication_test();
     //mcp_init(MODE_LOOPBACK);
     //uint8_t r;
-    CAN_init(MODE_NORMAL);
+
 //    _delay_ms(1000);
 //    CAN_communication_test();
  //   _delay_ms(1000);
