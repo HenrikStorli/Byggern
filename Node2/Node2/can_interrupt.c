@@ -63,6 +63,7 @@ void CAN0_Handler( void )
         received_joystick_data.posY = (message.data[1]) - 128;  
         received_joystick_data.button_pushed = (message.data[2]) % 2;     
         received_joystick_data.joystick_direction = (message.data[2] >> 1);
+		received_joystick_data.sliderRight = message.data[3];
 	}
 	
 	if(can_sr & CAN_SR_MB0)

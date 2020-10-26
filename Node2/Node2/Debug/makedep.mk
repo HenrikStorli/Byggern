@@ -12,6 +12,8 @@ Device_Startup\system_sam3xa.c
 
 main.c
 
+motor_controll.c
+
 printf-stdarg.c
 
 servo_ctrl.c

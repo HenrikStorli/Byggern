@@ -15,6 +15,7 @@
 #include "can_controller.h"
 #include "can_interrupt.h"
 #include "servo_ctrl.h"
+#include "motor_controll.h"
 
 #define F_CPU 84E6 //84Mhz
 
@@ -24,6 +25,7 @@ int main(void)
     SystemInit();
     configure_uart();
 	servo_pwm_init();
+	motor_init_DAC();
     
     //init can config     
     uint32_t can_msk = 0x00143555;
@@ -48,6 +50,7 @@ int main(void)
    
     while (1) 
     {
+		motor_set_position(received_joystick_data.sliderRight);
 		servo_set_angle(received_joystick_data);
 		
        // uint8_t mm = can_send(&test_message, 1);
@@ -56,7 +59,7 @@ int main(void)
         //    printf("Mailbox budy");
         //}
         
-        //printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
+        printf("X = %d Y = %d, joybutton = %d, joydirection = %d, RightSlider = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
 
    // CAN_MESSAGE can_msg;    
    // uint8_t mailbox_status = can_receive(&can_msg, 1);
