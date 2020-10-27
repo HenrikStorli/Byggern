@@ -23,10 +23,23 @@
 
 #define DUMMY 0b01010110
 
+/**
+ * @brief Writes data on the spi for the atmega162
+ *
+ * @param data The data to be sent trough spi
+ */
 void spi_write(char data);
 
+/**
+ * @brief Reads the data contained in the SPI Data Register
+ *
+ * @return the data contained in SPI Data Register
+ */
 char spi_read(void);
 
+/**
+ * @brief Initializes the spi module
+ */
 void spi_init(void);
 
 #endif /* SPI_DRIVER_H_ */

@@ -180,10 +180,10 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="motor_controll.c">
+    <Compile Include="motor_interface.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="motor_controll.h">
+    <Compile Include="motor_interface.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="printf-stdarg.c">

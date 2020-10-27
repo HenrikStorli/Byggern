@@ -72,7 +72,6 @@ void spi_master_CS(unsigned char state){
     if(!state) {
         //Lower CS pin
         PORT_SPI &= ~(1 << SS);
-        //_delay_us(40);
         }
     else {
         // Set CS pin

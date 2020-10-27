@@ -74,11 +74,12 @@ DIRECTION joystick_direction(void){
 }
 
 void pos_readSettings(void){
-DDRB &= ~(1 << PB1);
-DDRD &= ~(1 << PD4);
-DDRD &= ~(1 << PD5);
+	
+	DDRB &= ~(1 << PB1);
+	DDRD &= ~(1 << PD4);
+	DDRD &= ~(1 << PD5);
 
-PORTB |= (1 << PB1); // internal pull up enable
+	PORTB |= (1 << PB1); // internal pull up enable
 }
 
 
@@ -87,26 +88,18 @@ uint8_t usb_button_pushed(USB_BUTTON BUTTON){
     uint8_t pressed;
 
     if(BUTTON == LEFT_BUTTON){
-
-//        DDRD &= ~(1 << PD4);
-
         pressed = (PIND & (1 << PD4) );
 
-    }
+		}
 
     if(BUTTON == RIGHT_BUTTON){
-
-//        DDRD &= ~(1 << PD5);
-
         pressed =  (PIND & (1 << PD5) );
-    }
+		}
 
     if(BUTTON == JOYSTICK_BUTTON){
-
         pressed =  (PINB & (1 << PB1) );
         return !pressed;
-     }
-
+		}
 
     return pressed;
 }

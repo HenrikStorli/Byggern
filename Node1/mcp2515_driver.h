@@ -51,50 +51,43 @@ void mcp_write(uint8_t adrs, uint8_t value);
  *
  * @param adrsThe adress that should be read
  *
- * @return The message containt in the adrs
+ * @return The message contained in the adress
  */
 uint8_t mcp_read(uint8_t adrs);
 
 /**
- * @brief Initializes the CAN-controller with the given mode
+ * @brief Chip select for the mcp
  *
- * @param mode The mode that should be set
+ * @param state 0 if chips should be selected, 1 if not
  */
 void spi_master_CS(unsigned char state);
 
 /**
- * @brief Initializes the CAN-controller with the given mode
- *
- * @param mode The mode that should be set
- *
- * @return 1 If something went wrong, 0 if initialized correctly.
+ * @brief Resets the mcp
  */
 void mcp_reset();
 
 /**
- * @brief Initializes the CAN-controller with the given mode
+ * @brief Modifies one or more bits in a register in the mcp
  *
- * @param mode The mode that should be set
- *
- * @return 1 If something went wrong, 0 if initialized correctly.
+ * @param adrs The adres that should be modified
+ * @param mask_byte Byte that decides which bits can be modified
+ * @param data_byte A byte containing the new data.
  */
 void mcp_bit_modify(uint8_t adrs, uint8_t mask_byte, uint8_t data_byte);
 
 /**
- * @brief Initializes the CAN-controller with the given mode
+ * @brief Reads the mcp's status
  *
- * @param mode The mode that should be set
- *
- * @return 1 If something went wrong, 0 if initialized correctly.
+ * @return Byte containing the status of the mcp
  */
 uint8_t mcp_read_status();
 
 /**
- * @brief Initializes the CAN-controller with the given mode
+ * @brief Sends a request to the mcp, that a message should be sent
+ * Input "3" if all TX's should be requested
  *
- * @param mode The mode that should be set
- *
- * @return 1 If something went wrong, 0 if initialized correctly.
+ * @param buffer The buffer that is requested to send
  */
 void mcp_request_to_send(uint8_t buffer); //Input "3" if all TX's should be requested
 

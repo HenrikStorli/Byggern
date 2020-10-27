@@ -15,7 +15,7 @@
 #include "can_controller.h"
 #include "can_interrupt.h"
 #include "servo_ctrl.h"
-#include "motor_controll.h"
+#include "motor_interface.h"
 
 #define F_CPU 84E6 //84Mhz
 
