@@ -9,6 +9,7 @@
 volatile uint32_t highscore = 0;
 volatile uint16_t status = 0;
 
+
 uint32_t timer_init(void){
     REG_PMC_PCER0 |= (1 << ID_PIOB) | (1 << ID_TC0); //enable timer in power controller
 

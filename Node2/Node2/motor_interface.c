@@ -17,6 +17,9 @@ void motor_init_DAC(){
 	
 	//Set DAC channel to channel 1
 	REG_DACC_CHER = 0b10;
+	//Enable pmc for port C and port D
+	PMC->PMC_PCER0 |= (1 << ID_PIOC);
+	PMC->PMC_PCER0 |= (1 << ID_PIOC);
 	
 	//Enable output on port D's pins: 0, 1, 2, 9, 10
 	REG_PIOD_PER |= 0b11000000111; //Enable IO 
@@ -47,9 +50,20 @@ void motor_select_direction(MOTOR_DIRECTION direction){
 void motor_enable(void){
 	
 	REG_PIOD_SODR |= (1<<9); //Set PD9 high	
+	
+	motor_reset_counter();
 }
 
 void motor_reset_counter(void){
+	//Reset pin low
+	REG_PIOD_CODR = (1 << 1);
+	
+	//Delay
+	
+	for(int i = 0; i < 200000; i++);
+	
+	//Reset pin high
+	REG_PIOD_SODR = (1 << 1);
 	
 }
 
@@ -84,6 +98,7 @@ uint16_t motor_read_counter(){
 	motor_select_encoder_byte(ENCODER_HIGHER_BYTE);
 	
 	//DELAY ABOUT 20us
+	for(int i = 0; i < 400; i++);
 	
 	//Read MSB
 	volatile uint16_t most_significant_byte = REG_PIOC_PDSR;
@@ -95,6 +110,7 @@ uint16_t motor_read_counter(){
 	motor_select_encoder_byte(ENCODER_LOWER_BYTE);
 	
 	//DELAY ABOUT 20us
+	for(int i = 0; i < 400; i++);
 
 	//Read LSB
 	volatile uint16_t least_significant_byte = REG_PIOC_PDSR;
