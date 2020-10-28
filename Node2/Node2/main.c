@@ -14,8 +14,8 @@
 //#include "wdt.h"
 #include "can_controller.h"
 #include "can_interrupt.h"
-#include "IR.h"
-
+#include "ADC.h"
+#include "Timer.h"
 
 #define F_CPU 84E6
 
@@ -25,6 +25,7 @@ int main(void)
     SystemInit();
     configure_uart();
     IR_init();
+    timer_init();
       //init can config     
     uint32_t can_msk = 0x00143555;
     uint8_t can_status = can_init(can_msk, 1, 1);
@@ -43,7 +44,8 @@ int main(void)
     test_message.data[2] = 'I';
     test_message.data_length = 3;
     
-   
+    Start_Timer(1);  
+
     while (1) 
     {
        // uint8_t mm = can_send(&test_message, 1);
@@ -51,8 +53,30 @@ int main(void)
         //if(mm){
         //    printf("Mailbox budy");
         //}
-        uint16_t IR_data = ADC->ADC_CDR[7];
-        printf("data is: %d \n\r", IR_data);
+        
+      
+        //printf("clock state is: %d \n\r" , highscore);
+        
+        
+        
+        //uint16_t IR = IR_read();
+        //printf("data is: %d \n\r", IR);
+        //
+        //uint8_t score = IR_check(IR);
+        //if(score == 1){
+        //    //check if game over and send highscore by can            
+        //    
+        //    CAN_MESSAGE game_over;
+        //    game_over.id = 1;
+        //    game_over.data_length = 1;
+        //    game_over.data[1] = timer_count;
+        //    can_send(&game_over, 0);    // 0 for mailbox transmit 
+        //    printf("Game Over! \n\r");
+        //    while(1);
+        //}
+
+
+
 //        printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
 
    // CAN_MESSAGE can_msg;    

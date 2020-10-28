@@ -10,11 +10,13 @@ Device_Startup\startup_sam3xa.c
 
 Device_Startup\system_sam3xa.c
 
-IR.c
+ADC.c
 
 main.c
 
 printf-stdarg.c
+
+Timer.c
 
 uart.c
 
