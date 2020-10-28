@@ -84,7 +84,6 @@ uint16_t motor_read_counter(){
 	motor_select_encoder_byte(ENCODER_HIGHER_BYTE);
 	
 	//DELAY ABOUT 20us
-	sadasdasdsd
 	
 	//Read MSB
 	volatile uint16_t most_significant_byte = REG_PIOC_PDSR;

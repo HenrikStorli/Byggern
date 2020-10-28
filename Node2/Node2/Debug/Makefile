@@ -44,7 +44,7 @@ C_SRCS +=  \
 ../Device_Startup/system_sam3xa.c \
 ../ADC.c \
 ../main.c \
-../motor_controll.c \
+../motor_interface.c \
 ../printf-stdarg.c \
 ../Timer.c \
 ../servo_ctrl.c \
@@ -64,8 +64,10 @@ Device_Startup/startup_sam3xa.o \
 Device_Startup/system_sam3xa.o \
 ADC.o \
 main.o \
-motor_controll.o \
+motor_interface.o \
 printf-stdarg.o \
+Timer.o \
+servo_ctrl.o \
 uart.o
 
 OBJS_AS_ARGS +=  \
@@ -75,8 +77,10 @@ Device_Startup/startup_sam3xa.o \
 Device_Startup/system_sam3xa.o \
 ADC.o \
 main.o \
-motor_controll.o \
+motor_interface.o \
 printf-stdarg.o \
+Timer.o \
+servo_ctrl.o \
 uart.o
 
 C_DEPS +=  \
@@ -86,8 +90,10 @@ Device_Startup/startup_sam3xa.d \
 Device_Startup/system_sam3xa.d \
 ADC.d \
 main.d \
-motor_controll.d \
+motor_interface.d \
 printf-stdarg.d \
+Timer.d \
+servo_ctrl.d \
 uart.d
 
 C_DEPS_AS_ARGS +=  \
@@ -97,8 +103,10 @@ Device_Startup/startup_sam3xa.d \
 Device_Startup/system_sam3xa.d \
 ADC.d \
 main.d \
-motor_controll.d \
+motor_interface.d \
 printf-stdarg.d \
+Timer.d \
+servo_ctrl.d \
 uart.d
 
 OUTPUT_FILE_PATH +=Node2.elf
@@ -161,7 +169,7 @@ Device_Startup/system_sam3xa.o: ../Device_Startup/system_sam3xa.c
 	@echo Finished building: $<
 	
 
-./motor_controll.o: .././motor_controll.c
+./motor_interface.o: .././motor_interface.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -169,6 +177,20 @@ Device_Startup/system_sam3xa.o: ../Device_Startup/system_sam3xa.c
 	
 
 ./printf-stdarg.o: .././printf-stdarg.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./Timer.o: .././Timer.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./servo_ctrl.o: .././servo_ctrl.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

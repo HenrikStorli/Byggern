@@ -16,7 +16,7 @@ uint32_t timer_init(void){
     TC0->TC_CHANNEL[0].TC_IER |= TC_IER_CPCS
                               | TC_IER_CPAS;
     TC0->TC_CHANNEL[0].TC_CCR |= TC_CCR_CLKEN;    
-    uint16_t RC_count = 39400; // to have ish 1000 points per min (16,67Hz)
+    uint16_t RC_count = 39400; // to have ish 1000 points per min (~16,67Hz)
     TC0->TC_CHANNEL[0].TC_RC = RC_count; // Set Compare RA        
     TC0->TC_CHANNEL[0].TC_CMR = TC_CMR_TCCLKS_TIMER_CLOCK4  // prescale of 128
                                | TC_CMR_WAVE                // waveform mode
@@ -29,9 +29,9 @@ void TC0_Handler(void){
     //if(TC0->TC_CHANNEL[0].TC_SR == TC_SR_COVFS){
     highscore++;
     //}
-    if (!(highscore %1000)) {
-    printf("highscore is: %lui \n\r", highscore);   
-    }
+    //if (!(highscore %1000)) {
+    printf("highscore is: %d \n\r", highscore);   
+    //}
      //return status;
     //TC_SR_CLKSTA
     
@@ -42,8 +42,15 @@ void TC0_Handler(void){
 //interrupt vect
 //nvic
 
+//void GAME_OVER(void){
+//  SetTimer(0);  
+//  CAN_MESSAGE score;
+//  score.data = highscore;
+//  score.data_length = 4;
+//  score.id = 0;
+//}
 
-void Start_Timer(uint8_t state){
+void SetTimer(uint8_t state){
     if(state == 1){
         TC0->TC_CHANNEL[0].TC_CCR |= TC_CCR_SWTRG
                                    | TC_CCR_CLKEN;         

@@ -15,6 +15,7 @@
 
 uint32_t timer_init(void);
 void TC0_Handler(void);
-void Start_Timer(uint8_t state);
+//void GAME_OVER(void);
+void SetTimer(uint8_t state);
 
 #endif /* TIMER_H_ */

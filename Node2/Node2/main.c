@@ -27,11 +27,11 @@ int main(void)
     SystemInit();
     configure_uart();
 	servo_pwm_init();
-	motor_init_DAC();
-    
+	motor_init_DAC();   
     IR_init();
     timer_init();
-      //init can config     
+    
+    //init can config     
     uint32_t can_msk = 0x00143555;
     uint8_t can_status = can_init(can_msk, 1, 1);
     
@@ -51,21 +51,12 @@ int main(void)
 	
 	//	servo_set_pwm_test();
     
-    Start_Timer(1);  
-
+    SetTimer(1);  
+    motor_enable();
     while (1) 
     {
 		motor_set_input(received_joystick_data.sliderRight);
 		servo_set_angle(received_joystick_data);
-		
-       // uint8_t mm = can_send(&test_message, 1);
-        
-        //if(mm){
-        //    printf("Mailbox budy");
-        //}
-        
-        printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
-
 
 
 //        printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
