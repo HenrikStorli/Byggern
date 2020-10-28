@@ -51,7 +51,7 @@ int main(void)
 	
 	//	servo_set_pwm_test();
     
-    SetTimer(0);  
+    SetTimer(1);  
     motor_enable();
 	uint16_t counter_value;
     while (1) 
@@ -61,17 +61,11 @@ int main(void)
 		
 		counter_value = motor_read_counter();
 		
-		printf("Counter Value: %d\n\r", counter_value);
+		//printf("Counter Value: %d\n\r", counter_value);
 
 
-//        printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
+//        printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
 
-   // CAN_MESSAGE can_msg;    
-   // uint8_t mailbox_status = can_receive(&can_msg, 1);
-   // if(can_msg.id > 0){
-   // printf("Lengden er : %d\n Dataen er: %d\n ID'en er: %d", can_msg.data_length, can_msg.data[0], can_msg.data_length);    
-   // }
     
-//    printf("Halla jeg funker yolo lel derp  \n\r");
     }
 }

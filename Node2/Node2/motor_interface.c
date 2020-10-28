@@ -17,6 +17,7 @@ void motor_init_DAC(){
 	
 	//Set DAC channel to channel 1
 	REG_DACC_CHER = 0b10;
+	
 	//Enable pmc for port C and port D
 	PMC->PMC_PCER0 |= (1 << ID_PIOC);
 	PMC->PMC_PCER0 |= (1 << ID_PIOC);
@@ -60,7 +61,7 @@ void motor_reset_counter(void){
 	
 	//Delay
 	
-	for(int i = 0; i < 200000; i++);
+	for(int i = 0; i < 400; i++);
 	
 	//Reset pin high
 	REG_PIOD_SODR = (1 << 1);
