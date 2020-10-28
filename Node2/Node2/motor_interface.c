@@ -28,7 +28,7 @@ void motor_init_DAC(){
 }
 
 void motor_set_input(int input){
-	int register_value = (4095.0/255.0)* input; // 4095 for motor reselution (12 bits), and 255 for max slider value.
+	int register_value = (4095.0/255.0) * input; // 4095 for motor reselution (12 bits), and 255 for max slider value.
 	
 	REG_DACC_CDR = register_value;
 }
@@ -84,7 +84,7 @@ uint16_t motor_read_counter(){
 	motor_select_encoder_byte(ENCODER_HIGHER_BYTE);
 	
 	//DELAY ABOUT 20us
-	sadasdasdsd
+	for(int i = 0; i < 20000000; i++);
 	
 	//Read MSB
 	volatile uint16_t most_significant_byte = REG_PIOC_PDSR;
@@ -96,7 +96,8 @@ uint16_t motor_read_counter(){
 	motor_select_encoder_byte(ENCODER_LOWER_BYTE);
 	
 	//DELAY ABOUT 20us
-
+	for(int i = 0; i < 20000000; i++);
+	
 	//Read LSB
 	volatile uint16_t least_significant_byte = REG_PIOC_PDSR;
 	least_significant_byte &= 0x000000FF; //Masking out the uninteresting bits
@@ -104,12 +105,11 @@ uint16_t motor_read_counter(){
 	//Set !RST low to reset counter
 
 	//Delay 20 ms
-
+	
 	//Set !RST high 
 
 	//Disable output of encoder
 	motor_activate_counter_output(0);
 	
-	return most_significant_byte + least_significant_byte;
-	
+	return most_significant_byte + least_significant_byte;	
 }

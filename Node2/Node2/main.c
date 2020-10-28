@@ -26,6 +26,7 @@ int main(void)
     configure_uart();
 	servo_pwm_init();
 	motor_init_DAC();
+	
     
     //init can config     
     uint32_t can_msk = 0x00143555;
@@ -47,11 +48,16 @@ int main(void)
 	
 	//	servo_set_pwm_test();
     
+	motor_enable();
    
     while (1) 
     {
 		motor_set_input(received_joystick_data.sliderRight);
 		servo_set_angle(received_joystick_data);
+		
+		uint16_t motor_position = motor_read_counter();
+		
+		printf("encoder value is: %d\n\r", motor_position);
 		
        // uint8_t mm = can_send(&test_message, 1);
         

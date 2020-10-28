@@ -12,7 +12,9 @@ Device_Startup\system_sam3xa.c
 
 main.c
 
-motor_controll.c
+motor_interface.c
+
+position_controller.c
 
 printf-stdarg.c
 

@@ -11,7 +11,7 @@ static float Ki = 0;
 static float Kp = 0;
 static float Kd = 0;
 
-static int T = ????;
+static int T = 1; //DENNE MÅ ENDRES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 void postion_controller_parameters(float K_i, float K_p, float K_d){
 	Ki = K_i;
@@ -41,6 +41,6 @@ void position_controller_update(){
 	}
 	else{
 		motor_select_direction(MOTOR_RIGHT);
-		motor_set_input(motor_input)
+		motor_set_input(motor_input);
 	}
 }
