@@ -148,10 +148,10 @@
     <Compile Include="CAN_communication.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_messages.c">
+    <Compile Include="CAN_joystick_messages.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_messages.h">
+    <Compile Include="CAN_joystick_messages.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="fonts.h">

@@ -14,16 +14,21 @@
 //#include "wdt.h"
 #include "can_controller.h"
 #include "can_interrupt.h"
+#include "servo_ctrl.h"
+#include "motor_interface.h"
 #include "ADC.h"
 #include "Timer.h"
 
-#define F_CPU 84E6
+#define F_CPU 84E6 //84Mhz
 
 int main(void)
 {
     /* Initialize the SAM system */
     SystemInit();
     configure_uart();
+	servo_pwm_init();
+	motor_init_DAC();
+    
     IR_init();
     timer_init();
       //init can config     
@@ -43,37 +48,23 @@ int main(void)
     test_message.data[1] = 'E';
     test_message.data[2] = 'I';
     test_message.data_length = 3;
+	
+	//	servo_set_pwm_test();
     
     Start_Timer(1);  
 
     while (1) 
     {
+		motor_set_input(received_joystick_data.sliderRight);
+		servo_set_angle(received_joystick_data);
+		
        // uint8_t mm = can_send(&test_message, 1);
         
         //if(mm){
         //    printf("Mailbox budy");
         //}
         
-      
-        //printf("clock state is: %d \n\r" , highscore);
-        
-        
-        
-        //uint16_t IR = IR_read();
-        //printf("data is: %d \n\r", IR);
-        //
-        //uint8_t score = IR_check(IR);
-        //if(score == 1){
-        //    //check if game over and send highscore by can            
-        //    
-        //    CAN_MESSAGE game_over;
-        //    game_over.id = 1;
-        //    game_over.data_length = 1;
-        //    game_over.data[1] = timer_count;
-        //    can_send(&game_over, 0);    // 0 for mailbox transmit 
-        //    printf("Game Over! \n\r");
-        //    while(1);
-        //}
+        printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
 
 
 

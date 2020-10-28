@@ -22,19 +22,16 @@
 void USART_init(void);
 
 /**
- * @brief
+ * @brief Gives the message received on the usart
  *
- *
- * @return
+ * @return The value received
  */
 unsigned char USART_receive(void);
 
 /**
- * @brief
+ * @brief Sends data over the USART
  *
- * @param data
- *
- * @return
+ * @param data The data to be sent
  */
 void USART_send( unsigned char data);
 

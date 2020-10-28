@@ -12,79 +12,52 @@ typedef struct CAN_message{
 }CAN_message_t;
 
 /**
- * @brief Updates the screen according to the given node.
+ * @brief Initializes the CAN-controller with the given mode
  *
- * @param mode A pointer to the current node.
+ * @param mode The mode that should be set
  *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @return 1 If something went wrong, 0 if initialized correctly.
  */
-
 uint8_t CAN_init(uint8_t mode);
 
 /**
- * @brief Updates the screen according to the given node.
+ * @brief Sends can message
  *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
+ * @param can_message A pointer to the message.
  *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @return 1 if something went wrong, 0 otherwise
  */
-
 uint8_t CAN_message_transmission(CAN_message_t* can_message);
 
 /**
- * @brief Updates the screen according to the given node.
+ * @brief Receives message on buffer 0
  *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @return The received message
  */
-
 CAN_message_t CAN_meessage_reception();
 
 /**
- * @brief Updates the screen according to the given node.
+ * @brief Receives message on buffer 1
  *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @return The received message
  */
-
 CAN_message_t CAN_meessage_reception2();
 
 /**
- * @brief Updates the screen according to the given node.
+ * @brief Checks both buffers for a message
  *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @return The received message
  */
-
 CAN_message_t message_handler();
 
 /**
- * @brief Updates the screen according to the given node.
- *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @brief Tests the CAN controller
  */
-
 void CAN_communication_test();
 
 /**
- * @brief Updates the screen according to the given node.
- *
- * @param current_node A pointer to the current node.
- * @param child Index for the current nodes child.
- *
- * @return True if one of the buttons are pushed, False otherwise.
+ * @brief Tests the CAN controller
  */
-
 void CAN_communication_test2();
 
 #endif /* CAN_COMMUNICATION_H_ */

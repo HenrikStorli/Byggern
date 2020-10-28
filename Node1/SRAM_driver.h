@@ -13,8 +13,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * @brief Initializes the SRAM module
+ */
 void SRAM_init(void);
 
+/**
+ * @brief Checks if the external SRAM can be accessed in a preferable way
+ */
 void SRAM_test(void);
 
 

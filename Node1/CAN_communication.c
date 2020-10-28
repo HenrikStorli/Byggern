@@ -3,9 +3,7 @@
 volatile int flag = 0;
 
 uint8_t CAN_init(uint8_t mode){
-    // Enable interrupt on PIN PE0 (INT2).
-
-   
+    // Enable interrupt on PIN PE0 (INT0).
 
     cli(); // Disable global interrupts
     
@@ -20,25 +18,14 @@ uint8_t CAN_init(uint8_t mode){
     
     mcp_write(MCP_CANINTE, MCP_RX_INT); // Enable both buffers
     
+	//Bit timing and synchronization
     mcp_write(MCP_CNF1, 0b10000001);
     mcp_write(MCP_CNF2, 0b10101101);
     mcp_write(MCP_CNF3, 0b00000101);
-    //if (mcp_read(MCP_CNF1) != 0b11001010)
-    //{
-    //    printf("Error på CNF1");
-    //}
-    //if (mcp_read(MCP_CNF2) != 0b10101001)
-    //{
-    //    printf("Error på CNF1");
-    //}
-    //
-    //if (mcp_read(MCP_CNF3) != 0b00000011)
-    //{
-    //    printf("Error på CNF3");
-    //}
-    mcp_set_mode(MODE_NORMAL);
-    
 
+	//Set given mode
+    mcp_set_mode(mode);
+    
 }
 
 ISR(INT0_vect){
@@ -50,7 +37,7 @@ uint8_t CAN_check_interrupt(){
     if(flag){
         return 1;
     }
-return 0;
+	return 0;
 }
 
 

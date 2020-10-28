@@ -42,7 +42,6 @@ void mcp_write(uint8_t adrs, uint8_t value){
 
     spi_master_CS(0); //Select CAN controller
 
-    //spi_write(MODE_LOOPBACK);
     spi_write(MCP_WRITE); // Instruction
     spi_write(adrs);    //Adress
     spi_write(value);   // Data
@@ -73,7 +72,6 @@ void spi_master_CS(unsigned char state){
     if(!state) {
         //Lower CS pin
         PORT_SPI &= ~(1 << SS);
-        //_delay_us(40);
         }
     else {
         // Set CS pin

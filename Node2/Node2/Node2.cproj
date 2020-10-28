@@ -186,6 +186,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="motor_interface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="motor_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="printf-stdarg.c">
       <SubType>compile</SubType>
     </Compile>
@@ -196,6 +202,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="servo_ctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="servo_ctrl.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart.c">

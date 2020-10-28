@@ -14,9 +14,13 @@ ADC.c
 
 main.c
 
+motor_controll.c
+
 printf-stdarg.c
 
 Timer.c
+
+servo_ctrl.c
 
 uart.c
 

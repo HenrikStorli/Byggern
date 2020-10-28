@@ -48,6 +48,9 @@ DIRECTION joystick_direction(void);
  */
 uint8_t usb_button_pushed(USB_BUTTON BUTTON);
 
+/**
+ * @brief Sets the settings for the pos_read module
+ */
 void pos_readSettings(void);
 
 #endif /* POS_READ_H_ */

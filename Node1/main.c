@@ -24,6 +24,7 @@
 #include "spi_driver.h"
 #include "mcp2515_driver.h"
 #include "CAN_communication.h"
+#include "CAN_joystick_messages.h"
 
 
 int main(void)
@@ -37,6 +38,7 @@ int main(void)
     OLED_init();
     pos_readSettings();
     oled_clear();
+	CAN_init(MODE_NORMAL);
 
     //mcp_init(MODE_LOOPBACK);
     // uint8_t c = 'a';
@@ -49,13 +51,13 @@ int main(void)
     // oled_pos_set(3, 62);
     // oled_print(&c);
     
-
+	
     //menu();
     //CAN_init(MODE_LOOPBACK);
     //CAN_communication_test();
     //mcp_init(MODE_LOOPBACK);
     //uint8_t r;
-    CAN_init(MODE_NORMAL);
+
 //    _delay_ms(1000);
 //    CAN_communication_test();
  //   _delay_ms(1000);
@@ -75,11 +77,11 @@ int main(void)
     //    CAN_message_transmission(&test_message);
     
     
-       uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
-       uint8_t joyDirection = joystick_direction(); 
-       pos_read(&P_pos);
+       //uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
+       //uint8_t joyDirection = joystick_direction(); 
+       //pos_read(&P_pos);
        //printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", P_pos.posX, P_pos.posY, joyButton, joyDirection);
-       printf("Bro");
+       //printf("Bro");
 	   joyStick_Can_Message();
         
        // revieve_message = message_handler();
@@ -89,8 +91,8 @@ int main(void)
         
         //pos_read(&P_pos);
         //
-        //uint8_t sliderX = ADC_read(3);
-        //uint8_t sliderY = ADC_read(2);
+        uint8_t sliderX = ADC_read(3);
+        uint8_t sliderY = ADC_read(2);
         //printf("kjører");
 
         //mcp_init(MODE_LOOPBACK);
@@ -114,7 +116,7 @@ int main(void)
 
         
         //printf("Right button pressed: %d , Left button pressed: %d  joy button pressed: %d \r", usb_button_pushed(RIGHT_BUTTON), usb_button_pushed(LEFT_BUTTON), usb_button_pushed(JOYSTICK_BUTTON) );
-        //printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
+        printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
         //  printf("Direction is: %4d \n \r", joystick_direction());
 
     //_delay_ms(100);

@@ -19,6 +19,7 @@ typedef struct joystick_data{
     int posY;
     uint8_t button_pushed;
     uint8_t joystick_direction;
+	uint8_t sliderRight;
 }joystick_data_t;
 
 joystick_data_t received_joystick_data;
