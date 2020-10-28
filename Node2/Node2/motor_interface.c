@@ -20,15 +20,15 @@ void motor_init_DAC(){
 	
 	//Enable output on port D's pins: 0, 1, 2, 9, 10
 	REG_PIOD_PER |= 0b11000000111; //Enable IO 
-	REG_PIOD_OER |= 0b11000000111;; //Enable output
+	REG_PIOD_OER |= 0b11000000111; //Enable output
 	
-	//Enable input on port D's pins: 0-7
-	REG_PIOD_PER |= 0b11111111;
+	//Enable input on port C's pins: 0-7
+	REG_PIOC_PER |= 0b11111111;
 	
 }
 
-void motor_set_position(int position){
-	int register_value = (4095.0/255.0)* position; // 4095 for motor reselution (12 bits), and 255 for max slider value.
+void motor_set_input(int input){
+	int register_value = (4095.0/255.0)* input; // 4095 for motor reselution (12 bits), and 255 for max slider value.
 	
 	REG_DACC_CDR = register_value;
 }
@@ -53,8 +53,14 @@ void motor_reset_counter(void){
 	
 }
 
-void motor_activate_counter_output(void){
-	REG_PIOD_CODR |= (1<<0); //Set PD0 low
+void motor_activate_counter_output(uint8_t on){
+	
+	if(on){
+		REG_PIOD_CODR |= (1<<0); //Set PD0 low
+	}
+	else if(!on){
+		REG_PIOD_SODR |=(1<<0);
+	}
 }
 
 
@@ -68,17 +74,11 @@ void motor_select_encoder_byte(ENCODER_BYTE byte){
 	}
 }
 
-//Funksjon skal muligens fjernes
-uint8_t motor_read_counter(uint8_t lower_higher_byte){
-	motor_activate_counter_output();
-	
-}
-
 
 uint16_t motor_read_counter(){
 	
 	//Enable output for encoder
-	motor_activate_counter_output();
+	motor_activate_counter_output(1);
 	
 	//Select higher encoder byte
 	motor_select_encoder_byte(ENCODER_HIGHER_BYTE);
@@ -87,23 +87,29 @@ uint16_t motor_read_counter(){
 	sadasdasdsd
 	
 	//Read MSB
-	asdsdasdasd
-	REG_PIOD_PDSR
+	volatile uint16_t most_significant_byte = REG_PIOC_PDSR;
+	most_significant_byte &= 0x000000FF;  //Masking out the uninteresting bits
+	most_significant_byte = (most_significant_byte << 8);
+	
 	
 	//Select lower encoder byte
 	motor_select_encoder_byte(ENCODER_LOWER_BYTE);
 	
 	//DELAY ABOUT 20us
-	sadasdasdsd	
-	
+
 	//Read LSB
-	asdasdasdas
-	REG_PIOD_PDSR
+	volatile uint16_t least_significant_byte = REG_PIOC_PDSR;
+	least_significant_byte &= 0x000000FF; //Masking out the uninteresting bits
 	
-	//Toggle !RST to reset counter
-	qweqweqweqwe
-	
+	//Set !RST low to reset counter
+
+	//Delay 20 ms
+
+	//Set !RST high 
+
 	//Disable output of encoder
-	asdasdasdasd
+	motor_activate_counter_output(0);
+	
+	return most_significant_byte + least_significant_byte;
 	
 }

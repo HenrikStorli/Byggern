@@ -50,7 +50,7 @@ int main(void)
    
     while (1) 
     {
-		motor_set_position(received_joystick_data.sliderRight);
+		motor_set_input(received_joystick_data.sliderRight);
 		servo_set_angle(received_joystick_data);
 		
        // uint8_t mm = can_send(&test_message, 1);
