@@ -5,6 +5,8 @@
  *  Author: Herbe
  */ 
 #include "ADC.h"
+#include "Timer.h"
+#include "printf-stdarg.h"
 
 void IR_init(void){ /* PA16 is A0 https://www.arduino.cc/en/Hacking/PinMappingSAM3X */
     REG_PMC_PCER1 |= (1 << 5);  // enable ADC on ID37 could write ID_ADC?
@@ -21,6 +23,9 @@ return data;
 
 uint8_t IR_check(uint16_t data){
     if(data < 200){
+        GAME_OVER();
+        printf("game over \n\r");
+        while(1);
         return 1;
     }
     else{

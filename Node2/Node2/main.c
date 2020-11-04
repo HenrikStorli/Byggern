@@ -36,27 +36,19 @@ int main(void)
     uint8_t can_status = can_init(can_msk, 1, 1);
     
     WDT->WDT_MR = WDT_MR_WDDIS; // Dissable watchdog      
-
-  //  REG_PIOA_PER |= (1 << 19) | (1 << 20); // set as gpio on pin 19 and 20
-  //  REG_PIOA_OER |= (1 << 19) | (1 << 20); // output enable
-  //  REG_PIOA_SODR = (1 << 19) | (1 << 20); // set output data   
-
-    CAN_MESSAGE test_message;
-    
-    test_message.id = 2;
-    test_message.data[0] = 'H';
-    test_message.data[1] = 'E';
-    test_message.data[2] = 'I';
-    test_message.data_length = 3;
 	
-	//	servo_set_pwm_test();
-    
-    SetTimer(1);  
-    motor_enable();
+    //SetTimer(1);  
+    //motor_enable();
+    //GAME_OVER();
+    printf("start delay\n\r");
+    delay_2us(168);
+    printf("end delay\n\r");
     while (1) 
     {
-		motor_set_input(received_joystick_data.sliderRight);
-		servo_set_angle(received_joystick_data);
+        //uint16_t read = IR_read();
+		//uint8_t IR_stat = IR_check(read);
+        //motor_set_input(received_joystick_data.sliderRight);
+		//servo_set_angle(received_joystick_data);
 
 
 //        printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction);
