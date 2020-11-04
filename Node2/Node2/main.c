@@ -39,6 +39,7 @@ int main(void)
     SetTimer(1);  
 	uint16_t counter_value;
     motor_enable();
+	init_motor_controller_parameters(0.5, 1.5, 0);
     while (1) 
     {
 		

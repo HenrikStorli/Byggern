@@ -37,7 +37,7 @@ void motor_controller_update(){
 	reg_parameters.current_error = reference_position - real_postion;
 	
 	//Calculate the motor input
-	reg_parameters.motor_input =  reg_parameters.Kp * reg_parameters.current_error; // + T * Ki * integral_error; (Used for integral effect)
+	reg_parameters.motor_input =  reg_parameters.Kp * reg_parameters.current_error + reg_parameters.T * reg_parameters.Ki * reg_parameters.error_sum; // (Used for integral effect)
 }
 
 void motor_controller_set_input(){
@@ -53,4 +53,5 @@ void motor_controller_set_input(){
 	}
 	
 	reg_parameters.previous_error = reg_parameters.current_error;
+	reg_parameters.error_sum += reg_parameters.current_error;
 }

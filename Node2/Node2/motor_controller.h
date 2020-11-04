@@ -37,5 +37,4 @@ void motor_controller_update();
 
 void motor_controller_set_input();
 
-
 #endif /* MOTOR_CONTROLLER_H_ */
