@@ -17,23 +17,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   6 .comment      00000059  00000000  00000000  0002045d  2**0
                   CONTENTS, READONLY
-  7 .debug_info   00007e8d  00000000  00000000  000204b6  2**0
+  7 .debug_info   00007e84  00000000  00000000  000204b6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00001814  00000000  00000000  00028343  2**0
+  8 .debug_abbrev 00001814  00000000  00000000  0002833a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    00001464  00000000  00000000  00029b57  2**0
+  9 .debug_loc    00001464  00000000  00000000  00029b4e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_aranges 00000278  00000000  00000000  0002afbb  2**0
+ 10 .debug_aranges 00000278  00000000  00000000  0002afb2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000200  00000000  00000000  0002b233  2**0
+ 11 .debug_ranges 00000200  00000000  00000000  0002b22a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_macro  0001380c  00000000  00000000  0002b433  2**0
+ 12 .debug_macro  0001380c  00000000  00000000  0002b42a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00005ba9  00000000  00000000  0003ec3f  2**0
+ 13 .debug_line   00005ba6  00000000  00000000  0003ec36  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    0005550c  00000000  00000000  000447e8  2**0
+ 14 .debug_str    0005550c  00000000  00000000  000447dc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_frame  00000a34  00000000  00000000  00099cf4  2**2
+ 15 .debug_frame  00000a34  00000000  00000000  00099ce8  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -523,22 +523,22 @@ int main(void)
    804ce:	b083      	sub	sp, #12
     /* Initialize the SAM system */
     SystemInit();
-   804d0:	4b1c      	ldr	r3, [pc, #112]	; (80544 <main+0x78>)
+   804d0:	4b1b      	ldr	r3, [pc, #108]	; (80540 <main+0x74>)
    804d2:	4798      	blx	r3
     configure_uart();
-   804d4:	4b1c      	ldr	r3, [pc, #112]	; (80548 <main+0x7c>)
+   804d4:	4b1b      	ldr	r3, [pc, #108]	; (80544 <main+0x78>)
    804d6:	4798      	blx	r3
 	servo_pwm_init();
-   804d8:	4b1c      	ldr	r3, [pc, #112]	; (8054c <main+0x80>)
+   804d8:	4b1b      	ldr	r3, [pc, #108]	; (80548 <main+0x7c>)
    804da:	4798      	blx	r3
 	motor_init_DAC();   
-   804dc:	4b1c      	ldr	r3, [pc, #112]	; (80550 <main+0x84>)
+   804dc:	4b1b      	ldr	r3, [pc, #108]	; (8054c <main+0x80>)
    804de:	4798      	blx	r3
     IR_init();
-   804e0:	4b1c      	ldr	r3, [pc, #112]	; (80554 <main+0x88>)
+   804e0:	4b1b      	ldr	r3, [pc, #108]	; (80550 <main+0x84>)
    804e2:	4798      	blx	r3
     timer_init();
-   804e4:	4b1c      	ldr	r3, [pc, #112]	; (80558 <main+0x8c>)
+   804e4:	4b1b      	ldr	r3, [pc, #108]	; (80554 <main+0x88>)
    804e6:	4798      	blx	r3
     
     //init can config     
@@ -546,119 +546,116 @@ int main(void)
     uint8_t can_status = can_init(can_msk, 1, 1);
    804e8:	2201      	movs	r2, #1
    804ea:	4611      	mov	r1, r2
-   804ec:	481b      	ldr	r0, [pc, #108]	; (8055c <main+0x90>)
-   804ee:	4b1c      	ldr	r3, [pc, #112]	; (80560 <main+0x94>)
+   804ec:	481a      	ldr	r0, [pc, #104]	; (80558 <main+0x8c>)
+   804ee:	4b1b      	ldr	r3, [pc, #108]	; (8055c <main+0x90>)
    804f0:	4798      	blx	r3
     
     WDT->WDT_MR = WDT_MR_WDDIS; // Dissable watchdog      
    804f2:	f44f 4200 	mov.w	r2, #32768	; 0x8000
-   804f6:	4b1b      	ldr	r3, [pc, #108]	; (80564 <main+0x98>)
+   804f6:	4b1a      	ldr	r3, [pc, #104]	; (80560 <main+0x94>)
    804f8:	605a      	str	r2, [r3, #4]
     
     SetTimer(1);  
    804fa:	2001      	movs	r0, #1
-   804fc:	4b1a      	ldr	r3, [pc, #104]	; (80568 <main+0x9c>)
+   804fc:	4b19      	ldr	r3, [pc, #100]	; (80564 <main+0x98>)
    804fe:	4798      	blx	r3
 	uint16_t counter_value;
     motor_enable();
-   80500:	4b1a      	ldr	r3, [pc, #104]	; (8056c <main+0xa0>)
+   80500:	4b19      	ldr	r3, [pc, #100]	; (80568 <main+0x9c>)
    80502:	4798      	blx	r3
 	init_motor_controller_parameters(0.5, 1.5, 0);
    80504:	2200      	movs	r2, #0
    80506:	f04f 517f 	mov.w	r1, #1069547520	; 0x3fc00000
    8050a:	f04f 507c 	mov.w	r0, #1056964608	; 0x3f000000
-   8050e:	4b18      	ldr	r3, [pc, #96]	; (80570 <main+0xa4>)
+   8050e:	4b17      	ldr	r3, [pc, #92]	; (8056c <main+0xa0>)
    80510:	4798      	blx	r3
     while (1) 
     {
 		
 		motor_controller_set_input();
-   80512:	4f18      	ldr	r7, [pc, #96]	; (80574 <main+0xa8>)
+   80512:	4f17      	ldr	r7, [pc, #92]	; (80570 <main+0xa4>)
 		servo_set_angle(received_joystick_data);
-   80514:	4c18      	ldr	r4, [pc, #96]	; (80578 <main+0xac>)
-   80516:	4d19      	ldr	r5, [pc, #100]	; (8057c <main+0xb0>)
+   80514:	4c17      	ldr	r4, [pc, #92]	; (80574 <main+0xa8>)
+   80516:	4e18      	ldr	r6, [pc, #96]	; (80578 <main+0xac>)
 		motor_controller_set_input();
    80518:	47b8      	blx	r7
 		servo_set_angle(received_joystick_data);
    8051a:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
-   8051e:	47a8      	blx	r5
-		servo_set_angle(received_joystick_data);
+   8051e:	47b0      	blx	r6
+		servo_activate_solonoid(received_joystick_data);
    80520:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
-   80524:	47a8      	blx	r5
-		//counter_value = motor_read_counter();
-		
-		//printf("Counter Value: %d\n\r", counter_value);
+   80524:	4b15      	ldr	r3, [pc, #84]	; (8057c <main+0xb0>)
+   80526:	4798      	blx	r3
 		
 
-		servo_activate_solonoid(received_joystick_data);
-   80526:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
-   8052a:	4b15      	ldr	r3, [pc, #84]	; (80580 <main+0xb4>)
-   8052c:	4798      	blx	r3
+		
 
 
     printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
-   8052e:	7a23      	ldrb	r3, [r4, #8]
-   80530:	7aa2      	ldrb	r2, [r4, #10]
-   80532:	9201      	str	r2, [sp, #4]
-   80534:	7a62      	ldrb	r2, [r4, #9]
-   80536:	9200      	str	r2, [sp, #0]
-   80538:	6862      	ldr	r2, [r4, #4]
-   8053a:	6821      	ldr	r1, [r4, #0]
-   8053c:	4811      	ldr	r0, [pc, #68]	; (80584 <main+0xb8>)
-   8053e:	4e12      	ldr	r6, [pc, #72]	; (80588 <main+0xbc>)
-   80540:	47b0      	blx	r6
-   80542:	e7e9      	b.n	80518 <main+0x4c>
-   80544:	000803fd 	.word	0x000803fd
-   80548:	00080d59 	.word	0x00080d59
-   8054c:	00080bc5 	.word	0x00080bc5
-   80550:	000806a1 	.word	0x000806a1
-   80554:	000804a1 	.word	0x000804a1
-   80558:	00080b35 	.word	0x00080b35
-   8055c:	00143555 	.word	0x00143555
-   80560:	00080161 	.word	0x00080161
-   80564:	400e1a50 	.word	0x400e1a50
-   80568:	00080ba5 	.word	0x00080ba5
-   8056c:	00080785 	.word	0x00080785
-   80570:	0008058d 	.word	0x0008058d
-   80574:	0008064d 	.word	0x0008064d
-   80578:	20000458 	.word	0x20000458
-   8057c:	00080cc1 	.word	0x00080cc1
-   80580:	00080d2d 	.word	0x00080d2d
-   80584:	00081fb0 	.word	0x00081fb0
-   80588:	00080b11 	.word	0x00080b11
+   80528:	7a23      	ldrb	r3, [r4, #8]
+   8052a:	7aa2      	ldrb	r2, [r4, #10]
+   8052c:	9201      	str	r2, [sp, #4]
+   8052e:	7a62      	ldrb	r2, [r4, #9]
+   80530:	9200      	str	r2, [sp, #0]
+   80532:	6862      	ldr	r2, [r4, #4]
+   80534:	6821      	ldr	r1, [r4, #0]
+   80536:	4812      	ldr	r0, [pc, #72]	; (80580 <main+0xb4>)
+   80538:	4d12      	ldr	r5, [pc, #72]	; (80584 <main+0xb8>)
+   8053a:	47a8      	blx	r5
+   8053c:	e7ec      	b.n	80518 <main+0x4c>
+   8053e:	bf00      	nop
+   80540:	000803fd 	.word	0x000803fd
+   80544:	00080d59 	.word	0x00080d59
+   80548:	00080bc5 	.word	0x00080bc5
+   8054c:	000806a1 	.word	0x000806a1
+   80550:	000804a1 	.word	0x000804a1
+   80554:	00080b35 	.word	0x00080b35
+   80558:	00143555 	.word	0x00143555
+   8055c:	00080161 	.word	0x00080161
+   80560:	400e1a50 	.word	0x400e1a50
+   80564:	00080ba5 	.word	0x00080ba5
+   80568:	00080785 	.word	0x00080785
+   8056c:	00080589 	.word	0x00080589
+   80570:	0008064d 	.word	0x0008064d
+   80574:	20000458 	.word	0x20000458
+   80578:	00080cc1 	.word	0x00080cc1
+   8057c:	00080d2d 	.word	0x00080d2d
+   80580:	00081fb0 	.word	0x00081fb0
+   80584:	00080b11 	.word	0x00080b11
 
-0008058c <init_motor_controller_parameters>:
+00080588 <init_motor_controller_parameters>:
  */ 
 
 #include "motor_controller.h"
 
 void init_motor_controller_parameters(float K_i, float K_p, float K_d){
 	reg_parameters.Ki = K_i;
-   8058c:	4b06      	ldr	r3, [pc, #24]	; (805a8 <init_motor_controller_parameters+0x1c>)
-   8058e:	6018      	str	r0, [r3, #0]
+   80588:	4b06      	ldr	r3, [pc, #24]	; (805a4 <init_motor_controller_parameters+0x1c>)
+   8058a:	6018      	str	r0, [r3, #0]
 	reg_parameters.Kp = K_p;
-   80590:	6059      	str	r1, [r3, #4]
+   8058c:	6059      	str	r1, [r3, #4]
 	reg_parameters.Kd = K_d;
-   80592:	609a      	str	r2, [r3, #8]
+   8058e:	609a      	str	r2, [r3, #8]
 	
 	reg_parameters.T = 0.1;
-   80594:	4a05      	ldr	r2, [pc, #20]	; (805ac <init_motor_controller_parameters+0x20>)
-   80596:	60da      	str	r2, [r3, #12]
+   80590:	4a05      	ldr	r2, [pc, #20]	; (805a8 <init_motor_controller_parameters+0x20>)
+   80592:	60da      	str	r2, [r3, #12]
 	
 	reg_parameters.error_sum = 0;
-   80598:	2200      	movs	r2, #0
-   8059a:	611a      	str	r2, [r3, #16]
+   80594:	2200      	movs	r2, #0
+   80596:	611a      	str	r2, [r3, #16]
 	reg_parameters.current_error = 0;
-   8059c:	2200      	movs	r2, #0
-   8059e:	615a      	str	r2, [r3, #20]
+   80598:	2200      	movs	r2, #0
+   8059a:	615a      	str	r2, [r3, #20]
 	reg_parameters.previous_error = 0;
-   805a0:	619a      	str	r2, [r3, #24]
+   8059c:	619a      	str	r2, [r3, #24]
 	reg_parameters.motor_input = 0;
-   805a2:	61da      	str	r2, [r3, #28]
-   805a4:	4770      	bx	lr
-   805a6:	bf00      	nop
-   805a8:	20000464 	.word	0x20000464
-   805ac:	3dcccccd 	.word	0x3dcccccd
+   8059e:	61da      	str	r2, [r3, #28]
+   805a0:	4770      	bx	lr
+   805a2:	bf00      	nop
+   805a4:	20000464 	.word	0x20000464
+   805a8:	3dcccccd 	.word	0x3dcccccd
+   805ac:	00000000 	.word	0x00000000
 
 000805b0 <motor_controller_update>:
 	
@@ -1520,7 +1517,7 @@ void servo_pwm_init(void){
    80bd0:	680a      	ldr	r2, [r1, #0]
    80bd2:	f042 5280 	orr.w	r2, r2, #268435456	; 0x10000000
    80bd6:	600a      	str	r2, [r1, #0]
-		REG_PIOC_CODR = (1 << 28); // set output data low
+		REG_PIOC_SODR = (1 << 28); // set output data low
    80bd8:	f04f 5180 	mov.w	r1, #268435456	; 0x10000000
    80bdc:	4a0f      	ldr	r2, [pc, #60]	; (80c1c <servo_pwm_init+0x58>)
    80bde:	6011      	str	r1, [r2, #0]
@@ -1565,7 +1562,7 @@ void servo_pwm_init(void){
    80c12:	4770      	bx	lr
    80c14:	400e1200 	.word	0x400e1200
    80c18:	400e1210 	.word	0x400e1210
-   80c1c:	400e1234 	.word	0x400e1234
+   80c1c:	400e1230 	.word	0x400e1230
    80c20:	400e0700 	.word	0x400e0700
    80c24:	40094000 	.word	0x40094000
 
@@ -1719,10 +1716,10 @@ void servo_activate_solonoid(joystick_data_t data){
 	if(data.button_pushed){
    80d34:	f89d 300c 	ldrb.w	r3, [sp, #12]
    80d38:	b92b      	cbnz	r3, 80d46 <servo_activate_solonoid+0x1a>
-		REG_PIOC_SODR = (1 << 28); // Enable voltage to solonoid
+		REG_PIOC_CODR = (1 << 28); // Enable voltage to solonoid
 	}
 	else{
-		REG_PIOC_CODR = (1 << 28); // Set solonoid pin low
+		REG_PIOC_SODR = (1 << 28); // Set solonoid pin low
    80d3a:	f04f 5280 	mov.w	r2, #268435456	; 0x10000000
    80d3e:	4b04      	ldr	r3, [pc, #16]	; (80d50 <servo_activate_solonoid+0x24>)
    80d40:	601a      	str	r2, [r3, #0]
@@ -1732,13 +1729,13 @@ void servo_activate_solonoid(joystick_data_t data){
 }
    80d42:	b004      	add	sp, #16
    80d44:	4770      	bx	lr
-		REG_PIOC_SODR = (1 << 28); // Enable voltage to solonoid
+		REG_PIOC_CODR = (1 << 28); // Enable voltage to solonoid
    80d46:	f04f 5280 	mov.w	r2, #268435456	; 0x10000000
    80d4a:	4b02      	ldr	r3, [pc, #8]	; (80d54 <servo_activate_solonoid+0x28>)
    80d4c:	601a      	str	r2, [r3, #0]
    80d4e:	e7f8      	b.n	80d42 <servo_activate_solonoid+0x16>
-   80d50:	400e1234 	.word	0x400e1234
-   80d54:	400e1230 	.word	0x400e1230
+   80d50:	400e1230 	.word	0x400e1230
+   80d54:	400e1234 	.word	0x400e1234
 
 00080d58 <configure_uart>:
    80d58:	4b16      	ldr	r3, [pc, #88]	; (80db4 <configure_uart+0x5c>)

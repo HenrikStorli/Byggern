@@ -2261,11 +2261,12 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x000803fc                SystemInit
  .text.IR_init  0x000804a0       0x2c ADC.o
                 0x000804a0                IR_init
- .text.main     0x000804cc       0xc0 main.o
+ .text.main     0x000804cc       0xbc main.o
                 0x000804cc                main
  .text.init_motor_controller_parameters
-                0x0008058c       0x24 motor_controller.o
-                0x0008058c                init_motor_controller_parameters
+                0x00080588       0x24 motor_controller.o
+                0x00080588                init_motor_controller_parameters
+ *fill*         0x000805ac        0x4 
  .text.motor_controller_update
                 0x000805b0       0x9c motor_controller.o
                 0x000805b0                motor_controller_update
@@ -2677,19 +2678,19 @@ OUTPUT(Node2.elf elf32-littlearm)
  .comment       0x00000059       0x5a servo_ctrl.o
  .comment       0x00000059       0x5a uart.o
 
-.debug_info     0x00000000     0x7e8d
+.debug_info     0x00000000     0x7e84
  .debug_info    0x00000000      0xd68 can_controller.o
  .debug_info    0x00000d68      0xfef can_interrupt.o
  .debug_info    0x00001d57      0x74e Device_Startup/startup_sam3xa.o
  .debug_info    0x000024a5      0x444 Device_Startup/system_sam3xa.o
  .debug_info    0x000028e9      0x3fa ADC.o
- .debug_info    0x00002ce3      0xcff main.o
- .debug_info    0x000039e2      0xc58 motor_controller.o
- .debug_info    0x0000463a      0x5ae motor_interface.o
- .debug_info    0x00004be8      0x65f printf-stdarg.o
- .debug_info    0x00005247     0x108f Timer.o
- .debug_info    0x000062d6      0xf6c servo_ctrl.o
- .debug_info    0x00007242      0xc4b uart.o
+ .debug_info    0x00002ce3      0xcf6 main.o
+ .debug_info    0x000039d9      0xc58 motor_controller.o
+ .debug_info    0x00004631      0x5ae motor_interface.o
+ .debug_info    0x00004bdf      0x65f printf-stdarg.o
+ .debug_info    0x0000523e     0x108f Timer.o
+ .debug_info    0x000062cd      0xf6c servo_ctrl.o
+ .debug_info    0x00007239      0xc4b uart.o
 
 .debug_abbrev   0x00000000     0x1814
  .debug_abbrev  0x00000000      0x212 can_controller.o
@@ -2884,19 +2885,19 @@ OUTPUT(Node2.elf elf32-littlearm)
  .debug_macro   0x00012fbb      0x4dd servo_ctrl.o
  .debug_macro   0x00013498      0x374 uart.o
 
-.debug_line     0x00000000     0x5ba9
+.debug_line     0x00000000     0x5ba6
  .debug_line    0x00000000      0x7d5 can_controller.o
  .debug_line    0x000007d5      0x87e can_interrupt.o
  .debug_line    0x00001053      0x725 Device_Startup/startup_sam3xa.o
  .debug_line    0x00001778      0x79b Device_Startup/system_sam3xa.o
  .debug_line    0x00001f13      0x715 ADC.o
- .debug_line    0x00002628      0x8cd main.o
- .debug_line    0x00002ef5      0x886 motor_controller.o
- .debug_line    0x0000377b      0x7b5 motor_interface.o
- .debug_line    0x00003f30      0x3bd printf-stdarg.o
- .debug_line    0x000042ed      0x89f Timer.o
- .debug_line    0x00004b8c      0x8b1 servo_ctrl.o
- .debug_line    0x0000543d      0x76c uart.o
+ .debug_line    0x00002628      0x8ca main.o
+ .debug_line    0x00002ef2      0x886 motor_controller.o
+ .debug_line    0x00003778      0x7b5 motor_interface.o
+ .debug_line    0x00003f2d      0x3bd printf-stdarg.o
+ .debug_line    0x000042ea      0x89f Timer.o
+ .debug_line    0x00004b89      0x8b1 servo_ctrl.o
+ .debug_line    0x0000543a      0x76c uart.o
 
 .debug_str      0x00000000    0x5550c
  .debug_str     0x00000000    0x5052c can_controller.o
