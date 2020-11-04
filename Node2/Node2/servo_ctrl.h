@@ -35,6 +35,13 @@ int servo_set_pwm(float duty_cycle);
 void servo_set_angle(joystick_data_t data);
 
 /**
+ * @brief Activates the solonoid
+ *
+ * @param data Struct containing information about the joystick position
+ */
+void servo_activate_solonoid(joystick_data_t data);
+
+/**
  * @brief Tests if the pwm signal is correct.
  */
 void servo_set_pwm_test(void);

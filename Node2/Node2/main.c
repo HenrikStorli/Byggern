@@ -55,18 +55,22 @@ int main(void)
     //SetTimer(1);  
     motor_enable();
 	uint16_t counter_value;
+	
     while (1) 
     {
 		//motor_set_input(received_joystick_data.sliderRight);
-		position_controller_update();
-		servo_set_angle(received_joystick_data);
+		//position_controller_update();
+		//servo_set_angle(received_joystick_data);
 		
-		counter_value = motor_read_counter();
+		//counter_value = motor_read_counter();
 		
-		printf("Counter Value: %d\n\r", counter_value);
+		//printf("Counter Value: %d\n\r", counter_value);
+		
+
+		servo_activate_solonoid(received_joystick_data);
 
 
-       //printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
+       printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
     
     }
 }

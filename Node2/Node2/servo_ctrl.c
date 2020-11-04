@@ -8,6 +8,12 @@
 #include "servo_ctrl.h"
 
 void servo_pwm_init(void){
+		//Initializing pin for solonoid 
+		REG_PIOC_PER |= (1 << 28); // set as gpio on pin 23 port C
+		REG_PIOC_OER |= (1 << 28); // output enable
+		REG_PIOC_CODR = (1 << 28); // set output data low
+	
+	
 		//First enable PWM clock
 		REG_PMC_PCER1 |= (1<<4);
 		
@@ -59,6 +65,18 @@ void servo_set_angle(joystick_data_t data){
 	float duty_cycle = pulse_width / 20.0; //20.0 is PWM period.
 	
 	servo_set_pwm(duty_cycle);
+}
+
+void servo_activate_solonoid(joystick_data_t data){
+	
+	if(data.button_pushed){
+		REG_PIOC_SODR = (1 << 28); // Enable voltage to solonoid
+	}
+	else{
+		REG_PIOC_CODR = (1 << 28); // Set solonoid pin low
+	}
+	//for(int i = 0; i < 400; i++); // Delay
+	
 }
 
 void servo_set_pwm_test(void){	
