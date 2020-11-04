@@ -108,7 +108,8 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
- .././servo_ctrl.h .././motor_interface.h .././ADC.h .././Timer.h
+ .././servo_ctrl.h .././motor_interface.h .././motor_controller.h \
+ .././ADC.h .././Timer.h
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3x8e.h:
 
@@ -335,6 +336,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././servo_ctrl.h:
 
 .././motor_interface.h:
+
+.././motor_controller.h:
 
 .././ADC.h:
 

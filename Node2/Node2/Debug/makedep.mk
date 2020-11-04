@@ -14,6 +14,8 @@ ADC.c
 
 main.c
 
+motor_controller.c
+
 motor_interface.c
 
 printf-stdarg.c
