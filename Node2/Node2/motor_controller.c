@@ -5,26 +5,27 @@
  *  Author: henri
  */ 
 
-#include "position_controller.h"
+#include "motor_controller.h"
 
-static float Ki = 0;
-static float Kp = 0.5;
-static float Kd = 0;
-
-static int T = 0; //DENNE MÅ ENDRES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-void postion_controller_parameters(float K_i, float K_p, float K_d){
-	Ki = K_i;
-	Kp = K_p;
-	Kd = K_d;
+void init_motor_controller_parameters(float K_i, float K_p, float K_d){
+	reg_parameters.Ki = K_i;
+	reg_parameters.Kp = K_p;
+	reg_parameters.Kd = K_d;
+	
+	reg_parameters.T = 0.1;
+	
+	reg_parameters.error_sum = 0;
+	reg_parameters.current_error = 0;
+	reg_parameters.previous_error = 0;
+	reg_parameters.motor_input = 0;
+	
 }
 
-void position_controller_update(){
-	static int integral_error;
-	
+void motor_controller_update(){
 	//Reference and actual position
-	int real_postion = motor_read_counter(); //Denne må skaleres til mellom 0 og 255.
+	int real_postion = motor_read_counter();
 	
+	// Scaling the value to fit within [0,255]
 	if(real_postion > 20000){
 		real_postion = 0;
 	}
@@ -33,20 +34,23 @@ void position_controller_update(){
 	int reference_position = received_joystick_data.sliderRight;
 	
 	//Error and the sum of all errors
-	int position_error = reference_position - real_postion;
-	integral_error += position_error;
+	reg_parameters.current_error = reference_position - real_postion;
 	
 	//Calculate the motor input
-	int motor_input = Kp * position_error; // + T * Ki * integral_error; (Used for integral effect)
-	
-	
-	if(motor_input < 0){
+	reg_parameters.motor_input =  reg_parameters.Kp * reg_parameters.current_error; // + T * Ki * integral_error; (Used for integral effect)
+}
+
+void motor_controller_set_input(){
+
+	if(reg_parameters.motor_input < 0){
 		motor_select_direction(MOTOR_RIGHT);
-		motor_set_input(-motor_input);
+		motor_set_input(-reg_parameters.motor_input);
 		
 	}
 	else{
 		motor_select_direction(MOTOR_LEFT);
-		motor_set_input(motor_input);
+		motor_set_input(reg_parameters.motor_input);
 	}
+	
+	reg_parameters.previous_error = reg_parameters.current_error;
 }

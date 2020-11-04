@@ -12,9 +12,30 @@
 #include "can_interrupt.h"
 #include "motor_interface.h"
 
-void postion_controller_parameters(float K_i, float K_p, float K_d);
+typedef struct regulator_parameter_t
+{
+	float Ki;
+	float Kp;
+	float Kd ;
+	
+	float T;
+	
+	volatile float error_sum;
+	int current_error;
+	int previous_error;
+	
+	int motor_input;
+}regulator_parameter;
 
-void position_controller_update();
+regulator_parameter reg_parameters;
+
+//void postion_controller_parameters(float K_i, float K_p, float K_d);
+
+void init_motor_controller_parameters(float K_i, float K_p, float K_d);
+
+void motor_controller_update();
+
+void motor_controller_set_input();
 
 
 #endif /* MOTOR_CONTROLLER_H_ */

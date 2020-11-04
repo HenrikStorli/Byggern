@@ -25,13 +25,7 @@ typedef struct joystick_data{
 joystick_data_t received_joystick_data;
 
 
-
-
 void CAN0_Handler       ( void );
-
-
-
-
 
 
 #endif /* CAN_INTERRUPT_H_ */
