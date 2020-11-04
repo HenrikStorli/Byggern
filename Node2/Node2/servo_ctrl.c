@@ -51,7 +51,7 @@ int servo_set_pwm(float duty_cycle){
 
 void servo_set_angle(joystick_data_t data){
 
-	float servo_position = data.posX;
+	float servo_position = -data.posX;
 	
 	 //Linearization of joystick position to pulse with
 	float pulse_width = 0.006*servo_position + 1.5; 
