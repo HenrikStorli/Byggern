@@ -28,8 +28,8 @@ uint32_t timer_init(void){
 void TC0_Handler(void){
     uint16_t status =  TC0->TC_CHANNEL[0].TC_SR;
     count++;
-    //if (!(count %100)) {
-    //printf("count is: %d \n\r", count);   
+    if (!(count %100)) {
+    printf("count is: %d \n\r", count);    
     }
     NVIC_ClearPendingIRQ(ID_TC0);
 }
@@ -60,10 +60,6 @@ void SetTimer(uint8_t state){
     }
     else if(state == 0) {
         TC0->TC_CHANNEL[0].TC_CCR = TC_CCR_CLKDIS;         
-    }
-    if(state == 3){
-        TC0->TC_CHANNEL[1].TC_CCR |= TC_CCR_SWTRG
-                                   | TC_CCR_CLKEN;         
     }
 }
  
