@@ -47,15 +47,33 @@ int main(void)
 		servo_set_angle(received_joystick_data);
 		servo_activate_solonoid(received_joystick_data);
 		
+		if(IR_check()){
+			CAN_MESSAGE game_over_message;
+			game_over_message.id = 0;
+			game_over_message.data_length = 8;
+			game_over_message.data[0] = 0b11111111;
+			
+			//printf("IR_CHECK FUNGERER");
+			
+			uint8_t mailbox_busy;
+			
+			mailbox_busy = can_send(&game_over_message, 0);
+			
+			printf("MAILBOX BUSY: %d", mailbox_busy);
+		}
+		
 		//counter_value = motor_read_counter();
 		
 		//printf("Counter Value: %d\n\r", counter_value);
 		
+		uint16_t ir_value = IR_read();
+		
+		//printf("IR value is: %d\n\r", ir_value);
 
 		
 
 
-    printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
+    //printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
     
     }
 }

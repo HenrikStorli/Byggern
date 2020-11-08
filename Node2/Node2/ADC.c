@@ -23,7 +23,7 @@ uint8_t IR_check(void){
 	
 	uint16_t data = ADC->ADC_CDR[7];
 	
-    if(data < 200){
+    if(data < 100){
         return 1;
     }
     else{

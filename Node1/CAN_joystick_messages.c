@@ -20,7 +20,7 @@ uint8_t sendJoyDirection = (joystick_direction()) << 1; //shift right to not dis
 uint8_t sendJoyData = sendJoyDirection + sendJoyButton;  //Combining button-bushed and joystick-direction in one byte.
 
 CAN_message_t joyStickData;
-joyStickData.identifier = 0;
+joyStickData.identifier = 1;
 joyStickData.data[0] = sendPosX;
 joyStickData.data[1] = sendPosY;
 joyStickData.data[2] = sendJoyData;
