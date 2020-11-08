@@ -52,7 +52,7 @@ int main(void)
     // oled_print(&c);
     
 	
-    //menu();
+    menu();
     //CAN_init(MODE_LOOPBACK);
     //CAN_communication_test();
     //mcp_init(MODE_LOOPBACK);

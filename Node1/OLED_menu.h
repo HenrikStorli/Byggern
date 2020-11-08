@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include "OLED.h"
 #include "pos_read.h"
+#include "CAN_joystick_messages.h"
 
 typedef enum{MAIN_MENU, PLAY_GAME, SCORE, SETTING, DIFFICULTY, DEBUGGINGN, END_MENU} MENU_ITEMS;
 

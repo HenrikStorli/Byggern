@@ -20,10 +20,9 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  .././ADC_driver.h .././pos_read.h .././OLED.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- .././OLED_menu.h .././spi_driver.h .././iom162.h .././mcp2515_driver.h \
- .././mcp2515.h .././CAN_communication.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././CAN_joystick_messages.h
+ .././OLED_menu.h .././CAN_joystick_messages.h .././CAN_communication.h \
+ .././mcp2515.h .././mcp2515_driver.h .././spi_driver.h .././iom162.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
@@ -75,16 +74,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././OLED_menu.h:
 
+.././CAN_joystick_messages.h:
+
+.././CAN_communication.h:
+
+.././mcp2515.h:
+
+.././mcp2515_driver.h:
+
 .././spi_driver.h:
 
 .././iom162.h:
 
-.././mcp2515_driver.h:
-
-.././mcp2515.h:
-
-.././CAN_communication.h:
-
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
-
-.././CAN_joystick_messages.h:

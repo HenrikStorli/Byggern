@@ -13,6 +13,6 @@
 //#include <sam3x8e.h>
 void IR_init(void);
 uint16_t IR_read(void);
-uint8_t IR_check(uint16_t data);
+uint8_t IR_check(void);
 
 #endif /* IR_H_ */

@@ -214,6 +214,12 @@ void print_selecting_arrow(int child){
 
 void play_game(){
     printf("Nå kjører spillet");
+	
+	uint8_t game_on = 1;
+	
+	while(game_on){
+		joyStick_Can_Message();
+	}
 }
 
 void show_score(){

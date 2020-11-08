@@ -19,7 +19,10 @@ uint16_t IR_read(void){
 return data;
 }
 
-uint8_t IR_check(uint16_t data){
+uint8_t IR_check(void){
+	
+	uint16_t data = ADC->ADC_CDR[7];
+	
     if(data < 200){
         return 1;
     }
