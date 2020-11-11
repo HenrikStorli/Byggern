@@ -80,8 +80,6 @@ void oled_pos_set(uint8_t row, uint8_t col);
  */
 void oled_clear_line(uint8_t page);
 
-char oled_convert2ASCII(char* convert);
-
 void check_highscore(int highscore);
 
 /**
