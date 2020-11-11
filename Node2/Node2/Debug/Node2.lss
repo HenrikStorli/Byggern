@@ -104,7 +104,16 @@ Disassembly of section .text:
    8015c:	00000000 	.word	0x00000000
 
 00080160 <can_init>:
+ * \retval Success(0) or failure(1)
+ */
+
+
+uint8_t can_init(uint32_t can_br, uint8_t num_tx_mb, uint8_t num_rx_mb)
+{
    80160:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+	
+	//Make sure num_rx_mb and num_tx_mb is valid
+	if(num_rx_mb > 8 | num_tx_mb > 8 | num_rx_mb + num_tx_mb > 8)
    80164:	1855      	adds	r5, r2, r1
    80166:	2908      	cmp	r1, #8
    80168:	bf98      	it	ls
@@ -113,64 +122,129 @@ Disassembly of section .text:
    8016e:	460e      	mov	r6, r1
    80170:	2d08      	cmp	r5, #8
    80172:	dc61      	bgt.n	80238 <can_init+0xd8>
+
+
+	uint32_t ul_status; 
+	
+	//Disable can
+	CAN0->CAN_MR &= ~CAN_MR_CANEN; 
    80174:	4a32      	ldr	r2, [pc, #200]	; (80240 <can_init+0xe0>)
    80176:	6813      	ldr	r3, [r2, #0]
    80178:	f023 0301 	bic.w	r3, r3, #1
    8017c:	6013      	str	r3, [r2, #0]
+	//Clear status register on read
+	ul_status = CAN0->CAN_SR; 
    8017e:	6913      	ldr	r3, [r2, #16]
+	
+	
+	// Disable interrupts on CANH and CANL pins
+	PIOA->PIO_IDR = PIO_PA8A_URXD | PIO_PA9A_UTXD;
    80180:	4b30      	ldr	r3, [pc, #192]	; (80244 <can_init+0xe4>)
    80182:	f44f 7440 	mov.w	r4, #768	; 0x300
    80186:	645c      	str	r4, [r3, #68]	; 0x44
+	
+	//Select CAN0 RX and TX in PIOA
+	uint32_t ul_sr = PIOA->PIO_ABSR;
    80188:	6f1c      	ldr	r4, [r3, #112]	; 0x70
+	PIOA->PIO_ABSR = ~(PIO_PA1A_CANRX0 | PIO_PA0A_CANTX0) & ul_sr;
    8018a:	f024 0403 	bic.w	r4, r4, #3
    8018e:	671c      	str	r4, [r3, #112]	; 0x70
+	
+	// Disable the Parallel IO (PIO) of the Rx and Tx pins so that the peripheral controller can use them
+	PIOA->PIO_PDR = PIO_PA1A_CANRX0 | PIO_PA0A_CANTX0;
    80190:	2403      	movs	r4, #3
    80192:	605c      	str	r4, [r3, #4]
+	
+	// Enable pull up on CANH and CANL pin
+	PIOA->PIO_PUER = (PIO_PA1A_CANRX0 | PIO_PA0A_CANTX0);
    80194:	665c      	str	r4, [r3, #100]	; 0x64
+	
+	
+	//Enable Clock for CAN0 in PMC
+	PMC->PMC_PCR = PMC_PCR_EN | (0 << PMC_PCR_DIV_Pos) | PMC_PCR_CMD | (ID_CAN0 << PMC_PCR_PID_Pos); // DIV = 1(can clk = MCK/2), CMD = 1 (write), PID = 2B (CAN0)
    80196:	f5a3 6300 	sub.w	r3, r3, #2048	; 0x800
    8019a:	4c2b      	ldr	r4, [pc, #172]	; (80248 <can_init+0xe8>)
    8019c:	f8c3 410c 	str.w	r4, [r3, #268]	; 0x10c
+	PMC->PMC_PCER1 |= 1 << (ID_CAN0 - 32);
    801a0:	f8d3 4100 	ldr.w	r4, [r3, #256]	; 0x100
    801a4:	f444 6400 	orr.w	r4, r4, #2048	; 0x800
    801a8:	f8c3 4100 	str.w	r4, [r3, #256]	; 0x100
+	
+	//Set baudrate, Phase1, phase2 and propagation delay for can bus. Must match on all nodes!
+	CAN0->CAN_BR = can_br; 
    801ac:	6150      	str	r0, [r2, #20]
+	/****** Start of mailbox configuration ******/
+
+	uint32_t can_ier = 0;
+
+	/* Configure receive mailboxes */
+	for (int n = num_tx_mb; n <= num_rx_mb + num_tx_mb; n++)  //Simply one mailbox setup for all messages. You might want to apply filter for them.
    801ae:	42a9      	cmp	r1, r5
    801b0:	dc40      	bgt.n	80234 <can_init+0xd4>
    801b2:	460a      	mov	r2, r1
    801b4:	2400      	movs	r4, #0
+	{
+		CAN0->CAN_MB[n].CAN_MAM = 0; //Accept all messages
    801b6:	46a1      	mov	r9, r4
+		CAN0->CAN_MB[n].CAN_MID = CAN_MID_MIDE;
    801b8:	f8df 8084 	ldr.w	r8, [pc, #132]	; 80240 <can_init+0xe0>
    801bc:	f04f 5c00 	mov.w	ip, #536870912	; 0x20000000
+		CAN0->CAN_MB[n].CAN_MMR = (CAN_MMR_MOT_MB_RX);
    801c0:	f04f 7e80 	mov.w	lr, #16777216	; 0x1000000
+		CAN0->CAN_MB[n].CAN_MCR |= CAN_MCR_MTCR;
+
+		can_ier |= 1 << n; //Enable interrupt on rx mailbox
    801c4:	2701      	movs	r7, #1
    801c6:	0153      	lsls	r3, r2, #5
    801c8:	f103 2040 	add.w	r0, r3, #1073758208	; 0x40004000
    801cc:	f500 2030 	add.w	r0, r0, #720896	; 0xb0000
+		CAN0->CAN_MB[n].CAN_MAM = 0; //Accept all messages
    801d0:	f8c0 9204 	str.w	r9, [r0, #516]	; 0x204
+		CAN0->CAN_MB[n].CAN_MID = CAN_MID_MIDE;
    801d4:	4443      	add	r3, r8
    801d6:	f8c3 c208 	str.w	ip, [r3, #520]	; 0x208
+		CAN0->CAN_MB[n].CAN_MMR = (CAN_MMR_MOT_MB_RX);
    801da:	f8c0 e200 	str.w	lr, [r0, #512]	; 0x200
+		CAN0->CAN_MB[n].CAN_MCR |= CAN_MCR_MTCR;
    801de:	f8d3 021c 	ldr.w	r0, [r3, #540]	; 0x21c
    801e2:	f440 0000 	orr.w	r0, r0, #8388608	; 0x800000
    801e6:	f8c3 021c 	str.w	r0, [r3, #540]	; 0x21c
+		can_ier |= 1 << n; //Enable interrupt on rx mailbox
    801ea:	fa07 f302 	lsl.w	r3, r7, r2
    801ee:	431c      	orrs	r4, r3
+	for (int n = num_tx_mb; n <= num_rx_mb + num_tx_mb; n++)  //Simply one mailbox setup for all messages. You might want to apply filter for them.
    801f0:	3201      	adds	r2, #1
    801f2:	4295      	cmp	r5, r2
    801f4:	dae7      	bge.n	801c6 <can_init+0x66>
+	}
+	
+	/*Configure transmit mailboxes */
+	for (int n = 0; n < num_tx_mb; n++)
    801f6:	b181      	cbz	r1, 8021a <can_init+0xba>
    801f8:	2300      	movs	r3, #0
+	{
+		CAN0->CAN_MB[n].CAN_MID = CAN_MID_MIDE;
    801fa:	4911      	ldr	r1, [pc, #68]	; (80240 <can_init+0xe0>)
    801fc:	f04f 5500 	mov.w	r5, #536870912	; 0x20000000
+		CAN0->CAN_MB[n].CAN_MMR = (CAN_MMR_MOT_MB_TX);
    80200:	f04f 7040 	mov.w	r0, #50331648	; 0x3000000
+		CAN0->CAN_MB[n].CAN_MID = CAN_MID_MIDE;
    80204:	eb01 1243 	add.w	r2, r1, r3, lsl #5
    80208:	f8c2 5208 	str.w	r5, [r2, #520]	; 0x208
+		CAN0->CAN_MB[n].CAN_MMR = (CAN_MMR_MOT_MB_TX);
    8020c:	f103 0210 	add.w	r2, r3, #16
    80210:	0152      	lsls	r2, r2, #5
    80212:	5088      	str	r0, [r1, r2]
+	for (int n = 0; n < num_tx_mb; n++)
    80214:	3301      	adds	r3, #1
    80216:	429e      	cmp	r6, r3
    80218:	d1f4      	bne.n	80204 <can_init+0xa4>
+	}
+	
+	/****** End of mailbox configuraion ******/
+
+	//Enable interrupt on receive mailboxes
+	CAN0->CAN_IER = can_ier;
    8021a:	4b09      	ldr	r3, [pc, #36]	; (80240 <can_init+0xe0>)
    8021c:	605c      	str	r4, [r3, #4]
  */
@@ -182,14 +256,25 @@ __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
    8021e:	f44f 6100 	mov.w	r1, #2048	; 0x800
    80222:	4a0a      	ldr	r2, [pc, #40]	; (8024c <can_init+0xec>)
    80224:	6051      	str	r1, [r2, #4]
+
+	//Enable interrupt in NVIC 
+	NVIC_EnableIRQ(ID_CAN0);
+
+	//enable CAN
+	CAN0->CAN_MR |= CAN_MR_CANEN;
    80226:	681a      	ldr	r2, [r3, #0]
    80228:	f042 0201 	orr.w	r2, r2, #1
    8022c:	601a      	str	r2, [r3, #0]
+
+	return 0;
    8022e:	2000      	movs	r0, #0
    80230:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+	uint32_t can_ier = 0;
    80234:	2400      	movs	r4, #0
    80236:	e7de      	b.n	801f6 <can_init+0x96>
+		return 1; //Too many mailboxes is configured
    80238:	2001      	movs	r0, #1
+}
    8023a:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
    8023e:	bf00      	nop
    80240:	400b4000 	.word	0x400b4000
@@ -198,12 +283,21 @@ __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
    8024c:	e000e100 	.word	0xe000e100
 
 00080250 <can_send>:
+ * \retval Success(0) or failure(1)
+ */
+uint8_t can_send(CAN_MESSAGE* can_msg, uint8_t tx_mb_id)
+{
+	//Check that mailbox is ready
+	if(CAN0->CAN_MB[tx_mb_id].CAN_MSR & CAN_MSR_MRDY)
    80250:	014b      	lsls	r3, r1, #5
    80252:	f103 2340 	add.w	r3, r3, #1073758208	; 0x40004000
    80256:	f503 2330 	add.w	r3, r3, #720896	; 0xb0000
    8025a:	f8d3 3210 	ldr.w	r3, [r3, #528]	; 0x210
    8025e:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
    80262:	d036      	beq.n	802d2 <can_send+0x82>
+	{
+		//Set message ID and use CAN 2.0B protocol
+		CAN0->CAN_MB[tx_mb_id].CAN_MID = CAN_MID_MIDvA(can_msg->id) | CAN_MID_MIDE ;
    80264:	8803      	ldrh	r3, [r0, #0]
    80266:	4a1c      	ldr	r2, [pc, #112]	; (802d8 <can_send+0x88>)
    80268:	ea02 4283 	and.w	r2, r2, r3, lsl #18
@@ -212,11 +306,19 @@ __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
    80272:	f103 2340 	add.w	r3, r3, #1073758208	; 0x40004000
    80276:	f503 2330 	add.w	r3, r3, #720896	; 0xb0000
    8027a:	f8c3 2208 	str.w	r2, [r3, #520]	; 0x208
+		
+		//Make sure message is not to long
+		if(can_msg->data_length > 7){
    8027e:	7883      	ldrb	r3, [r0, #2]
    80280:	2b07      	cmp	r3, #7
+			can_msg->data_length = 7;
    80282:	bf84      	itt	hi
    80284:	2307      	movhi	r3, #7
    80286:	7083      	strbhi	r3, [r0, #2]
+			//Message is to long, sending only the first 8 bytes
+		}
+		//Put message in can data registers
+		CAN0->CAN_MB[tx_mb_id].CAN_MDL = can_msg->data[3] << 24 | can_msg->data[2] << 16 | can_msg->data[1] << 8 | can_msg->data[0];
    80288:	7982      	ldrb	r2, [r0, #6]
    8028a:	7943      	ldrb	r3, [r0, #5]
    8028c:	041b      	lsls	r3, r3, #16
@@ -229,6 +331,7 @@ __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
    8029e:	f101 2140 	add.w	r1, r1, #1073758208	; 0x40004000
    802a2:	f501 2130 	add.w	r1, r1, #720896	; 0xb0000
    802a6:	f8c1 3214 	str.w	r3, [r1, #532]	; 0x214
+		CAN0->CAN_MB[tx_mb_id].CAN_MDH = can_msg->data[7] << 24 | can_msg->data[6] << 16 | can_msg->data[5] << 8 | can_msg->data[4];
    802aa:	7a82      	ldrb	r2, [r0, #10]
    802ac:	7a43      	ldrb	r3, [r0, #9]
    802ae:	041b      	lsls	r3, r3, #16
@@ -238,62 +341,119 @@ __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
    802b8:	7a02      	ldrb	r2, [r0, #8]
    802ba:	ea43 2302 	orr.w	r3, r3, r2, lsl #8
    802be:	f8c1 3218 	str.w	r3, [r1, #536]	; 0x218
+		
+		//Set message length and mailbox ready to send
+		CAN0->CAN_MB[tx_mb_id].CAN_MCR = (can_msg->data_length << CAN_MCR_MDLC_Pos) | CAN_MCR_MTCR;
    802c2:	7883      	ldrb	r3, [r0, #2]
    802c4:	041b      	lsls	r3, r3, #16
    802c6:	f443 0300 	orr.w	r3, r3, #8388608	; 0x800000
    802ca:	f8c1 321c 	str.w	r3, [r1, #540]	; 0x21c
+		return 0;
    802ce:	2000      	movs	r0, #0
    802d0:	4770      	bx	lr
+	}
+	
+	else //Mailbox busy
+	{
+		return 1;
    802d2:	2001      	movs	r0, #1
+	}
+	
+}
    802d4:	4770      	bx	lr
    802d6:	bf00      	nop
    802d8:	1ffc0000 	.word	0x1ffc0000
 
 000802dc <can_receive>:
+ * \retval Success(0) or failure(1)
+ */
+uint8_t can_receive(CAN_MESSAGE* can_msg, uint8_t rx_mb_id)
+{
+	//Check that mailbox is ready
+	if(CAN0->CAN_MB[rx_mb_id].CAN_MSR & CAN_MSR_MRDY)
    802dc:	014b      	lsls	r3, r1, #5
    802de:	f103 2340 	add.w	r3, r3, #1073758208	; 0x40004000
    802e2:	f503 2330 	add.w	r3, r3, #720896	; 0xb0000
    802e6:	f8d3 3210 	ldr.w	r3, [r3, #528]	; 0x210
    802ea:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
    802ee:	d033      	beq.n	80358 <can_receive+0x7c>
+{
    802f0:	b430      	push	{r4, r5}
+	{
+		//Get data from CAN mailbox
+		uint32_t data_low = CAN0->CAN_MB[rx_mb_id].CAN_MDL;
    802f2:	014b      	lsls	r3, r1, #5
    802f4:	f103 2340 	add.w	r3, r3, #1073758208	; 0x40004000
    802f8:	f503 2330 	add.w	r3, r3, #720896	; 0xb0000
    802fc:	f8d3 2214 	ldr.w	r2, [r3, #532]	; 0x214
+		uint32_t data_high = CAN0->CAN_MB[rx_mb_id].CAN_MDH;
    80300:	f8d3 4218 	ldr.w	r4, [r3, #536]	; 0x218
+		
+		//Get message ID
+		can_msg->id = (uint16_t)((CAN0->CAN_MB[rx_mb_id].CAN_MID & CAN_MID_MIDvA_Msk) >> CAN_MID_MIDvA_Pos);
    80304:	f8d3 5208 	ldr.w	r5, [r3, #520]	; 0x208
    80308:	f3c5 458a 	ubfx	r5, r5, #18, #11
    8030c:	8005      	strh	r5, [r0, #0]
+		
+		//Get data length
+		can_msg->data_length = (uint8_t)((CAN0->CAN_MB[rx_mb_id].CAN_MSR & CAN_MSR_MDLC_Msk) >> CAN_MSR_MDLC_Pos);
    8030e:	f8d3 3210 	ldr.w	r3, [r3, #528]	; 0x210
    80312:	f3c3 4303 	ubfx	r3, r3, #16, #4
    80316:	7083      	strb	r3, [r0, #2]
+		
+		//Put data in CAN_MESSAGE object
+		for(int i = 0; i < can_msg->data_length;i++)
    80318:	461d      	mov	r5, r3
    8031a:	b15b      	cbz	r3, 80334 <can_receive+0x58>
    8031c:	3003      	adds	r0, #3
    8031e:	2300      	movs	r3, #0
+		{
+			if(i < 4)
    80320:	2b03      	cmp	r3, #3
+			{
+				can_msg->data[i] = (char)(data_low & 0xff);
    80322:	bfd9      	ittee	le
    80324:	7002      	strble	r2, [r0, #0]
+				data_low = data_low >> 8;
    80326:	0a12      	lsrle	r2, r2, #8
+			}
+			else
+			{
+				can_msg->data[i] = (uint8_t)(data_high & 0xff);
    80328:	7004      	strbgt	r4, [r0, #0]
+				data_high = data_high >> 8;
    8032a:	0a24      	lsrgt	r4, r4, #8
+		for(int i = 0; i < can_msg->data_length;i++)
    8032c:	3301      	adds	r3, #1
    8032e:	3001      	adds	r0, #1
    80330:	42ab      	cmp	r3, r5
    80332:	d1f5      	bne.n	80320 <can_receive+0x44>
+			}
+		}
+		
+		//Reset for new receive
+		CAN0->CAN_MB[rx_mb_id].CAN_MMR = CAN_MMR_MOT_MB_RX;
    80334:	4b09      	ldr	r3, [pc, #36]	; (8035c <can_receive+0x80>)
    80336:	f101 0210 	add.w	r2, r1, #16
    8033a:	0152      	lsls	r2, r2, #5
    8033c:	f04f 7080 	mov.w	r0, #16777216	; 0x1000000
    80340:	5098      	str	r0, [r3, r2]
+		CAN0->CAN_MB[rx_mb_id].CAN_MCR |= CAN_MCR_MTCR;
    80342:	eb03 1141 	add.w	r1, r3, r1, lsl #5
    80346:	f8d1 321c 	ldr.w	r3, [r1, #540]	; 0x21c
    8034a:	f443 0300 	orr.w	r3, r3, #8388608	; 0x800000
    8034e:	f8c1 321c 	str.w	r3, [r1, #540]	; 0x21c
+		return 0;
    80352:	2000      	movs	r0, #0
+	}
+	else //Mailbox busy
+	{
+		return 1;
+	}
+}
    80354:	bc30      	pop	{r4, r5}
    80356:	4770      	bx	lr
+		return 1;
    80358:	2001      	movs	r0, #1
    8035a:	4770      	bx	lr
    8035c:	400b4000 	.word	0x400b4000
@@ -661,62 +821,63 @@ int main(void)
     motor_enable();
    805ac:	4b1f      	ldr	r3, [pc, #124]	; (8062c <main+0xb4>)
    805ae:	4798      	blx	r3
-	init_motor_controller_parameters(0.5, 1.5, 0);
-   805b0:	2200      	movs	r2, #0
-   805b2:	f04f 517f 	mov.w	r1, #1069547520	; 0x3fc00000
-   805b6:	f04f 507c 	mov.w	r0, #1056964608	; 0x3f000000
-   805ba:	4b1d      	ldr	r3, [pc, #116]	; (80630 <main+0xb8>)
-   805bc:	4798      	blx	r3
+	init_motor_controller_parameters(0, 1, 0);
+   805b0:	2000      	movs	r0, #0
+   805b2:	4602      	mov	r2, r0
+   805b4:	f04f 517e 	mov.w	r1, #1065353216	; 0x3f800000
+   805b8:	4b1d      	ldr	r3, [pc, #116]	; (80630 <main+0xb8>)
+   805ba:	4798      	blx	r3
     while (1) 
     {
 		
 		motor_controller_set_input();
-   805be:	4e1d      	ldr	r6, [pc, #116]	; (80634 <main+0xbc>)
+   805bc:	4e1d      	ldr	r6, [pc, #116]	; (80634 <main+0xbc>)
 		servo_set_angle(received_joystick_data);
-   805c0:	4c1d      	ldr	r4, [pc, #116]	; (80638 <main+0xc0>)
-   805c2:	4d1e      	ldr	r5, [pc, #120]	; (8063c <main+0xc4>)
-   805c4:	e001      	b.n	805ca <main+0x52>
+   805be:	4c1e      	ldr	r4, [pc, #120]	; (80638 <main+0xc0>)
+   805c0:	4d1e      	ldr	r5, [pc, #120]	; (8063c <main+0xc4>)
+   805c2:	e001      	b.n	805c8 <main+0x50>
 		
 		//counter_value = motor_read_counter();
 		
 		//printf("Counter Value: %d\n\r", counter_value);
 		
 		uint16_t ir_value = IR_read();
-   805c6:	4b1e      	ldr	r3, [pc, #120]	; (80640 <main+0xc8>)
-   805c8:	4798      	blx	r3
+   805c4:	4b1e      	ldr	r3, [pc, #120]	; (80640 <main+0xc8>)
+   805c6:	4798      	blx	r3
 		motor_controller_set_input();
-   805ca:	47b0      	blx	r6
+   805c8:	47b0      	blx	r6
 		servo_set_angle(received_joystick_data);
-   805cc:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
-   805d0:	47a8      	blx	r5
+   805ca:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
+   805ce:	47a8      	blx	r5
 		servo_activate_solonoid(received_joystick_data);
-   805d2:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
-   805d6:	4b1b      	ldr	r3, [pc, #108]	; (80644 <main+0xcc>)
-   805d8:	4798      	blx	r3
+   805d0:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
+   805d4:	4b1b      	ldr	r3, [pc, #108]	; (80644 <main+0xcc>)
+   805d6:	4798      	blx	r3
 		if(IR_check()){
-   805da:	4b1b      	ldr	r3, [pc, #108]	; (80648 <main+0xd0>)
-   805dc:	4798      	blx	r3
-   805de:	2800      	cmp	r0, #0
-   805e0:	d0f1      	beq.n	805c6 <main+0x4e>
+   805d8:	4b1b      	ldr	r3, [pc, #108]	; (80648 <main+0xd0>)
+   805da:	4798      	blx	r3
+   805dc:	2800      	cmp	r0, #0
+   805de:	d0f1      	beq.n	805c4 <main+0x4c>
 			game_over_message.id = 0;
-   805e2:	2100      	movs	r1, #0
-   805e4:	f8ad 1004 	strh.w	r1, [sp, #4]
+   805e0:	2100      	movs	r1, #0
+   805e2:	f8ad 1004 	strh.w	r1, [sp, #4]
 			game_over_message.data_length = 8;
-   805e8:	2308      	movs	r3, #8
-   805ea:	f88d 3006 	strb.w	r3, [sp, #6]
+   805e6:	2308      	movs	r3, #8
+   805e8:	f88d 3006 	strb.w	r3, [sp, #6]
 			game_over_message.data[0] = 0b11111111;
-   805ee:	23ff      	movs	r3, #255	; 0xff
-   805f0:	f88d 3007 	strb.w	r3, [sp, #7]
+   805ec:	23ff      	movs	r3, #255	; 0xff
+   805ee:	f88d 3007 	strb.w	r3, [sp, #7]
 			mailbox_busy = can_send(&game_over_message, 0);
-   805f4:	a801      	add	r0, sp, #4
-   805f6:	4b15      	ldr	r3, [pc, #84]	; (8064c <main+0xd4>)
-   805f8:	4798      	blx	r3
+   805f2:	a801      	add	r0, sp, #4
+   805f4:	4b15      	ldr	r3, [pc, #84]	; (8064c <main+0xd4>)
+   805f6:	4798      	blx	r3
 			printf("MAILBOX BUSY: %d", mailbox_busy);
-   805fa:	4601      	mov	r1, r0
-   805fc:	4814      	ldr	r0, [pc, #80]	; (80650 <main+0xd8>)
-   805fe:	4b15      	ldr	r3, [pc, #84]	; (80654 <main+0xdc>)
-   80600:	4798      	blx	r3
-   80602:	e7e0      	b.n	805c6 <main+0x4e>
+   805f8:	4601      	mov	r1, r0
+   805fa:	4815      	ldr	r0, [pc, #84]	; (80650 <main+0xd8>)
+   805fc:	4b15      	ldr	r3, [pc, #84]	; (80654 <main+0xdc>)
+   805fe:	4798      	blx	r3
+   80600:	e7e0      	b.n	805c4 <main+0x4c>
+   80602:	bf00      	nop
    80604:	00080489 	.word	0x00080489
    80608:	00080e29 	.word	0x00080e29
    8060c:	00080c95 	.word	0x00080c95

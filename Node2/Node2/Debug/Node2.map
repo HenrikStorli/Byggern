@@ -2903,11 +2903,11 @@ OUTPUT(Node2.elf elf32-littlearm)
  .debug_line    0x00005434      0x76c uart.o
 
 .debug_str      0x00000000    0x5552c
- .debug_str     0x00000000    0x5052c can_controller.o
-                              0x50701 (size before relaxing)
- .debug_str     0x0005052c     0x4150 can_interrupt.o
+ .debug_str     0x00000000    0x50511 can_controller.o
+                              0x506e6 (size before relaxing)
+ .debug_str     0x00050511     0x410c can_interrupt.o
                               0x54568 (size before relaxing)
- .debug_str     0x0005467c      0x506 Device_Startup/startup_sam3xa.o
+ .debug_str     0x0005461d      0x565 Device_Startup/startup_sam3xa.o
                               0x504d4 (size before relaxing)
  .debug_str     0x00054b82      0x195 Device_Startup/system_sam3xa.o
                               0x50267 (size before relaxing)

@@ -27,7 +27,11 @@ uint32_t timer_init(void){
 }
 void TC0_Handler(void){
     uint16_t status =  TC0->TC_CHANNEL[0].TC_SR;
-    count++;
+	
+	if(!(count % 100)){
+		
+		count++;
+	}
 	
 	motor_controller_update();
 	

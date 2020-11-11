@@ -7,7 +7,7 @@
 
 #include "OLED_menu.h"
 
-
+uint8_t highscore;
 
 
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
@@ -215,13 +215,28 @@ void print_selecting_arrow(int child){
 void play_game(){
     printf("Nå kjører spillet");
 	
+	CAN_message_t game_status;
 	uint8_t game_on = 1;
 	
 	while(game_on){
 		joyStick_Can_Message();
+		
+		game_status = message_handler();
+		
+		if(game_status.data[0] = 1){
+			game_on = 0;
+		}
 	}
+	//Oppdater highscore
+	
+	highscore = game_status.data[1];
+	
 }
 
 void show_score(){
+	
+	printf("Highscore: %d\n\r", highscore);
+	//oled_pos_set(0, 12);
+	//oled_print(&highscore);
 
 }

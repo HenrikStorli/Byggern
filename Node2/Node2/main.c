@@ -39,7 +39,7 @@ int main(void)
     SetTimer(1);  
 	uint16_t counter_value;
     motor_enable();
-	init_motor_controller_parameters(0.5, 1.5, 0);
+	init_motor_controller_parameters(0, 1, 0);
     while (1) 
     {
 		
@@ -50,8 +50,9 @@ int main(void)
 		if(IR_check()){
 			CAN_MESSAGE game_over_message;
 			game_over_message.id = 0;
-			game_over_message.data_length = 8;
-			game_over_message.data[0] = 0b11111111;
+			game_over_message.data_length = 2;
+			game_over_message.data[0] = 0b1;
+			game_over_message.data[1] = count;
 			
 			//printf("IR_CHECK FUNGERER");
 			

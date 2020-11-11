@@ -94,7 +94,6 @@ void oled_write_character(uint8_t c);
  */
 void oled_print(char* c);
 
-
 /**
  * @brief Prints an arraow in the screen in the given position
  *
