@@ -29,8 +29,6 @@ typedef struct regulator_parameter_t
 
 regulator_parameter reg_parameters;
 
-//void postion_controller_parameters(float K_i, float K_p, float K_d);
-
 void init_motor_controller_parameters(float K_i, float K_p, float K_d);
 
 void motor_controller_update();

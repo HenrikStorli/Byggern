@@ -12,7 +12,7 @@ void init_motor_controller_parameters(float K_i, float K_p, float K_d){
 	reg_parameters.Kp = K_p;
 	reg_parameters.Kd = K_d;
 	
-	reg_parameters.T = 0.1;
+	reg_parameters.T = 0.01;
 	
 	reg_parameters.error_sum = 0;
 	reg_parameters.current_error = 0;
