@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000308  00000000  00000000  0000249c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003486  00000000  00000000  000027a4  2**0
+  6 .debug_info   0000341e  00000000  00000000  000027a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000014e9  00000000  00000000  00005c2a  2**0
+  7 .debug_abbrev 000014d7  00000000  00000000  00005bc2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000188b  00000000  00000000  00007113  2**0
+  8 .debug_line   00001874  00000000  00000000  00007099  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000848  00000000  00000000  000089a0  2**2
+  9 .debug_frame  00000848  00000000  00000000  00008910  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000c1a  00000000  00000000  000091e8  2**0
+ 10 .debug_str    00000bfd  00000000  00000000  00009158  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002009  00000000  00000000  00009e02  2**0
+ 11 .debug_loc    00002009  00000000  00000000  00009d55  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000288  00000000  00000000  0000be0b  2**0
+ 12 .debug_ranges 00000288  00000000  00000000  0000bd5e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -776,8 +776,6 @@ CAN_message_t message_handler(){
      5be:	ec 01       	movw	r28, r24
     CAN_message_t message;
     
-    // Checks if buffer 1 is full
-    //if((mcp_read(MCP_CANINTF) && 0x01) && flag){
 	if(flag){
      5c0:	80 91 64 02 	lds	r24, 0x0264	; 0x800264 <__data_end>
      5c4:	90 91 65 02 	lds	r25, 0x0265	; 0x800265 <__data_end+0x1>
@@ -786,21 +784,18 @@ CAN_message_t message_handler(){
         message = CAN_meessage_reception(); //reads buffer 2 register
      5cc:	ce 01       	movw	r24, r28
      5ce:	0e 94 88 02 	call	0x510	; 0x510 <CAN_meessage_reception>
+
 		flag = 0;
      5d2:	10 92 65 02 	sts	0x0265, r1	; 0x800265 <__data_end+0x1>
      5d6:	10 92 64 02 	sts	0x0264, r1	; 0x800264 <__data_end>
-        //printf("i reception nr1 \r\n");
-
         mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
      5da:	40 e0       	ldi	r20, 0x00	; 0
      5dc:	61 e0       	ldi	r22, 0x01	; 1
      5de:	8c e2       	ldi	r24, 0x2C	; 44
      5e0:	0e 94 c3 03 	call	0x786	; 0x786 <mcp_bit_modify>
-    //    mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
-    //    if(!(mcp_read(MCP_CANINTF) && 1)   ){ 
-    //        flag = 0; 
-    //    }
-    //}
+
+    }
+    
     printf("FALG STATUS: %d\n\r", flag);
      5e4:	80 91 64 02 	lds	r24, 0x0264	; 0x800264 <__data_end>
      5e8:	90 91 65 02 	lds	r25, 0x0265	; 0x800265 <__data_end+0x1>
@@ -2661,18 +2656,10 @@ int main(void)
 	CAN_init(MODE_NORMAL);
     1246:	80 e0       	ldi	r24, 0x00	; 0
     1248:	0e 94 17 02 	call	0x42e	; 0x42e <CAN_init>
-    // char c[] = "derp";
-    // oled_pos_set(3, 62);
-    // oled_print(&c);
-    
 	
     menu();
     124c:	0e 94 a5 06 	call	0xd4a	; 0xd4a <menu>
-    test_message.data[1] = 'E';
-    test_message.data[2] = 'I';
-    test_message.data_length = 3;
-    
-    CAN_message_t revieve_message;
+
     printf("Initiating node 1 \n\r");
     1250:	88 e0       	ldi	r24, 0x08	; 8
     1252:	92 e0       	ldi	r25, 0x02	; 2
@@ -2681,28 +2668,24 @@ int main(void)
     1258:	0e 94 b2 0c 	call	0x1964	; 0x1964 <printf>
     125c:	0f 90       	pop	r0
     125e:	0f 90       	pop	r0
-        //    char test = spi_read();
-        //    printf("test is:  %d \n \r", test);
-
+	   joyStick_Can_Message();
         
-        //printf("Right button pressed: %d , Left button pressed: %d  joy button pressed: %d \r", usb_button_pushed(RIGHT_BUTTON), usb_button_pushed(LEFT_BUTTON), usb_button_pushed(JOYSTICK_BUTTON) );
+        uint8_t sliderX = ADC_read(3);
+        uint8_t sliderY = ADC_read(2);
+  
         printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
     1260:	cc ee       	ldi	r28, 0xEC	; 236
     1262:	d2 e0       	ldi	r29, 0x02	; 2
     1264:	0d e1       	ldi	r16, 0x1D	; 29
     1266:	12 e0       	ldi	r17, 0x02	; 2
-       //uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
-       //uint8_t joyDirection = joystick_direction(); 
-       //pos_read(&P_pos);
-       //printf("X = %d Y = %d, joybutton = %d, joydirection = %d \n\r", P_pos.posX, P_pos.posY, joyButton, joyDirection);
-       //printf("Bro");
+    menu();
+
+    printf("Initiating node 1 \n\r");
+    while (1) {
+
 	   joyStick_Can_Message();
     1268:	0e 94 06 03 	call	0x60c	; 0x60c <joyStick_Can_Message>
         
-        //printf("Lengden er : %d\n\r Dataen er: %d\n\r ID'en er: %d\n\r", revieve_message.data_length, revieve_message.data[0], revieve_message.data_length);
-        
-        //pos_read(&P_pos);
-        //
         uint8_t sliderX = ADC_read(3);
     126c:	83 e0       	ldi	r24, 0x03	; 3
     126e:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <ADC_read>
@@ -2710,11 +2693,7 @@ int main(void)
         uint8_t sliderY = ADC_read(2);
     1274:	82 e0       	ldi	r24, 0x02	; 2
     1276:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <ADC_read>
-        //    char test = spi_read();
-        //    printf("test is:  %d \n \r", test);
-
-        
-        //printf("Right button pressed: %d , Left button pressed: %d  joy button pressed: %d \r", usb_button_pushed(RIGHT_BUTTON), usb_button_pushed(LEFT_BUTTON), usb_button_pushed(JOYSTICK_BUTTON) );
+  
         printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
     127a:	1f 92       	push	r1
     127c:	8f 93       	push	r24

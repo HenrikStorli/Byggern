@@ -1183,7 +1183,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3486
+.debug_info     0x00000000     0x341e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5d0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_info    0x000005d0      0x31c ADC_driver.o
@@ -1193,12 +1193,12 @@ END GROUP
  .debug_info    0x000017af      0x92c OLED.o
  .debug_info    0x000020db      0xbac OLED_menu.o
  .debug_info    0x00002c87      0x2b0 pos_read.o
- .debug_info    0x00002f37      0x22b main.o
- .debug_info    0x00003162       0xe1 spi_driver.o
- .debug_info    0x00003243      0x17b SRAM_driver.o
- .debug_info    0x000033be       0xc8 UART_driver.o
+ .debug_info    0x00002f37      0x1c3 main.o
+ .debug_info    0x000030fa       0xe1 spi_driver.o
+ .debug_info    0x000031db      0x17b SRAM_driver.o
+ .debug_info    0x00003356       0xc8 UART_driver.o
 
-.debug_abbrev   0x00000000     0x14e9
+.debug_abbrev   0x00000000     0x14d7
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x580 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_abbrev  0x00000580      0x1d1 ADC_driver.o
@@ -1208,12 +1208,12 @@ END GROUP
  .debug_abbrev  0x00000c3a      0x1d3 OLED.o
  .debug_abbrev  0x00000e0d      0x290 OLED_menu.o
  .debug_abbrev  0x0000109d      0x171 pos_read.o
- .debug_abbrev  0x0000120e       0xdd main.o
- .debug_abbrev  0x000012eb       0xad spi_driver.o
- .debug_abbrev  0x00001398       0xbf SRAM_driver.o
- .debug_abbrev  0x00001457       0x92 UART_driver.o
+ .debug_abbrev  0x0000120e       0xcb main.o
+ .debug_abbrev  0x000012d9       0xad spi_driver.o
+ .debug_abbrev  0x00001386       0xbf SRAM_driver.o
+ .debug_abbrev  0x00001445       0x92 UART_driver.o
 
-.debug_line     0x00000000     0x188b
+.debug_line     0x00000000     0x1874
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x13f C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_line    0x0000013f      0x1e8 ADC_driver.o
@@ -1223,10 +1223,10 @@ END GROUP
  .debug_line    0x00000af6      0x2a4 OLED.o
  .debug_line    0x00000d9a      0x449 OLED_menu.o
  .debug_line    0x000011e3      0x20d pos_read.o
- .debug_line    0x000013f0      0x14a main.o
- .debug_line    0x0000153a       0xf5 spi_driver.o
- .debug_line    0x0000162f      0x15c SRAM_driver.o
- .debug_line    0x0000178b      0x100 UART_driver.o
+ .debug_line    0x000013f0      0x133 main.o
+ .debug_line    0x00001523       0xf5 spi_driver.o
+ .debug_line    0x00001618      0x15c SRAM_driver.o
+ .debug_line    0x00001774      0x100 UART_driver.o
 
 .debug_frame    0x00000000      0x848
  *(.debug_frame)
@@ -1242,7 +1242,7 @@ END GROUP
  .debug_frame   0x00000754       0xb0 SRAM_driver.o
  .debug_frame   0x00000804       0x44 UART_driver.o
 
-.debug_str      0x00000000      0xc1a
+.debug_str      0x00000000      0xbfd
  *(.debug_str)
  .debug_str     0x00000000      0x1f6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_str     0x000001f6      0x236 ADC_driver.o
@@ -1259,13 +1259,13 @@ END GROUP
                                 0x543 (size before relaxing)
  .debug_str     0x00000ad7       0x52 pos_read.o
                                 0x2a9 (size before relaxing)
- .debug_str     0x00000b29       0x3e main.o
-                                0x27f (size before relaxing)
- .debug_str     0x00000b67       0x12 spi_driver.o
+ .debug_str     0x00000b29       0x21 main.o
+                                0x22c (size before relaxing)
+ .debug_str     0x00000b4a       0x12 spi_driver.o
                                 0x190 (size before relaxing)
- .debug_str     0x00000b79       0x6a SRAM_driver.o
+ .debug_str     0x00000b5c       0x6a SRAM_driver.o
                                 0x1e0 (size before relaxing)
- .debug_str     0x00000be3       0x37 UART_driver.o
+ .debug_str     0x00000bc6       0x37 UART_driver.o
                                 0x199 (size before relaxing)
 
 .debug_loc      0x00000000     0x2009

@@ -39,7 +39,7 @@ int main(void)
     SetTimer(1);  
 	uint16_t counter_value;
     motor_enable();
-	init_motor_controller_parameters(0.5, 1.5, 0);
+	init_motor_controller_parameters(0.003, 0.9, 0);
 	
 	CAN_MESSAGE game_over_message;
 	game_over_message.id = 0;
@@ -50,7 +50,7 @@ int main(void)
 	
     while (1) 
     {
-		
+
 		motor_controller_set_input();
 		servo_set_angle(received_joystick_data);
 		servo_activate_solonoid(received_joystick_data);
@@ -68,14 +68,16 @@ int main(void)
 			printf("MAILBOX BUSY: %d", mailbox_busy);
 		}
 		
+
+		
+		uint16_t ir_value = IR_read();
+		
 		//game_over_message.data[0] = 0b10101010;
 		//mailbox_busy = can_send(&game_over_message, 1);
 		
 		//counter_value = motor_read_counter();
 		
 		//printf("Counter Value: %d\n\r", counter_value);
-		
-		uint16_t ir_value = IR_read();
 		
 		//printf("IR value is: %d\n\r", ir_value);
 

@@ -6,11 +6,10 @@
  */ 
 #include "ADC.h"
 
-void IR_init(void){ /* PA16 is A0 https://www.arduino.cc/en/Hacking/PinMappingSAM3X */
+void IR_init(void){
+	
     REG_PMC_PCER1 |= (1 << 5);  // enable ADC on ID37 could write ID_ADC?
-   // REG_PIOA_PDR |= (1 << 16); // Disable as gpio pin 
     REG_ADC_MR |= (1 << 7); // ADC in free run mode
-    // PIOA->PIO_PDR|= PIO_PDR_P7;
     REG_ADC_CHER |= ADC_CHER_CH7; //enable as adc channel on AD7 extra func     
 }
 
@@ -23,7 +22,7 @@ uint8_t IR_check(void){
 	
 	uint16_t data = ADC->ADC_CDR[7];
 	
-    if(data < 90){
+    if(data < 60){
         return 1;
     }
     else{

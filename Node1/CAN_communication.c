@@ -123,28 +123,14 @@ CAN_message_t CAN_meessage_reception2(){
 CAN_message_t message_handler(){
     CAN_message_t message;
     
-    // Checks if buffer 1 is full
-    //if((mcp_read(MCP_CANINTF) && 0x01) && flag){
 	if(flag){
         message = CAN_meessage_reception(); //reads buffer 2 register
-		flag = 0;
-        //printf("i reception nr1 \r\n");
 
+		flag = 0;
         mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
-        //if(!(mcp_read(MCP_CANINTF) && 2)   ){
-        //    flag = 0;
-        //}
+
     }
     
-    //// Checks if buffer 2 is full
-    //else if((mcp_read(MCP_CANINTF) && 0x02) && flag){
-    //    message = CAN_meessage_reception2();  //reads buffer 2 register
-	//
-    //    mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
-    //    if(!(mcp_read(MCP_CANINTF) && 1)   ){ 
-    //        flag = 0; 
-    //    }
-    //}
     printf("FALG STATUS: %d\n\r", flag);
 return message;
 }
