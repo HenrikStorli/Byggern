@@ -7,7 +7,7 @@
 #include "Timer.h"
 
 
-volatile uint32_t count = 0;
+
 volatile uint16_t status = 0;
 
 
@@ -27,8 +27,10 @@ uint32_t timer_init(void){
 }
 void TC0_Handler(void){
     uint16_t status =  TC0->TC_CHANNEL[0].TC_SR;
-    count++;
 	
+	if(!(count % 100)){
+		count++;
+	}
 	motor_controller_update();
 	
     NVIC_ClearPendingIRQ(ID_TC0);

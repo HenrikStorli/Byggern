@@ -32,7 +32,7 @@ int main(void)
     
     //init can config     
     uint32_t can_msk = 0x00143555;
-    uint8_t can_status = can_init(can_msk, 1, 1);
+    uint8_t can_status = can_init(can_msk, 2, 1);
     
     WDT->WDT_MR = WDT_MR_WDDIS; // Dissable watchdog      
     
@@ -40,6 +40,14 @@ int main(void)
 	uint16_t counter_value;
     motor_enable();
 	init_motor_controller_parameters(0.5, 1.5, 0);
+	
+	CAN_MESSAGE game_over_message;
+	game_over_message.id = 0;
+	game_over_message.data_length = 1;
+	
+	uint8_t mailbox_busy;
+	
+	
     while (1) 
     {
 		
@@ -47,20 +55,21 @@ int main(void)
 		servo_set_angle(received_joystick_data);
 		servo_activate_solonoid(received_joystick_data);
 		
+		
 		if(IR_check()){
-			CAN_MESSAGE game_over_message;
-			game_over_message.id = 0;
-			game_over_message.data_length = 8;
-			game_over_message.data[0] = 0b11111111;
+			game_over_message.data[0] = 0b10101011;
+			//game_over_message.data[1] = count;
 			
 			//printf("IR_CHECK FUNGERER");
 			
-			uint8_t mailbox_busy;
 			
 			mailbox_busy = can_send(&game_over_message, 0);
 			
 			printf("MAILBOX BUSY: %d", mailbox_busy);
 		}
+		
+		//game_over_message.data[0] = 0b10101010;
+		//mailbox_busy = can_send(&game_over_message, 1);
 		
 		//counter_value = motor_read_counter();
 		

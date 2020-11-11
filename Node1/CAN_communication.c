@@ -16,7 +16,7 @@ uint8_t CAN_init(uint8_t mode){
    
     mcp_init(MODE_CONFIG); 
     
-    mcp_write(MCP_CANINTE, MCP_RX_INT); // Enable both buffers
+    mcp_write(MCP_CANINTE, 0x01); // Enable both buffers
     
 	//Bit timing and synchronization
     mcp_write(MCP_CNF1, 0b10000001);
@@ -124,29 +124,28 @@ CAN_message_t message_handler(){
     CAN_message_t message;
     
     // Checks if buffer 1 is full
-    if(mcp_read(MCP_CANINTF) && 0x01){
+    //if((mcp_read(MCP_CANINTF) && 0x01) && flag){
+	if(flag){
         message = CAN_meessage_reception(); //reads buffer 2 register
-        printf("i reception nr1 \r\n");
+		flag = 0;
+        //printf("i reception nr1 \r\n");
 
         mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
-        if(!(mcp_read(MCP_CANINTF) && 2)   ){
-            printf("er i if nr1 \r\n");
-            flag = 0;
-        }
+        //if(!(mcp_read(MCP_CANINTF) && 2)   ){
+        //    flag = 0;
+        //}
     }
     
-    // Checks if buffer 2 is full
-    else if(mcp_read(MCP_CANINTF) && 0x02){
-        message = CAN_meessage_reception2();  //reads buffer 2 register
-         printf("i reception nr2 \r\n");
-
-        mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
-        if(!(mcp_read(MCP_CANINTF) && 1)   ){ 
-            printf("er i if nr2 \r\n");
-            flag = 0; 
-        }
-    }
-    
+    //// Checks if buffer 2 is full
+    //else if((mcp_read(MCP_CANINTF) && 0x02) && flag){
+    //    message = CAN_meessage_reception2();  //reads buffer 2 register
+	//
+    //    mcp_bit_modify(MCP_CANINTF, 2, 0);    // resets can interrupt flag bit for buffer 2
+    //    if(!(mcp_read(MCP_CANINTF) && 1)   ){ 
+    //        flag = 0; 
+    //    }
+    //}
+    printf("FALG STATUS: %d\n\r", flag);
 return message;
 }
 
@@ -162,14 +161,14 @@ void CAN_communication_test(){
     CAN_message_transmission(&message);
     _delay_ms(10);
     if(CAN_check_interrupt()){
-        printf("Interrupt fungerer\n\r");
+       // printf("Interrupt fungerer\n\r");
         message_recieve = message_handler();
-        printf("DATAEN er: %d\n\r",message_recieve.data[0]);
-        printf("identifier : %d \r\n", message.identifier); 
-        printf("data length : %d \r\n", message.data_length);
+       // printf("DATAEN er: %d\n\r",message_recieve.data[0]);
+        //printf("identifier : %d \r\n", message.identifier); 
+        //printf("data length : %d \r\n", message.data_length);
     }
     else{
-        printf("IKKE Interrupt \r\n");
+        //printf("IKKE Interrupt \r\n");
 
     }
 }
@@ -187,14 +186,14 @@ void CAN_communication_test2(){
     CAN_message_transmission(&message);
 
     if(CAN_check_interrupt()){
-        printf("Interrupt fungerer\n\r");
+       // printf("Interrupt fungerer\n\r");
         message_recieve = message_handler();
-        printf("DATAEN2 er: %d\n\r",message_recieve.data[0]);
-        printf("identifier2 : %d \r\n", message.identifier); 
-        printf("data length2 : %d \r\n", message.data_length);
+        //printf("DATAEN2 er: %d\n\r",message_recieve.data[0]);
+       // printf("identifier2 : %d \r\n", message.identifier); 
+       // printf("data length2 : %d \r\n", message.data_length);
     }
     else{
-        printf("IKKE Interrupt2 \r\n");
+        //printf("IKKE Interrupt2 \r\n");
 
     }
 }

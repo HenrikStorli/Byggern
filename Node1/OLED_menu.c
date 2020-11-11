@@ -7,7 +7,7 @@
 
 #include "OLED_menu.h"
 
-
+int highscore = 0;
 
 
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
@@ -24,7 +24,7 @@ void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_
 void go_up(Node **this_node){
   if((*this_node)->Parent != 0){
     (*this_node) = (*this_node)->Parent;
-    printf("LEFT");
+    //printf("LEFT");
   }
 }
 
@@ -32,24 +32,24 @@ void go_down(Node **this_node, int child){
 
     if(((*this_node)->children)[child - 1] != 0){
         (*this_node) = ((*this_node)->children)[child - 1];
-        printf("Bytte node\t\n");
+        //printf("Bytte node\t\n");
     }
     else if((*this_node)->functionPtr != 0){
         (*this_node)->functionPtr();
-        printf("KJØR FUNSKJONSPEKER\t\n");
+        //printf("KJØR FUNSKJONSPEKER\t\n");
     }else{
-        printf("Do nothing\t\n");
+       // printf("Do nothing\t\n");
     }
 }
 
 DIRECTION wait_for_action(void){
 
-    printf("Inn i wait for action\n");
+    //printf("Inn i wait for action\n");
 
     while(joystick_direction() == NEUTRAL && !usb_button_pushed(JOYSTICK_BUTTON));
 
     if(joystick_direction() == UP){
-        printf("UPUPUPUP\n");
+        //printf("UPUPUPUP\n");
         return UP;
     }
     else if(joystick_direction() == DOWN){
@@ -72,12 +72,12 @@ void wait_for_neutral_joystick_position(){
 void update_screen(Node *current_node, int child){
 
     if(((*current_node).name[1]) == 'a'){
-        printf("Update  MAIN_MENU screen\t\n");
+        //printf("Update  MAIN_MENU screen\t\n");
         print_main_menu_objects(child);
         //Skal oppdatere skjermen som passer til main-menu. I tillegg skal pilen howre over riktg barn.
     }
     else if(((*current_node).name[1]) == 'l'){
-        printf("Update PLAY menu\t\n");
+       // printf("Update PLAY menu\t\n");
         print_new_game_menu_objects(child);
     }
     else if(((*current_node).name[1]) == 'h'){
@@ -132,12 +132,9 @@ void menu(){
     update_screen(current_node, child);
 
     while(1){
-        printf("Før Wait for action\t\n");
         action = wait_for_action();  //Wait for user to move the joystick
-        printf("Før oled clear\t\n");
         oled_clear();  //Clears the screen.
 
-        printf("Før switch\t\n");
         switch(action)
         {
           case BUTTON_PRESS:
@@ -150,12 +147,10 @@ void menu(){
                 child = update_element_down(current_node, child);
               break;
           case LEFT:
-                printf("Left\t\n");
                 go_up(&current_node);
                 child = 1;
               break;
           case RIGHT:
-                printf("RIGHT\t\n");
                 go_down(&current_node, child);
                 child = 1;
               break;
@@ -163,8 +158,8 @@ void menu(){
               break;
         }
 
-        printf("After switch\t\n");
-        printf("Nodenavn %c \t\n",((*current_node).name[0]));
+        //printf("After switch\t\n");
+        //printf("Nodenavn %c \t\n",((*current_node).name[0]));
         update_screen(current_node, child);
         wait_for_neutral_joystick_position();
     }
@@ -209,17 +204,32 @@ void print_score_menu_objects(int child){
 
 void print_selecting_arrow(int child){
     oled_print_arrow(child - 1, 5);
+	
 }
 
 
 void play_game(){
-    printf("Nå kjører spillet");
 	
+	message_handler();
+	message_handler();
+	
+	CAN_message_t game_status;
+	game_status.data[0] = 0;
 	uint8_t game_on = 1;
-	
+		
 	while(game_on){
 		joyStick_Can_Message();
+		
+		game_status = message_handler();
+		
+		if(game_status.data[0] == 0b10101011){
+			game_on = 0;
+			
+			printf("GameStatusData: %d", game_status.data[0]);
+		}
 	}
+	highscore = game_status.data[1];
+	printf("Highscore is: %d", highscore);
 }
 
 void show_score(){

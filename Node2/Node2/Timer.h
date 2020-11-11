@@ -13,7 +13,7 @@
 #include "printf-stdarg.h"
 #include "motor_controller.h"
 
-
+volatile uint32_t count;
 
 uint32_t timer_init(void);
 
