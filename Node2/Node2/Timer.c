@@ -7,7 +7,8 @@
 #include "Timer.h"
 
 
-
+static uint32_t count = 0;
+static uint32_t counter = 0;
 volatile uint16_t status = 0;
 
 
@@ -28,32 +29,17 @@ uint32_t timer_init(void){
 void TC0_Handler(void){
     uint16_t status =  TC0->TC_CHANNEL[0].TC_SR;
 	
-	if(!(count % 100)){
+	counter++;
+	
+	if(!(counter % 100)){
 		count++;
 	}
+	
 	motor_controller_update();
 	
     NVIC_ClearPendingIRQ(ID_TC0);
 }
 
-//void TC1_Handler(void){
-//    uint16_t status =  TC1->TC_CHANNEL[1].TC_SR;
-//    count++;
-//    printf("count is: %d \n\r", count);   
-//
-//    NVIC_ClearPendingIRQ(ID_TC1);    
-//}
-//pmc
-//interrupt vect
-//nvic
-
-//void GAME_OVER(void){
-//  SetTimer(0);  
-//  CAN_MESSAGE score;
-//  score.data = highscore;
-//  score.data_length = 4;
-//  score.id = 0;
-//}
 
 void SetTimer(uint8_t state){
     if(state == 1){
@@ -64,4 +50,13 @@ void SetTimer(uint8_t state){
         TC0->TC_CHANNEL[0].TC_CCR = TC_CCR_CLKDIS;         
     }
 }
+
+uint32_t count_value(void){
+	return count;
+}
+
+void reset_count(void){
+	count = 0;
+}
+
  

@@ -13,7 +13,6 @@
 #include "printf-stdarg.h"
 #include "motor_controller.h"
 
-volatile uint32_t count;
 
 uint32_t timer_init(void);
 
@@ -24,5 +23,9 @@ void TC1_Handler(void);
 //void GAME_OVER(void);
 
 void SetTimer(uint8_t state);
+
+uint32_t count_value(void);
+
+void reset_count(void);
 
 #endif /* TIMER_H_ */

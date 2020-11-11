@@ -7,8 +7,6 @@
 
 #include "OLED_menu.h"
 
-int highscore = 0;
-
 int _1ST, _2ND, _3RD = 0;
 
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
@@ -208,11 +206,6 @@ void print_score_menu_objects(int child){
 
 char line1[] = "Top score";
     
-    
-int score = 32000;
-
-check_highscore(score);
-
 char score_string1[15], score_string2[15], score_string3[15];
 
 itoa(_1ST, score_string1, 10);
@@ -266,8 +259,12 @@ void play_game(){
 			printf("GameStatusData: %d", game_status.data[0]);
 		}
 	}
-	highscore = game_status.data[1];
-	printf("Highscore is: %d", highscore);
+	int highscore = game_status.data[1];
+	
+	//printf("Highscore is: %d", highscore);
+	
+	check_highscore(highscore);
+	
 }
 
 //void show_score(){

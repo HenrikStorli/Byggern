@@ -43,7 +43,7 @@ int main(void)
 	
 	CAN_MESSAGE game_over_message;
 	game_over_message.id = 0;
-	game_over_message.data_length = 1;
+	game_over_message.data_length = 2;
 	
 	uint8_t mailbox_busy;
 	
@@ -58,15 +58,20 @@ int main(void)
 		
 		if(IR_check()){
 			game_over_message.data[0] = 0b10101011;
-			//game_over_message.data[1] = count;
+			game_over_message.data[1] = count_value();
+			
+			// Reset highscore counter
+			reset_count();
 			
 			//printf("IR_CHECK FUNGERER");
 			
 			
 			mailbox_busy = can_send(&game_over_message, 0);
 			
-			printf("MAILBOX BUSY: %d", mailbox_busy);
+			//printf("MAILBOX BUSY: %d", mailbox_busy);
 		}
+		
+		printf("SCORE VALUE: %d\n\r", count_value());
 		
 
 		
