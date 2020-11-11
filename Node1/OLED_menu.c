@@ -8,12 +8,7 @@
 #include "OLED_menu.h"
 
 
-//volatile char highscore1[5] = {49,48,48,48};
-//volatile char highscore2[5] = {49,54,57,51};
-//volatile char highscore3[5] = {49,54,53,48};
-int _1ST = 1;
-int _2ND = 2;
-int _3RD = 3;
+int _1ST, _2ND, _3RD = 0;
 
 
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
@@ -215,11 +210,7 @@ void check_highscore(int highscore){
 }
 
 void print_score_menu_objects(int child){
-//char score = oled_convert2ASCII(9999);
-//char score = int_to_char(9);
 
-//char score[5] = {int_to_char(8),int_to_char(7),int_to_char(6)};
-//    char score = int_to_string(9999);
 char line1[] = "Top score";
     
     
@@ -227,9 +218,8 @@ int score = 32000;
 
 check_highscore(score);
 
-char score_string1[15];
-char score_string2[15];
-char score_string3[15];
+char score_string1[15], score_string2[15], score_string3[15];
+
 itoa(_1ST, score_string1, 10);
 itoa(_2ND, score_string2, 10);
 itoa(_3RD, score_string3, 10);    
@@ -240,20 +230,14 @@ itoa(_3RD, score_string3, 10);
 
     oled_pos_set(2, 12);
     oled_print("1ST  ");
-    //oled_print(&highscore1);
     oled_print(&score_string1);
-    //oled_print(&snum);
-    
-    
     
     oled_pos_set(4, 12);
     oled_print("2ND  ");
-    //oled_print(&highscore2);
     oled_print(&score_string2);
 
     oled_pos_set(6, 12);
     oled_print("3RD  ");
-    //oled_print(&highscore3);
     oled_print(&score_string3);
     
     print_selecting_arrow(child);

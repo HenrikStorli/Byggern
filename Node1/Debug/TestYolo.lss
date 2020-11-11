@@ -3,31 +3,31 @@ TestYolo.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000236  00800100  00002270  00002304  2**0
+  0 .data         00000230  00800100  00002270  00002304  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         00002270  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000096  00800336  00800336  0000253a  2**0
+  2 .bss          0000009c  00800330  00800330  00002534  2**0
                   ALLOC
-  3 .comment      0000005c  00000000  00000000  0000253a  2**0
+  3 .comment      0000005c  00000000  00000000  00002534  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002598  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002590  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000318  00000000  00000000  000025d4  2**0
+  5 .debug_aranges 00000308  00000000  00000000  000025cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003a84  00000000  00000000  000028ec  2**0
+  6 .debug_info   000039bc  00000000  00000000  000028d4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001636  00000000  00000000  00006370  2**0
+  7 .debug_abbrev 00001590  00000000  00000000  00006290  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001a02  00000000  00000000  000079a6  2**0
+  8 .debug_line   000019cc  00000000  00000000  00007820  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000884  00000000  00000000  000093a8  2**2
+  9 .debug_frame  00000854  00000000  00000000  000091ec  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000ce7  00000000  00000000  00009c2c  2**0
+ 10 .debug_str    00000cbe  00000000  00000000  00009a40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002213  00000000  00000000  0000a913  2**0
+ 11 .debug_loc    00002186  00000000  00000000  0000a6fe  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000298  00000000  00000000  0000cb26  2**0
+ 12 .debug_ranges 00000288  00000000  00000000  0000c884  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -481,13 +481,13 @@ Disassembly of section .text:
      3ac:	02 c0       	rjmp	.+4      	; 0x3b2 <__do_copy_data+0x10>
      3ae:	05 90       	lpm	r0, Z+
      3b0:	0d 92       	st	X+, r0
-     3b2:	a6 33       	cpi	r26, 0x36	; 54
+     3b2:	a0 33       	cpi	r26, 0x30	; 48
      3b4:	b1 07       	cpc	r27, r17
      3b6:	d9 f7       	brne	.-10     	; 0x3ae <__do_copy_data+0xc>
 
 000003b8 <__do_clear_bss>:
      3b8:	23 e0       	ldi	r18, 0x03	; 3
-     3ba:	a6 e3       	ldi	r26, 0x36	; 54
+     3ba:	a0 e3       	ldi	r26, 0x30	; 48
      3bc:	b3 e0       	ldi	r27, 0x03	; 3
      3be:	01 c0       	rjmp	.+2      	; 0x3c2 <.do_clear_bss_start>
 
@@ -598,8 +598,8 @@ Disassembly of section .text:
      484:	9f 93       	push	r25
      486:	81 e0       	ldi	r24, 0x01	; 1
      488:	90 e0       	ldi	r25, 0x00	; 0
-     48a:	90 93 37 03 	sts	0x0337, r25	; 0x800337 <__data_end+0x1>
-     48e:	80 93 36 03 	sts	0x0336, r24	; 0x800336 <__data_end>
+     48a:	90 93 31 03 	sts	0x0331, r25	; 0x800331 <__data_end+0x1>
+     48e:	80 93 30 03 	sts	0x0330, r24	; 0x800330 <__data_end>
      492:	9f 91       	pop	r25
      494:	8f 91       	pop	r24
      496:	0f 90       	pop	r0
@@ -676,13 +676,13 @@ Disassembly of section .text:
      526:	de bf       	out	0x3e, r29	; 62
      528:	0f be       	out	0x3f, r0	; 63
      52a:	cd bf       	out	0x3d, r28	; 61
-     52c:	8c eb       	ldi	r24, 0xBC	; 188
+     52c:	88 eb       	ldi	r24, 0xB8	; 184
      52e:	93 e0       	ldi	r25, 0x03	; 3
      530:	0e 94 41 07 	call	0xe82	; 0xe82 <pos_read>
      534:	82 e0       	ldi	r24, 0x02	; 2
      536:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <ADC_read>
      53a:	e8 2e       	mov	r14, r24
-     53c:	ec eb       	ldi	r30, 0xBC	; 188
+     53c:	e8 eb       	ldi	r30, 0xB8	; 184
      53e:	f3 e0       	ldi	r31, 0x03	; 3
      540:	80 81       	ld	r24, Z
      542:	68 94       	set
@@ -802,7 +802,7 @@ Disassembly of section .text:
      638:	c8 2f       	mov	r28, r24
      63a:	1f 92       	push	r1
      63c:	8f 93       	push	r24
-     63e:	80 e2       	ldi	r24, 0x20	; 32
+     63e:	8a e1       	ldi	r24, 0x1A	; 26
      640:	91 e0       	ldi	r25, 0x01	; 1
      642:	9f 93       	push	r25
      644:	8f 93       	push	r24
@@ -814,7 +814,7 @@ Disassembly of section .text:
      652:	0f 90       	pop	r0
      654:	c0 38       	cpi	r28, 0x80	; 128
      656:	31 f0       	breq	.+12     	; 0x664 <mcp_init+0x52>
-     658:	8c e2       	ldi	r24, 0x2C	; 44
+     658:	86 e2       	ldi	r24, 0x26	; 38
      65a:	91 e0       	ldi	r25, 0x01	; 1
      65c:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      660:	81 e0       	ldi	r24, 0x01	; 1
@@ -826,7 +826,7 @@ Disassembly of section .text:
      670:	80 7e       	andi	r24, 0xE0	; 224
      672:	8d 17       	cp	r24, r29
      674:	31 f0       	breq	.+12     	; 0x682 <mcp_init+0x70>
-     676:	8e e5       	ldi	r24, 0x5E	; 94
+     676:	88 e5       	ldi	r24, 0x58	; 88
      678:	91 e0       	ldi	r25, 0x01	; 1
      67a:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      67e:	81 e0       	ldi	r24, 0x01	; 1
@@ -864,13 +864,13 @@ Disassembly of section .text:
      6c6:	08 95       	ret
 
 000006c8 <oled_sel_row>:
-return strNum;
-}
+    oled_line_down(page);
 
-char int_to_char(uint8_t convert){
-    return convert + 48;
+    for(uint8_t j = 0; j < 128; j++){
+        write_data(0b00000000);   // sets bitmask of zero to a line/page
+    }
 }
-     6c8:	80 93 c0 03 	sts	0x03C0, r24	; 0x8003c0 <oled_position>
+     6c8:	80 93 bc 03 	sts	0x03BC, r24	; 0x8003bc <oled_position>
      6cc:	87 70       	andi	r24, 0x07	; 7
      6ce:	80 55       	subi	r24, 0x50	; 80
      6d0:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <oled_write_cmd>
@@ -879,7 +879,7 @@ char int_to_char(uint8_t convert){
      6da:	08 95       	ret
 
 000006dc <oled_sel_col>:
-     6dc:	80 93 c1 03 	sts	0x03C1, r24	; 0x8003c1 <oled_position+0x1>
+     6dc:	80 93 bd 03 	sts	0x03BD, r24	; 0x8003bd <oled_position+0x1>
      6e0:	98 2f       	mov	r25, r24
      6e2:	9f 70       	andi	r25, 0x0F	; 15
      6e4:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <oled_write_cmd>
@@ -1042,10 +1042,6 @@ char int_to_char(uint8_t convert){
      880:	08 95       	ret
 
 00000882 <oled_write_character>:
-//  uint8_t length = strlen(convert);
-//  uint32_t result = snprintf(buffer, length, "%s", convert);
-//return result;
-//}
 
 void oled_write_character(uint8_t c){
      882:	28 2f       	mov	r18, r24
@@ -1080,9 +1076,9 @@ void write_data(uint8_t data){
      8ae:	b0 91 07 01 	lds	r27, 0x0107	; 0x800107 <oled_write_data+0x1>
      8b2:	9c 93       	st	X, r25
      8b4:	31 96       	adiw	r30, 0x01	; 1
-//  uint32_t result = snprintf(buffer, length, "%s", convert);
-//return result;
-//}
+        write_data(0b00000000);   // sets bitmask of zero to a line/page
+    }
+}
 
 void oled_write_character(uint8_t c){
      for(uint8_t i = 0; i < 8; i++){
@@ -1180,7 +1176,7 @@ void write_data(uint8_t data){
 
     return child;
 }
-     936:	89 e9       	ldi	r24, 0x99	; 153
+     936:	83 e9       	ldi	r24, 0x93	; 147
      938:	91 e0       	ldi	r25, 0x01	; 1
      93a:	9f 93       	push	r25
      93c:	8f 93       	push	r24
@@ -1245,7 +1241,7 @@ void write_data(uint8_t data){
      9b0:	fc 01       	movw	r30, r24
      9b2:	31 83       	std	Z+1, r19	; 0x01
      9b4:	20 83       	st	Z, r18
-     9b6:	8d ea       	ldi	r24, 0xAD	; 173
+     9b6:	87 ea       	ldi	r24, 0xA7	; 167
      9b8:	91 e0       	ldi	r25, 0x01	; 1
      9ba:	9f 93       	push	r25
      9bc:	8f 93       	push	r24
@@ -1271,7 +1267,7 @@ void write_data(uint8_t data){
      9e2:	fc 01       	movw	r30, r24
      9e4:	31 83       	std	Z+1, r19	; 0x01
      9e6:	20 83       	st	Z, r18
-     9e8:	82 eb       	ldi	r24, 0xB2	; 178
+     9e8:	8c ea       	ldi	r24, 0xAC	; 172
      9ea:	91 e0       	ldi	r25, 0x01	; 1
      9ec:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      9f0:	08 95       	ret
@@ -1282,18 +1278,18 @@ void write_data(uint8_t data){
      9fa:	30 97       	sbiw	r30, 0x00	; 0
      9fc:	31 f0       	breq	.+12     	; 0xa0a <go_down+0x42>
      9fe:	09 95       	icall
-     a00:	8e eb       	ldi	r24, 0xBE	; 190
+     a00:	88 eb       	ldi	r24, 0xB8	; 184
      a02:	91 e0       	ldi	r25, 0x01	; 1
      a04:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      a08:	08 95       	ret
-     a0a:	84 ed       	ldi	r24, 0xD4	; 212
+     a0a:	8e ec       	ldi	r24, 0xCE	; 206
      a0c:	91 e0       	ldi	r25, 0x01	; 1
      a0e:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      a12:	08 95       	ret
 
 00000a14 <wait_for_action>:
      a14:	cf 93       	push	r28
-     a16:	80 ee       	ldi	r24, 0xE0	; 224
+     a16:	8a ed       	ldi	r24, 0xDA	; 218
      a18:	91 e0       	ldi	r25, 0x01	; 1
      a1a:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      a1e:	0e 94 30 08 	call	0x1060	; 0x1060 <joystick_direction>
@@ -1307,7 +1303,7 @@ void write_data(uint8_t data){
      a34:	c8 2f       	mov	r28, r24
      a36:	82 30       	cpi	r24, 0x02	; 2
      a38:	29 f4       	brne	.+10     	; 0xa44 <wait_for_action+0x30>
-     a3a:	86 ef       	ldi	r24, 0xF6	; 246
+     a3a:	80 ef       	ldi	r24, 0xF0	; 240
      a3c:	91 e0       	ldi	r25, 0x01	; 1
      a3e:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
      a42:	16 c0       	rjmp	.+44     	; 0xa70 <wait_for_action+0x5c>
@@ -1373,39 +1369,39 @@ int update_element_down(Node *current_node, int child){
 
 void check_highscore(int highscore){
     if(highscore >= _1ST){   //check if new highscore
-     a9a:	20 91 0e 01 	lds	r18, 0x010E	; 0x80010e <_1ST>
-     a9e:	30 91 0f 01 	lds	r19, 0x010F	; 0x80010f <_1ST+0x1>
+     a9a:	20 91 c0 03 	lds	r18, 0x03C0	; 0x8003c0 <_1ST>
+     a9e:	30 91 c1 03 	lds	r19, 0x03C1	; 0x8003c1 <_1ST+0x1>
      aa2:	82 17       	cp	r24, r18
      aa4:	93 07       	cpc	r25, r19
      aa6:	2c f0       	brlt	.+10     	; 0xab2 <check_highscore+0x18>
         _1ST = highscore;
-     aa8:	90 93 0f 01 	sts	0x010F, r25	; 0x80010f <_1ST+0x1>
-     aac:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <_1ST>
+     aa8:	90 93 c1 03 	sts	0x03C1, r25	; 0x8003c1 <_1ST+0x1>
+     aac:	80 93 c0 03 	sts	0x03C0, r24	; 0x8003c0 <_1ST>
      ab0:	08 95       	ret
     }
     else if(    (highscore < _1ST) && (highscore > _2ND)    )    {  //check if new second best
-     ab2:	20 91 0c 01 	lds	r18, 0x010C	; 0x80010c <_2ND>
-     ab6:	30 91 0d 01 	lds	r19, 0x010D	; 0x80010d <_2ND+0x1>
+     ab2:	20 91 be 03 	lds	r18, 0x03BE	; 0x8003be <_2ND>
+     ab6:	30 91 bf 03 	lds	r19, 0x03BF	; 0x8003bf <_2ND+0x1>
      aba:	28 17       	cp	r18, r24
      abc:	39 07       	cpc	r19, r25
      abe:	2c f4       	brge	.+10     	; 0xaca <check_highscore+0x30>
         _2ND = highscore;
-     ac0:	90 93 0d 01 	sts	0x010D, r25	; 0x80010d <_2ND+0x1>
-     ac4:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <_2ND>
+     ac0:	90 93 bf 03 	sts	0x03BF, r25	; 0x8003bf <_2ND+0x1>
+     ac4:	80 93 be 03 	sts	0x03BE, r24	; 0x8003be <_2ND>
      ac8:	08 95       	ret
     }
     else if(    (highscore < _2ND) && (highscore > _3RD)    ){ //check if new third best
      aca:	82 17       	cp	r24, r18
      acc:	93 07       	cpc	r25, r19
      ace:	5c f4       	brge	.+22     	; 0xae6 <check_highscore+0x4c>
-     ad0:	20 91 0a 01 	lds	r18, 0x010A	; 0x80010a <_3RD>
-     ad4:	30 91 0b 01 	lds	r19, 0x010B	; 0x80010b <_3RD+0x1>
+     ad0:	20 91 b2 03 	lds	r18, 0x03B2	; 0x8003b2 <_3RD>
+     ad4:	30 91 b3 03 	lds	r19, 0x03B3	; 0x8003b3 <_3RD+0x1>
      ad8:	28 17       	cp	r18, r24
      ada:	39 07       	cpc	r19, r25
      adc:	24 f4       	brge	.+8      	; 0xae6 <check_highscore+0x4c>
         _3RD = highscore;
-     ade:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <_3RD+0x1>
-     ae2:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <_3RD>
+     ade:	90 93 b3 03 	sts	0x03B3, r25	; 0x8003b3 <_3RD+0x1>
+     ae2:	80 93 b2 03 	sts	0x03B2, r24	; 0x8003b2 <_3RD>
      ae6:	08 95       	ret
 
 00000ae8 <print_selecting_arrow>:
@@ -1442,7 +1438,7 @@ void print_main_menu_objects(int child){
      b0a:	8c 01       	movw	r16, r24
     char line1[] = "play";
      b0c:	85 e0       	ldi	r24, 0x05	; 5
-     b0e:	ef ef       	ldi	r30, 0xFF	; 255
+     b0e:	e9 ef       	ldi	r30, 0xF9	; 249
      b10:	f1 e0       	ldi	r31, 0x01	; 1
      b12:	de 01       	movw	r26, r28
      b14:	11 96       	adiw	r26, 0x01	; 1
@@ -1452,8 +1448,8 @@ void print_main_menu_objects(int child){
      b1c:	e1 f7       	brne	.-8      	; 0xb16 <print_main_menu_objects+0x24>
     char line2[] = "Score";
      b1e:	86 e0       	ldi	r24, 0x06	; 6
-     b20:	e4 e0       	ldi	r30, 0x04	; 4
-     b22:	f2 e0       	ldi	r31, 0x02	; 2
+     b20:	ee ef       	ldi	r30, 0xFE	; 254
+     b22:	f1 e0       	ldi	r31, 0x01	; 1
      b24:	de 01       	movw	r26, r28
      b26:	16 96       	adiw	r26, 0x06	; 6
      b28:	01 90       	ld	r0, Z+
@@ -1515,7 +1511,7 @@ void print_new_game_menu_objects(int child){
 
     char line1[] = "Start game";
      b86:	8b e0       	ldi	r24, 0x0B	; 11
-     b88:	ea e0       	ldi	r30, 0x0A	; 10
+     b88:	e4 e0       	ldi	r30, 0x04	; 4
      b8a:	f2 e0       	ldi	r31, 0x02	; 2
      b8c:	de 01       	movw	r26, r28
      b8e:	11 96       	adiw	r26, 0x01	; 1
@@ -1569,14 +1565,10 @@ void print_score_menu_objects(int child){
      bd8:	0f be       	out	0x3f, r0	; 63
      bda:	cd bf       	out	0x3d, r28	; 61
      bdc:	8c 01       	movw	r16, r24
-//char score = oled_convert2ASCII(9999);
-//char score = int_to_char(9);
 
-//char score[5] = {int_to_char(8),int_to_char(7),int_to_char(6)};
-//    char score = int_to_string(9999);
 char line1[] = "Top score";
      bde:	8a e0       	ldi	r24, 0x0A	; 10
-     be0:	e7 e2       	ldi	r30, 0x27	; 39
+     be0:	e1 e2       	ldi	r30, 0x21	; 33
      be2:	f2 e0       	ldi	r31, 0x02	; 2
      be4:	de 01       	movw	r26, r28
      be6:	11 96       	adiw	r26, 0x01	; 1
@@ -1602,22 +1594,22 @@ check_highscore(score);
      bfa:	be 01       	movw	r22, r28
      bfc:	65 5f       	subi	r22, 0xF5	; 245
      bfe:	7f 4f       	sbci	r23, 0xFF	; 255
-     c00:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <_1ST>
-     c04:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <_1ST+0x1>
+     c00:	80 91 c0 03 	lds	r24, 0x03C0	; 0x8003c0 <_1ST>
+     c04:	90 91 c1 03 	lds	r25, 0x03C1	; 0x8003c1 <_1ST+0x1>
      c08:	0e 94 64 0c 	call	0x18c8	; 0x18c8 <__itoa_ncheck>
      c0c:	4a e0       	ldi	r20, 0x0A	; 10
      c0e:	be 01       	movw	r22, r28
      c10:	66 5e       	subi	r22, 0xE6	; 230
      c12:	7f 4f       	sbci	r23, 0xFF	; 255
-     c14:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <_2ND>
-     c18:	90 91 0d 01 	lds	r25, 0x010D	; 0x80010d <_2ND+0x1>
+     c14:	80 91 be 03 	lds	r24, 0x03BE	; 0x8003be <_2ND>
+     c18:	90 91 bf 03 	lds	r25, 0x03BF	; 0x8003bf <_2ND+0x1>
      c1c:	0e 94 64 0c 	call	0x18c8	; 0x18c8 <__itoa_ncheck>
      c20:	4a e0       	ldi	r20, 0x0A	; 10
      c22:	be 01       	movw	r22, r28
      c24:	67 5d       	subi	r22, 0xD7	; 215
      c26:	7f 4f       	sbci	r23, 0xFF	; 255
-     c28:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <_3RD>
-     c2c:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <_3RD+0x1>
+     c28:	80 91 b2 03 	lds	r24, 0x03B2	; 0x8003b2 <_3RD>
+     c2c:	90 91 b3 03 	lds	r25, 0x03B3	; 0x8003b3 <_3RD+0x1>
      c30:	0e 94 64 0c 	call	0x18c8	; 0x18c8 <__itoa_ncheck>
 itoa(_1ST, score_string1, 10);
 itoa(_2ND, score_string2, 10);
@@ -1638,27 +1630,22 @@ itoa(_3RD, score_string3, 10);
      c46:	82 e0       	ldi	r24, 0x02	; 2
      c48:	0e 94 87 03 	call	0x70e	; 0x70e <oled_pos_set>
     oled_print("1ST  ");
-     c4c:	85 e1       	ldi	r24, 0x15	; 21
+     c4c:	8f e0       	ldi	r24, 0x0F	; 15
      c4e:	92 e0       	ldi	r25, 0x02	; 2
      c50:	0e 94 5f 04 	call	0x8be	; 0x8be <oled_print>
-    //oled_print(&highscore1);
     oled_print(&score_string1);
      c54:	ce 01       	movw	r24, r28
      c56:	0b 96       	adiw	r24, 0x0b	; 11
      c58:	0e 94 5f 04 	call	0x8be	; 0x8be <oled_print>
-    //oled_print(&snum);
-    
-    
     
     oled_pos_set(4, 12);
      c5c:	6c e0       	ldi	r22, 0x0C	; 12
      c5e:	84 e0       	ldi	r24, 0x04	; 4
      c60:	0e 94 87 03 	call	0x70e	; 0x70e <oled_pos_set>
     oled_print("2ND  ");
-     c64:	8b e1       	ldi	r24, 0x1B	; 27
+     c64:	85 e1       	ldi	r24, 0x15	; 21
      c66:	92 e0       	ldi	r25, 0x02	; 2
      c68:	0e 94 5f 04 	call	0x8be	; 0x8be <oled_print>
-    //oled_print(&highscore2);
     oled_print(&score_string2);
      c6c:	ce 01       	movw	r24, r28
      c6e:	4a 96       	adiw	r24, 0x1a	; 26
@@ -1669,10 +1656,9 @@ itoa(_3RD, score_string3, 10);
      c76:	86 e0       	ldi	r24, 0x06	; 6
      c78:	0e 94 87 03 	call	0x70e	; 0x70e <oled_pos_set>
     oled_print("3RD  ");
-     c7c:	81 e2       	ldi	r24, 0x21	; 33
+     c7c:	8b e1       	ldi	r24, 0x1B	; 27
      c7e:	92 e0       	ldi	r25, 0x02	; 2
      c80:	0e 94 5f 04 	call	0x8be	; 0x8be <oled_print>
-    //oled_print(&highscore3);
     oled_print(&score_string3);
      c84:	ce 01       	movw	r24, r28
      c86:	89 96       	adiw	r24, 0x29	; 41
@@ -1712,7 +1698,7 @@ void update_screen(Node *current_node, int child){
      cb2:	81 36       	cpi	r24, 0x61	; 97
      cb4:	41 f4       	brne	.+16     	; 0xcc6 <update_screen+0x1e>
         printf("Update  MAIN_MENU screen\t\n");
-     cb6:	81 e3       	ldi	r24, 0x31	; 49
+     cb6:	8b e2       	ldi	r24, 0x2B	; 43
      cb8:	92 e0       	ldi	r25, 0x02	; 2
      cba:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
         print_main_menu_objects(child);
@@ -1725,7 +1711,7 @@ void update_screen(Node *current_node, int child){
      cc6:	8c 36       	cpi	r24, 0x6C	; 108
      cc8:	41 f4       	brne	.+16     	; 0xcda <update_screen+0x32>
         printf("Update PLAY menu\t\n");
-     cca:	8b e4       	ldi	r24, 0x4B	; 75
+     cca:	85 e4       	ldi	r24, 0x45	; 69
      ccc:	92 e0       	ldi	r25, 0x02	; 2
      cce:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
         print_new_game_menu_objects(child);
@@ -1767,17 +1753,17 @@ void menu(){
     static Node Main_menu, Score, Play, Settings, Difficulty, Debugging, *current_node;
 
     current_node = &Main_menu; //Startnoden
-     cfe:	8c e8       	ldi	r24, 0x8C	; 140
+     cfe:	86 e8       	ldi	r24, 0x86	; 134
      d00:	93 e0       	ldi	r25, 0x03	; 3
-     d02:	90 93 b7 03 	sts	0x03B7, r25	; 0x8003b7 <current_node.2450+0x1>
-     d06:	80 93 b6 03 	sts	0x03B6, r24	; 0x8003b6 <current_node.2450>
+     d02:	90 93 b1 03 	sts	0x03B1, r25	; 0x8003b1 <current_node.2446+0x1>
+     d06:	80 93 b0 03 	sts	0x03B0, r24	; 0x8003b0 <current_node.2446>
     DIRECTION action; //Handling som er gjort på Joysticken
     int child = 1; //Barnet som man "howrer" over på skjermen. Default er øverste barnet.
 
     //Bygger nodestrukturen
     Node* children1[8] = {&Play, &Score,0 ,0 ,0 ,0 ,0 ,0};
      d0a:	80 e1       	ldi	r24, 0x10	; 16
-     d0c:	e0 e1       	ldi	r30, 0x10	; 16
+     d0c:	ea e0       	ldi	r30, 0x0A	; 10
      d0e:	f1 e0       	ldi	r31, 0x01	; 1
      d10:	de 01       	movw	r26, r28
      d12:	11 96       	adiw	r26, 0x01	; 1
@@ -1818,11 +1804,11 @@ void menu(){
      d4c:	1f 4f       	sbci	r17, 0xFF	; 255
      d4e:	20 e0       	ldi	r18, 0x00	; 0
      d50:	30 e0       	ldi	r19, 0x00	; 0
-     d52:	4d e5       	ldi	r20, 0x5D	; 93
+     d52:	47 e5       	ldi	r20, 0x57	; 87
      d54:	52 e0       	ldi	r21, 0x02	; 2
      d56:	60 e0       	ldi	r22, 0x00	; 0
      d58:	70 e0       	ldi	r23, 0x00	; 0
-     d5a:	8c e8       	ldi	r24, 0x8C	; 140
+     d5a:	86 e8       	ldi	r24, 0x86	; 134
      d5c:	93 e0       	ldi	r25, 0x03	; 3
      d5e:	0e 94 a6 04 	call	0x94c	; 0x94c <build_node>
     build_node(&Play, &Main_menu, "Play game", play_game, &children2,1);
@@ -1832,11 +1818,11 @@ void menu(){
      d68:	85 01       	movw	r16, r10
      d6a:	2b e9       	ldi	r18, 0x9B	; 155
      d6c:	34 e0       	ldi	r19, 0x04	; 4
-     d6e:	47 e6       	ldi	r20, 0x67	; 103
+     d6e:	41 e6       	ldi	r20, 0x61	; 97
      d70:	52 e0       	ldi	r21, 0x02	; 2
-     d72:	6c e8       	ldi	r22, 0x8C	; 140
+     d72:	66 e8       	ldi	r22, 0x86	; 134
      d74:	73 e0       	ldi	r23, 0x03	; 3
-     d76:	82 e6       	ldi	r24, 0x62	; 98
+     d76:	8c e5       	ldi	r24, 0x5C	; 92
      d78:	93 e0       	ldi	r25, 0x03	; 3
      d7a:	0e 94 a6 04 	call	0x94c	; 0x94c <build_node>
     build_node(&Score, &Main_menu, "Show score", NULL, &children3,8);
@@ -1847,19 +1833,19 @@ void menu(){
      d86:	86 01       	movw	r16, r12
      d88:	20 e0       	ldi	r18, 0x00	; 0
      d8a:	30 e0       	ldi	r19, 0x00	; 0
-     d8c:	41 e7       	ldi	r20, 0x71	; 113
+     d8c:	4b e6       	ldi	r20, 0x6B	; 107
      d8e:	52 e0       	ldi	r21, 0x02	; 2
-     d90:	6c e8       	ldi	r22, 0x8C	; 140
+     d90:	66 e8       	ldi	r22, 0x86	; 134
      d92:	73 e0       	ldi	r23, 0x03	; 3
-     d94:	88 e3       	ldi	r24, 0x38	; 56
+     d94:	82 e3       	ldi	r24, 0x32	; 50
      d96:	93 e0       	ldi	r25, 0x03	; 3
      d98:	0e 94 a6 04 	call	0x94c	; 0x94c <build_node>
 
     update_screen(current_node, child);
      d9c:	61 e0       	ldi	r22, 0x01	; 1
      d9e:	70 e0       	ldi	r23, 0x00	; 0
-     da0:	80 91 b6 03 	lds	r24, 0x03B6	; 0x8003b6 <current_node.2450>
-     da4:	90 91 b7 03 	lds	r25, 0x03B7	; 0x8003b7 <current_node.2450+0x1>
+     da0:	80 91 b0 03 	lds	r24, 0x03B0	; 0x8003b0 <current_node.2446>
+     da4:	90 91 b1 03 	lds	r25, 0x03B1	; 0x8003b1 <current_node.2446+0x1>
      da8:	0e 94 54 06 	call	0xca8	; 0xca8 <update_screen>
 
     static Node Main_menu, Score, Play, Settings, Difficulty, Debugging, *current_node;
@@ -1877,7 +1863,7 @@ void menu(){
         printf("After switch\t\n");
         printf("Nodenavn %c \t\n",((*current_node).name[0]));
      db2:	0f 2e       	mov	r0, r31
-     db4:	fb ec       	ldi	r31, 0xCB	; 203
+     db4:	f5 ec       	ldi	r31, 0xC5	; 197
      db6:	cf 2e       	mov	r12, r31
      db8:	f2 e0       	ldi	r31, 0x02	; 2
      dba:	df 2e       	mov	r13, r31
@@ -1888,21 +1874,21 @@ void menu(){
 
     while(1){
         printf("Før Wait for action\t\n");
-     dbe:	8c e7       	ldi	r24, 0x7C	; 124
+     dbe:	86 e7       	ldi	r24, 0x76	; 118
      dc0:	92 e0       	ldi	r25, 0x02	; 2
      dc2:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
         action = wait_for_action();  //Wait for user to move the joystick
      dc6:	0e 94 0a 05 	call	0xa14	; 0xa14 <wait_for_action>
      dca:	18 2f       	mov	r17, r24
         printf("Før oled clear\t\n");
-     dcc:	82 e9       	ldi	r24, 0x92	; 146
+     dcc:	8c e8       	ldi	r24, 0x8C	; 140
      dce:	92 e0       	ldi	r25, 0x02	; 2
      dd0:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
         oled_clear();  //Clears the screen.
      dd4:	0e 94 95 03 	call	0x72a	; 0x72a <oled_clear>
 
         printf("Før switch\t\n");
-     dd8:	83 ea       	ldi	r24, 0xA3	; 163
+     dd8:	8d e9       	ldi	r24, 0x9D	; 157
      dda:	92 e0       	ldi	r25, 0x02	; 2
      ddc:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
         switch(action)
@@ -1927,8 +1913,8 @@ int update_element_up(Node *current_node, int child){
     if(child == 0){
      df6:	41 f5       	brne	.+80     	; 0xe48 <menu+0x15e>
         child = current_node->elements_on_screen;
-     df8:	e0 91 b6 03 	lds	r30, 0x03B6	; 0x8003b6 <current_node.2450>
-     dfc:	f0 91 b7 03 	lds	r31, 0x03B7	; 0x8003b7 <current_node.2450+0x1>
+     df8:	e0 91 b0 03 	lds	r30, 0x03B0	; 0x8003b0 <current_node.2446>
+     dfc:	f0 91 b1 03 	lds	r31, 0x03B1	; 0x8003b1 <current_node.2446+0x1>
      e00:	e2 88       	ldd	r14, Z+18	; 0x12
      e02:	f3 88       	ldd	r15, Z+19	; 0x13
      e04:	21 c0       	rjmp	.+66     	; 0xe48 <menu+0x15e>
@@ -1939,19 +1925,19 @@ int update_element_up(Node *current_node, int child){
           case DOWN:
                 child = update_element_down(current_node, child);
      e06:	b7 01       	movw	r22, r14
-     e08:	80 91 b6 03 	lds	r24, 0x03B6	; 0x8003b6 <current_node.2450>
-     e0c:	90 91 b7 03 	lds	r25, 0x03B7	; 0x8003b7 <current_node.2450+0x1>
+     e08:	80 91 b0 03 	lds	r24, 0x03B0	; 0x8003b0 <current_node.2446>
+     e0c:	90 91 b1 03 	lds	r25, 0x03B1	; 0x8003b1 <current_node.2446+0x1>
      e10:	0e 94 40 05 	call	0xa80	; 0xa80 <update_element_down>
      e14:	7c 01       	movw	r14, r24
               break;
      e16:	18 c0       	rjmp	.+48     	; 0xe48 <menu+0x15e>
           case LEFT:
                 printf("Left\t\n");
-     e18:	80 eb       	ldi	r24, 0xB0	; 176
+     e18:	8a ea       	ldi	r24, 0xAA	; 170
      e1a:	92 e0       	ldi	r25, 0x02	; 2
      e1c:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
                 go_up(&current_node);
-     e20:	86 eb       	ldi	r24, 0xB6	; 182
+     e20:	80 eb       	ldi	r24, 0xB0	; 176
      e22:	93 e0       	ldi	r25, 0x03	; 3
      e24:	0e 94 d0 04 	call	0x9a0	; 0x9a0 <go_up>
                 child = 1;
@@ -1962,12 +1948,12 @@ int update_element_up(Node *current_node, int child){
      e2e:	0c c0       	rjmp	.+24     	; 0xe48 <menu+0x15e>
           case RIGHT:
                 printf("RIGHT\t\n");
-     e30:	86 eb       	ldi	r24, 0xB6	; 182
+     e30:	80 eb       	ldi	r24, 0xB0	; 176
      e32:	92 e0       	ldi	r25, 0x02	; 2
      e34:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
                 go_down(&current_node, child);
      e38:	b7 01       	movw	r22, r14
-     e3a:	86 eb       	ldi	r24, 0xB6	; 182
+     e3a:	80 eb       	ldi	r24, 0xB0	; 176
      e3c:	93 e0       	ldi	r25, 0x03	; 3
      e3e:	0e 94 e4 04 	call	0x9c8	; 0x9c8 <go_down>
                 child = 1;
@@ -1980,12 +1966,12 @@ int update_element_up(Node *current_node, int child){
         }
 
         printf("After switch\t\n");
-     e48:	8d eb       	ldi	r24, 0xBD	; 189
+     e48:	87 eb       	ldi	r24, 0xB7	; 183
      e4a:	92 e0       	ldi	r25, 0x02	; 2
      e4c:	0e 94 ea 0c 	call	0x19d4	; 0x19d4 <puts>
         printf("Nodenavn %c \t\n",((*current_node).name[0]));
-     e50:	e0 91 b6 03 	lds	r30, 0x03B6	; 0x8003b6 <current_node.2450>
-     e54:	f0 91 b7 03 	lds	r31, 0x03B7	; 0x8003b7 <current_node.2450+0x1>
+     e50:	e0 91 b0 03 	lds	r30, 0x03B0	; 0x8003b0 <current_node.2446>
+     e54:	f0 91 b1 03 	lds	r31, 0x03B1	; 0x8003b1 <current_node.2446+0x1>
      e58:	86 89       	ldd	r24, Z+22	; 0x16
      e5a:	1f 92       	push	r1
      e5c:	8f 93       	push	r24
@@ -1994,8 +1980,8 @@ int update_element_up(Node *current_node, int child){
      e62:	0e 94 d4 0c 	call	0x19a8	; 0x19a8 <printf>
         update_screen(current_node, child);
      e66:	b7 01       	movw	r22, r14
-     e68:	80 91 b6 03 	lds	r24, 0x03B6	; 0x8003b6 <current_node.2450>
-     e6c:	90 91 b7 03 	lds	r25, 0x03B7	; 0x8003b7 <current_node.2450+0x1>
+     e68:	80 91 b0 03 	lds	r24, 0x03B0	; 0x8003b0 <current_node.2446>
+     e6c:	90 91 b1 03 	lds	r25, 0x03B1	; 0x8003b1 <current_node.2446+0x1>
      e70:	0e 94 54 06 	call	0xca8	; 0xca8 <update_screen>
         wait_for_neutral_joystick_position();
      e74:	0e 94 3b 05 	call	0xa76	; 0xa76 <wait_for_neutral_joystick_position>
@@ -2028,8 +2014,8 @@ int update_element_up(Node *current_node, int child){
      ea8:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <ADC_read>
      eac:	68 2f       	mov	r22, r24
      eae:	70 e0       	ldi	r23, 0x00	; 0
-     eb0:	00 91 b8 03 	lds	r16, 0x03B8	; 0x8003b8 <P_cal>
-     eb4:	10 91 b9 03 	lds	r17, 0x03B9	; 0x8003b9 <P_cal+0x1>
+     eb0:	00 91 b4 03 	lds	r16, 0x03B4	; 0x8003b4 <P_cal>
+     eb4:	10 91 b5 03 	lds	r17, 0x03B5	; 0x8003b5 <P_cal+0x1>
      eb8:	c8 01       	movw	r24, r16
      eba:	0a 97       	sbiw	r24, 0x0a	; 10
      ebc:	68 17       	cp	r22, r24
@@ -2107,8 +2093,8 @@ int update_element_up(Node *current_node, int child){
      f64:	02 c0       	rjmp	.+4      	; 0xf6a <pos_read+0xe8>
      f66:	c1 2c       	mov	r12, r1
      f68:	d1 2c       	mov	r13, r1
-     f6a:	00 91 ba 03 	lds	r16, 0x03BA	; 0x8003ba <P_cal+0x2>
-     f6e:	10 91 bb 03 	lds	r17, 0x03BB	; 0x8003bb <P_cal+0x3>
+     f6a:	00 91 b6 03 	lds	r16, 0x03B6	; 0x8003b6 <P_cal+0x2>
+     f6e:	10 91 b7 03 	lds	r17, 0x03B7	; 0x8003b7 <P_cal+0x3>
      f72:	c8 01       	movw	r24, r16
      f74:	0a 97       	sbiw	r24, 0x0a	; 10
      f76:	c8 17       	cp	r28, r24
@@ -2228,10 +2214,10 @@ int update_element_up(Node *current_node, int child){
     106e:	ff 92       	push	r15
     1070:	cf 93       	push	r28
     1072:	df 93       	push	r29
-    1074:	8c eb       	ldi	r24, 0xBC	; 188
+    1074:	88 eb       	ldi	r24, 0xB8	; 184
     1076:	93 e0       	ldi	r25, 0x03	; 3
     1078:	0e 94 41 07 	call	0xe82	; 0xe82 <pos_read>
-    107c:	ec eb       	ldi	r30, 0xBC	; 188
+    107c:	e8 eb       	ldi	r30, 0xB8	; 184
     107e:	f3 e0       	ldi	r31, 0x03	; 3
     1080:	e0 80       	ld	r14, Z
     1082:	f1 80       	ldd	r15, Z+1	; 0x01
@@ -2446,7 +2432,7 @@ int main(void)
     1226:	99 e0       	ldi	r25, 0x09	; 9
     1228:	0e 94 89 0c 	call	0x1912	; 0x1912 <fdevopen>
     ADC_calibrate(&P_cal);
-    122c:	88 eb       	ldi	r24, 0xB8	; 184
+    122c:	84 eb       	ldi	r24, 0xB4	; 180
     122e:	93 e0       	ldi	r25, 0x03	; 3
     1230:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <ADC_calibrate>
     OLED_init();
@@ -2471,7 +2457,7 @@ int main(void)
     
     CAN_message_t revieve_message;
     printf("Initiating node 1 \n\r");
-    124a:	8a ed       	ldi	r24, 0xDA	; 218
+    124a:	84 ed       	ldi	r24, 0xD4	; 212
     124c:	92 e0       	ldi	r25, 0x02	; 2
     124e:	9f 93       	push	r25
     1250:	8f 93       	push	r24
@@ -2484,9 +2470,9 @@ int main(void)
         
         //printf("Right button pressed: %d , Left button pressed: %d  joy button pressed: %d \r", usb_button_pushed(RIGHT_BUTTON), usb_button_pushed(LEFT_BUTTON), usb_button_pushed(JOYSTICK_BUTTON) );
         printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
-    125a:	cc eb       	ldi	r28, 0xBC	; 188
+    125a:	c8 eb       	ldi	r28, 0xB8	; 184
     125c:	d3 e0       	ldi	r29, 0x03	; 3
-    125e:	0f ee       	ldi	r16, 0xEF	; 239
+    125e:	09 ee       	ldi	r16, 0xE9	; 233
     1260:	12 e0       	ldi	r17, 0x02	; 2
        //uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
        //uint8_t joyDirection = joystick_direction(); 
