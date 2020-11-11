@@ -79,6 +79,10 @@ void oled_pos_set(uint8_t row, uint8_t col);
  * @param page The page that should be cleared
  */
 void oled_clear_line(uint8_t page);
+char* int_to_string(int number);
+char int_to_char(uint8_t convert);
+char oled_convert2ASCII(char* convert);
+void check_highscore(int highscore);
 
 /**
  * @brief Writes a char on the OLED

@@ -73,9 +73,10 @@ int main(void)
     
     CAN_message_t revieve_message;
     printf("Initiating node 1 \n\r");
+    
+    //printf("showscore is: %c")
     while (1) {
     //    CAN_message_transmission(&test_message);
-    
     
        //uint8_t joyButton = usb_button_pushed(JOYSTICK_BUTTON);
        //uint8_t joyDirection = joystick_direction(); 

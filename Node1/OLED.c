@@ -105,6 +105,24 @@ void oled_clear_line(uint8_t page){
     }
 }
 
+char* int_to_string(int number){
+    char strNum[15];    //buffer    
+    itoa(number, strNum, 10);
+     
+return strNum;
+}
+
+char int_to_char(uint8_t convert){
+    return convert + 48;
+}
+
+//char oled_convert2ASCII(int convert){
+//  char buffer[50];
+//  uint8_t length = strlen(convert);
+//  uint32_t result = snprintf(buffer, length, "%s", convert);
+//return result;
+//}
+
 void oled_write_character(uint8_t c){
      for(uint8_t i = 0; i < 8; i++){
          write_data(pgm_read_byte( &font8[c-32][i] ) );

@@ -8,6 +8,12 @@
 #include "OLED_menu.h"
 
 
+//volatile char highscore1[5] = {49,48,48,48};
+//volatile char highscore2[5] = {49,54,57,51};
+//volatile char highscore3[5] = {49,54,53,48};
+int _1ST = 1;
+int _2ND = 2;
+int _3RD = 3;
 
 
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
@@ -195,13 +201,61 @@ void print_new_game_menu_objects(int child){
     print_selecting_arrow(child);
 }
 
+void check_highscore(int highscore){
+    if(highscore >= _1ST){   //check if new highscore
+        _1ST = highscore;
+    }
+    else if(    (highscore < _1ST) && (highscore > _2ND)    )    {  //check if new second best
+        _2ND = highscore;
+    }
+    else if(    (highscore < _2ND) && (highscore > _3RD)    ){ //check if new third best
+        _3RD = highscore;
+    }
+    
+}
+
 void print_score_menu_objects(int child){
+//char score = oled_convert2ASCII(9999);
+//char score = int_to_char(9);
 
-    char line1[] = "Top score";
+//char score[5] = {int_to_char(8),int_to_char(7),int_to_char(6)};
+//    char score = int_to_string(9999);
+char line1[] = "Top score";
+    
+    
+int score = 32000;
 
+check_highscore(score);
+
+char score_string1[15];
+char score_string2[15];
+char score_string3[15];
+itoa(_1ST, score_string1, 10);
+itoa(_2ND, score_string2, 10);
+itoa(_3RD, score_string3, 10);    
+
+    
     oled_pos_set(0, 12);
     oled_print(&line1);
 
+    oled_pos_set(2, 12);
+    oled_print("1ST  ");
+    //oled_print(&highscore1);
+    oled_print(&score_string1);
+    //oled_print(&snum);
+    
+    
+    
+    oled_pos_set(4, 12);
+    oled_print("2ND  ");
+    //oled_print(&highscore2);
+    oled_print(&score_string2);
+
+    oled_pos_set(6, 12);
+    oled_print("3RD  ");
+    //oled_print(&highscore3);
+    oled_print(&score_string3);
+    
     print_selecting_arrow(child);
 
 }
@@ -222,6 +276,8 @@ void play_game(){
 	}
 }
 
-void show_score(){
-
-}
+//void show_score(){
+//   char score = oled_convert2ASCII(1111);
+////   oled_clear();
+// //  oled_print(score);
+//}
