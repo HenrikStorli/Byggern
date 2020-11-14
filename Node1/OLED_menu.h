@@ -123,6 +123,8 @@ void print_new_game_menu_objects(int child);
  */
 void print_score_menu_objects(int child);
 
+void print_difficulty_menu_objects(int child);
+
 /**
  * @brief Prints arrow showing wich element is selected.
  *
@@ -137,8 +139,7 @@ void play_game();
 
 void show_score();
 
+void set_difficulty();
 
-
-// https://www.codeproject.com/Articles/794047/Finite-State-Menu
 
 #endif /* OLED_MENU_H_ */

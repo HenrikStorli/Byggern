@@ -71,6 +71,20 @@ void CAN0_Handler( void )
 		else if(message.id == 9){
 			reset_count();
 		}
+		else if(message.id == 5){
+			switch(message.data[0]){
+				case 1:
+					init_motor_controller_parameters(0.003, 0.9, 0);
+					break;
+				case 2:
+					init_motor_controller_parameters(0.003, 0.7, 0);
+					break;
+				case 3:
+					init_motor_controller_parameters(0.003, 0.5, 0);
+					break;
+			}
+					
+		}
 
 	}
 	

@@ -9,6 +9,8 @@
 
 int _1ST, _2ND, _3RD = 0;
 
+int child = 1; //Barnet som man "howrer" over på skjermen. Default er øverste barnet.
+
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
     this_node->Parent = father_node;
     strcpy(this_node->name, node_name);
@@ -82,6 +84,9 @@ void update_screen(Node *current_node, int child){
     else if(((*current_node).name[1]) == 'h'){
         print_score_menu_objects(child);
     }
+	else if(((*current_node).name[1]) == 'i'){
+		print_difficulty_menu_objects(child);
+	}
 
 }
 
@@ -111,22 +116,30 @@ int update_element_down(Node *current_node, int child){
 
 void menu(){
 
-    static Node Main_menu, Score, Play, Settings, Difficulty, Debugging, *current_node;
+    static Node Main_menu, Score, Play, Difficulty, Easy, Medium, Hard, *current_node;
 
     current_node = &Main_menu; //Startnoden
     DIRECTION action; //Handling som er gjort på Joysticken
-    int child = 1; //Barnet som man "howrer" over på skjermen. Default er øverste barnet.
 
     //Bygger nodestrukturen
-    Node* children1[8] = {&Play, &Score,0 ,0 ,0 ,0 ,0 ,0};
+    Node* children1[8] = {&Play, &Score, &Difficulty ,0 ,0 ,0 ,0 ,0};
     Node* children2[8] = {0, 0, 0, 0, 0, 0, 0, 0};
     Node* children3[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+	Node* children4[8] = {&Easy, &Medium, &Hard, 0, 0, 0, 0, 0};
+		
+		
 
 
 
-    build_node(&Main_menu, NULL, "Main menu", NULL, &children1,2);
+    build_node(&Main_menu, NULL, "Main menu", NULL, &children1,3);
     build_node(&Play, &Main_menu, "Play game", play_game, &children2,1);
     build_node(&Score, &Main_menu, "Show score", NULL, &children3,8);
+	build_node(&Difficulty, &Main_menu, "Difficulty", set_difficulty, &children2, 3);
+	//build_node(&Difficulty, &Main_menu, "Difficulty", NULL, &children4, 3);
+	//build_node(&Easy, &Difficulty, "Easy", set_difficulty_easy, &children2, 0);
+	//build_node(&Medium, &Difficulty, "Easy", set_difficulty_medium, &children2, 0);
+	//build_node(&Hard, &Difficulty, "Easy", set_difficulty_hard, &children2, 0);
+	
 
     update_screen(current_node, child);
 
@@ -168,12 +181,18 @@ void menu(){
 void print_main_menu_objects(int child){
     char line1[] = "play";
     char line2[] = "Score";
+	char line3[] = "Difficulty";
 
     oled_pos_set(0, 12);
     oled_print(&line1);
 
     oled_pos_set(1, 12);
     oled_print(&line2);
+	
+	oled_pos_set(2, 12);
+	oled_print(&line3);
+	
+	
 
     print_selecting_arrow(child);       //Draw the arrow that selects the preferable option.
     
@@ -236,6 +255,24 @@ itoa(_3RD, score_string3, 10);
 
 }
 
+void print_difficulty_menu_objects(int child){
+	char line1[] = "Easy";
+	char line2[] = "Medium";
+	char line3[] = "Hard";
+
+	oled_pos_set(0, 12);
+	oled_print(&line1);
+
+	oled_pos_set(1, 12);
+	oled_print(&line2);
+	
+	oled_pos_set(2, 12);
+	oled_print(&line3);
+	
+	print_selecting_arrow(child);       //Draw the arrow that selects the preferable option.
+	
+}
+
 
 void print_selecting_arrow(int child){
     oled_print_arrow(child - 1, 5);
@@ -277,6 +314,26 @@ void play_game(){
 	
 	check_highscore(highscore);
 	
+}
+
+void set_difficulty(){
+	CAN_message_t difficulty_message;
+	difficulty_message.identifier = 5;
+	difficulty_message.data_length = 1;
+	
+	if(child == 1){
+		difficulty_message.data[0] = 1;
+		printf("EASY");
+	}
+	else if(child == 2){
+		difficulty_message.data[0] = 2;
+		printf("Medium");
+	}
+	else if(child == 3){
+		difficulty_message.data[0] = 3;
+		printf("Hard");	
+	}
+	CAN_message_transmission(&difficulty_message);
 }
 
 //void show_score(){
