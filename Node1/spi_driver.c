@@ -17,7 +17,6 @@ void spi_write(char data){
 char spi_read(void){
 
     spi_write(DUMMY);
-    //printf("SPI data sent is");
     return SPDR;
 }
 
