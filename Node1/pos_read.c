@@ -18,27 +18,27 @@ void pos_read(position* pos){
 
     // X read
 
-    if((ADC_X >= (P_cal.center_X - 10)) && (ADC_X <= (P_cal.center_X + 10))){ //Deadspace for joystick
+    if((ADC_X >= (P_cal.center_X - 20)) && (ADC_X <= (P_cal.center_X + 20))){ //Deadspace for joystick
         ADC_X = 0;
     }
-    else if(ADC_X > (P_cal.center_X + 10)){
+    else if(ADC_X > (P_cal.center_X + 20)){
         ADC_X = (ADC_X - P_cal.center_X) * 100.0 / (255.0 - P_cal.center_X);  //
     }
 
-    else if (ADC_X < (P_cal.center_X - 10)){
+    else if (ADC_X < (P_cal.center_X - 20)){
         ADC_X = (ADC_X / ((float)P_cal.center_X)) * 100 - 100;   // // Scaling when value is larger then center value
     }
 
     // Y read
 
-    if(ADC_Y >= (P_cal.center_Y - 10) && ADC_Y <= (P_cal.center_Y + 10)){  //Deadspace for joystick
+    if(ADC_Y >= (P_cal.center_Y - 80) && ADC_Y <= (P_cal.center_Y + 80)){  //Deadspace for joystick
         ADC_Y = 0;
     }
-    else if(ADC_Y > (P_cal.center_Y + 10)){
+    else if(ADC_Y > (P_cal.center_Y + 80)){
         ADC_Y = (ADC_Y - (P_cal.center_Y)) * 100.0 / (255.0 - P_cal.center_Y);  // Scaling when value is larger then center value
     }
 
-    else if (ADC_Y < (P_cal.center_Y - 10)){
+    else if (ADC_Y < (P_cal.center_Y - 80)){
         ADC_Y = (ADC_Y / ((float)P_cal.center_Y)) * 100 - 100;   // Scaling when value is smaller then center value
     }
 

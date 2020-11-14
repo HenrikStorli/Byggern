@@ -75,7 +75,7 @@ int main(void)
 		
 
 		
-		uint16_t ir_value = IR_read();
+		//uint16_t ir_value = IR_read();
 		
 		//game_over_message.data[0] = 0b10101010;
 		//mailbox_busy = can_send(&game_over_message, 1);

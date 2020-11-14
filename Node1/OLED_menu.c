@@ -191,9 +191,13 @@ void print_new_game_menu_objects(int child){
 
 void check_highscore(int highscore){
     if(highscore >= _1ST){   //check if new highscore
+		_3RD = _2ND;
+		_2ND = _1ST;
         _1ST = highscore;
+		
     }
     else if(    (highscore < _1ST) && (highscore > _2ND)    )    {  //check if new second best
+		_3RD = _2ND;
         _2ND = highscore;
     }
     else if(    (highscore < _2ND) && (highscore > _3RD)    ){ //check if new third best
