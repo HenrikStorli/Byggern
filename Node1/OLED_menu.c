@@ -251,6 +251,14 @@ void play_game(){
 	CAN_message_t game_status;
 	game_status.data[0] = 0;
 	uint8_t game_on = 1;
+	
+	CAN_message_t start_game;
+	start_game.identifier = 9;
+	start_game.data[0] = 7;
+	start_game.data_length = 1;
+	
+	CAN_message_transmission(&start_game);
+		
 		
 	while(game_on){
 		joyStick_Can_Message();

@@ -17,6 +17,8 @@
 
 #include "can_controller.h"
 
+#include "Timer.h"
+
 #define DEBUG_INTERRUPT 0
 
 /**
@@ -59,11 +61,16 @@ void CAN0_Handler( void )
 		if(DEBUG_INTERRUPT)printf("\n\r");
         
         //Fetching joystick data
+		if(message.id == 0b11111111){
 			received_joystick_data.posX = (message.data[0]) - 128;
 			received_joystick_data.posY = (message.data[1]) - 128;  
 			received_joystick_data.button_pushed = (message.data[2]) % 2;     
 			received_joystick_data.joystick_direction = (message.data[2] >> 1);
 			received_joystick_data.sliderRight = (message.data[3]);
+		}
+		else if(message.id == 9){
+			reset_count();
+		}
 
 	}
 	
