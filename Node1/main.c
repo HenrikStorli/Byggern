@@ -26,9 +26,18 @@
 #include "CAN_communication.h"
 #include "CAN_joystick_messages.h"
 
+#include "music.h"
+#include "songs.h"
+#include "notes.h"
+
+
 
 int main(void)
 {
+    InitMusic();
+    //playMusic(starwars, 2, 1);
+    //playMusic(Mario_theme, 2, 3);
+    playMusic(end_melody2, 1, 2);
     
     SRAM_init();
     ADC_timer_init();
@@ -39,6 +48,8 @@ int main(void)
     pos_readSettings();
     oled_clear();
 	CAN_init(MODE_NORMAL);
+    
+    
 	
     menu();
 
