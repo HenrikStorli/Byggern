@@ -34,7 +34,6 @@ void InitMusic()
 void playMusic( int* p_notes, uint8_t scale)	{							 /** paying tempo from 0 to 100. Higher value = slower playback*/
 //	uint16_t size = sizeof(*p_notes);
 
-
 	int note;
 	uint8_t i = 0;
    
