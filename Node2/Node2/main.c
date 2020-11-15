@@ -49,7 +49,7 @@ int main(void)
 	
 	
     while (1) 
-    {
+    {	
 
 		motor_controller_set_input();
 		servo_set_angle(received_joystick_data);
@@ -61,7 +61,7 @@ int main(void)
 			game_over_message.data[1] = count_value();
 			
 			// Reset highscore counter
-			reset_count();
+			//reset_count();
 			
 			//printf("IR_CHECK FUNGERER");
 			
@@ -69,6 +69,7 @@ int main(void)
 			mailbox_busy = can_send(&game_over_message, 0);
 			
 			//printf("MAILBOX BUSY: %d", mailbox_busy);
+			
 		}
 		
 		printf("SCORE VALUE: %d\n\r", count_value());

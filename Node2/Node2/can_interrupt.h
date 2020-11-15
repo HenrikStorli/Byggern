@@ -24,6 +24,8 @@ typedef struct joystick_data{
 
 joystick_data_t received_joystick_data;
 
+int start_game;
+
 
 void CAN0_Handler       ( void );
 
