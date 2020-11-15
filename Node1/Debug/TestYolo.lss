@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000340  00000000  00000000  00002818  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003c4b  00000000  00000000  00002b58  2**0
+  6 .debug_info   00003c3c  00000000  00000000  00002b58  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000169f  00000000  00000000  000067a3  2**0
+  7 .debug_abbrev 0000169f  00000000  00000000  00006794  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001b67  00000000  00000000  00007e42  2**0
+  8 .debug_line   00001b67  00000000  00000000  00007e33  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000008c8  00000000  00000000  000099ac  2**2
+  9 .debug_frame  000008c8  00000000  00000000  0000999c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000dbb  00000000  00000000  0000a274  2**0
+ 10 .debug_str    00000db2  00000000  00000000  0000a264  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000223f  00000000  00000000  0000b02f  2**0
+ 11 .debug_loc    00002213  00000000  00000000  0000b016  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000002b0  00000000  00000000  0000d26e  2**0
+ 12 .debug_ranges 000002b0  00000000  00000000  0000d229  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1123,7 +1123,7 @@ void InitMusic()
 void playMusic( int* p_notes, uint8_t scale)	{							 /** paying tempo from 0 to 100. Higher value = slower playback*/
      808:	fc 01       	movw	r30, r24
 
-	int duration;
+
 	int note;
 	uint8_t i = 0;
    
@@ -1159,9 +1159,9 @@ void playMusic( int* p_notes, uint8_t scale)	{							 /** paying tempo from 0 to
      826:	31 83       	std	Z+1, r19	; 0x01
      828:	20 83       	st	Z, r18
      82a:	34 96       	adiw	r30, 0x04	; 4
+		note = *p_notes;
 		p_notes++;
 
-		duration = *p_notes;
 		p_notes++;
 
 		if( p == note )
@@ -1204,7 +1204,7 @@ void playMusic( int* p_notes, uint8_t scale)	{							 /** paying tempo from 0 to
      84e:	00 c0       	rjmp	.+0      	; 0x850 <playMusic+0x48>
      850:	00 00       	nop
 
-	int duration;
+
 	int note;
 	uint8_t i = 0;
    

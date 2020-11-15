@@ -1257,21 +1257,21 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3c4b
+.debug_info     0x00000000     0x3c3c
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5d0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_info    0x000005d0      0x31c ADC_driver.o
  .debug_info    0x000008ec      0x672 CAN_communication.o
  .debug_info    0x00000f5e      0x29b CAN_joystick_messages.o
  .debug_info    0x000011f9      0x5b6 mcp2515_driver.o
- .debug_info    0x000017af      0x173 music.o
- .debug_info    0x00001922      0x92c OLED.o
- .debug_info    0x0000224e     0x1266 OLED_menu.o
- .debug_info    0x000034b4      0x2b0 pos_read.o
- .debug_info    0x00003764      0x1c3 main.o
- .debug_info    0x00003927       0xe1 spi_driver.o
- .debug_info    0x00003a08      0x17b SRAM_driver.o
- .debug_info    0x00003b83       0xc8 UART_driver.o
+ .debug_info    0x000017af      0x164 music.o
+ .debug_info    0x00001913      0x92c OLED.o
+ .debug_info    0x0000223f     0x1266 OLED_menu.o
+ .debug_info    0x000034a5      0x2b0 pos_read.o
+ .debug_info    0x00003755      0x1c3 main.o
+ .debug_info    0x00003918       0xe1 spi_driver.o
+ .debug_info    0x000039f9      0x17b SRAM_driver.o
+ .debug_info    0x00003b74       0xc8 UART_driver.o
 
 .debug_abbrev   0x00000000     0x169f
  *(.debug_abbrev)
@@ -1320,7 +1320,7 @@ END GROUP
  .debug_frame   0x000007d4       0xb0 SRAM_driver.o
  .debug_frame   0x00000884       0x44 UART_driver.o
 
-.debug_str      0x00000000      0xdbb
+.debug_str      0x00000000      0xdb2
  *(.debug_str)
  .debug_str     0x00000000      0x1f6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_str     0x000001f6      0x236 ADC_driver.o
@@ -1331,35 +1331,35 @@ END GROUP
                                 0x305 (size before relaxing)
  .debug_str     0x000006e7       0x8d mcp2515_driver.o
                                 0x2ae (size before relaxing)
- .debug_str     0x00000774       0x3d music.o
-                                0x1e9 (size before relaxing)
- .debug_str     0x000007b1      0x182 OLED.o
-                                0x2d4 (size before relaxing)
- .debug_str     0x00000933      0x362 OLED_menu.o
-                                0x68d (size before relaxing)
- .debug_str     0x00000c95       0x52 pos_read.o
-                                0x2a9 (size before relaxing)
- .debug_str     0x00000ce7       0x21 main.o
-                                0x22c (size before relaxing)
- .debug_str     0x00000d08       0x12 spi_driver.o
-                                0x190 (size before relaxing)
- .debug_str     0x00000d1a       0x6a SRAM_driver.o
+ .debug_str     0x00000774       0x34 music.o
                                 0x1e0 (size before relaxing)
- .debug_str     0x00000d84       0x37 UART_driver.o
+ .debug_str     0x000007a8      0x182 OLED.o
+                                0x2d4 (size before relaxing)
+ .debug_str     0x0000092a      0x362 OLED_menu.o
+                                0x68d (size before relaxing)
+ .debug_str     0x00000c8c       0x52 pos_read.o
+                                0x2a9 (size before relaxing)
+ .debug_str     0x00000cde       0x21 main.o
+                                0x22c (size before relaxing)
+ .debug_str     0x00000cff       0x12 spi_driver.o
+                                0x190 (size before relaxing)
+ .debug_str     0x00000d11       0x6a SRAM_driver.o
+                                0x1e0 (size before relaxing)
+ .debug_str     0x00000d7b       0x37 UART_driver.o
                                 0x199 (size before relaxing)
 
-.debug_loc      0x00000000     0x223f
+.debug_loc      0x00000000     0x2213
  *(.debug_loc)
  .debug_loc     0x00000000      0x210 ADC_driver.o
  .debug_loc     0x00000210      0x5d5 CAN_communication.o
  .debug_loc     0x000007e5      0x10e CAN_joystick_messages.o
  .debug_loc     0x000008f3      0x38e mcp2515_driver.o
- .debug_loc     0x00000c81       0xd0 music.o
- .debug_loc     0x00000d51      0x6dc OLED.o
- .debug_loc     0x0000142d      0x847 OLED_menu.o
- .debug_loc     0x00001c74      0x317 pos_read.o
- .debug_loc     0x00001f8b       0xcb main.o
- .debug_loc     0x00002056      0x1e9 SRAM_driver.o
+ .debug_loc     0x00000c81       0xa4 music.o
+ .debug_loc     0x00000d25      0x6dc OLED.o
+ .debug_loc     0x00001401      0x847 OLED_menu.o
+ .debug_loc     0x00001c48      0x317 pos_read.o
+ .debug_loc     0x00001f5f       0xcb main.o
+ .debug_loc     0x0000202a      0x1e9 SRAM_driver.o
 
 .debug_macinfo
  *(.debug_macinfo)
