@@ -22,7 +22,7 @@ typedef struct Node_t{
     struct Node_t *Parent; //
     struct Node_t* children[8];
     int elements_on_screen;
-    void (*functionPtr)(void); // //
+    void (*functionPtr)(void); // 
     char name[20];
 }Node;
 
@@ -124,7 +124,14 @@ void print_new_game_menu_objects(int child);
 void print_score_menu_objects(int child);
 
 /**
- * @brief Prints arrow showing wich element is selected.
+ * @brief Prints the objects of difficulty menu.
+ *
+ * @param child index for the child.
+ */
+void print_difficulty_menu_objects(int child);
+
+/**
+ * @brief Prints arrow showing which element is selected.
  *
  * @param child index for the child.
  */
@@ -135,10 +142,10 @@ void print_selecting_arrow(int child);
  */
 void play_game();
 
-void show_score();
+/**
+ * @brief Sets the desired difficulty.
+ */
+void set_difficulty();
 
-
-
-// https://www.codeproject.com/Articles/794047/Finite-State-Menu
 
 #endif /* OLED_MENU_H_ */

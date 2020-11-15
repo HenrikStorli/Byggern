@@ -130,8 +130,6 @@ CAN_message_t message_handler(){
         mcp_bit_modify(MCP_CANINTF, 1, 0);  // resets can interrupt flag bit for buffer 1
 
     }
-    
-    printf("FALG STATUS: %d\n\r", flag);
 return message;
 }
 
@@ -147,14 +145,14 @@ void CAN_communication_test(){
     CAN_message_transmission(&message);
     _delay_ms(10);
     if(CAN_check_interrupt()){
-       // printf("Interrupt fungerer\n\r");
-        message_recieve = message_handler();
-       // printf("DATAEN er: %d\n\r",message_recieve.data[0]);
-        //printf("identifier : %d \r\n", message.identifier); 
-        //printf("data length : %d \r\n", message.data_length);
+       printf("Interrupt fungerer\n\r");
+       message_recieve = message_handler();
+       printf("DATAEN er: %d\n\r",message_recieve.data[0]);
+       printf("identifier : %d \r\n", message.identifier); 
+       printf("data length : %d \r\n", message.data_length);
     }
     else{
-        //printf("IKKE Interrupt \r\n");
+        printf("IKKE Interrupt \r\n");
 
     }
 }
@@ -172,14 +170,14 @@ void CAN_communication_test2(){
     CAN_message_transmission(&message);
 
     if(CAN_check_interrupt()){
-       // printf("Interrupt fungerer\n\r");
-        message_recieve = message_handler();
-        //printf("DATAEN2 er: %d\n\r",message_recieve.data[0]);
-       // printf("identifier2 : %d \r\n", message.identifier); 
-       // printf("data length2 : %d \r\n", message.data_length);
+       printf("Interrupt fungerer\n\r");
+       message_recieve = message_handler();
+       printf("DATAEN2 er: %d\n\r",message_recieve.data[0]);
+       printf("identifier2 : %d \r\n", message.identifier); 
+       printf("data length2 : %d \r\n", message.data_length);
     }
     else{
-        //printf("IKKE Interrupt2 \r\n");
+        printf("IKKE Interrupt2 \r\n");
 
     }
 }

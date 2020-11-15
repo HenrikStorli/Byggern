@@ -17,6 +17,8 @@
 
 #include "can_controller.h"
 
+#include "Timer.h"
+
 #define DEBUG_INTERRUPT 0
 
 /**
@@ -58,12 +60,33 @@ void CAN0_Handler( void )
 		}
 		if(DEBUG_INTERRUPT)printf("\n\r");
         
-        //Fetching joystick data
+        // Fetching joystick data
+		if(message.id == 0b11111111){
 			received_joystick_data.posX = (message.data[0]) - 128;
 			received_joystick_data.posY = (message.data[1]) - 128;  
 			received_joystick_data.button_pushed = (message.data[2]) % 2;     
 			received_joystick_data.joystick_direction = (message.data[2] >> 1);
 			received_joystick_data.sliderRight = (message.data[3]);
+		}
+		// Start game message received and reset counter
+		else if(message.id == 9){
+			reset_count();
+		}
+		// Update difficulty message received
+		else if(message.id == 5){
+			switch(message.data[0]){
+				case 1:
+					init_motor_controller_parameters(0.003, 0.9, 0); // Easy mode
+					break;
+				case 2:
+					init_motor_controller_parameters(0.003, 0.7, 0); // Medium mode
+					break;
+				case 3:
+					init_motor_controller_parameters(0.003, 0.5, 0); // Hard mode
+					break;
+			}
+					
+		}
 
 	}
 	
