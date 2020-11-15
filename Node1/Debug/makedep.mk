@@ -10,6 +10,8 @@ CAN_joystick_messages.c
 
 mcp2515_driver.c
 
+music.c
+
 OLED.c
 
 OLED_menu.c

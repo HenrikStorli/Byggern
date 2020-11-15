@@ -6,6 +6,7 @@
  */
 
 #include "OLED_menu.h"
+#include "songs.h"
 
 int _1ST, _2ND, _3RD = 0;
 
@@ -265,6 +266,9 @@ void print_selecting_arrow(int child){
 
 void play_game(){
 	
+	// Play start music
+	playMusic(start_melody, 1, 2);
+	
 	// Empties buffer if needed
 	message_handler();
 	message_handler();
@@ -299,6 +303,9 @@ void play_game(){
 	// Update highscore
 	int highscore = game_status.data[1];
 	check_highscore(highscore);
+	
+	// Play end song
+	playMusic(end_melody2, 1, 2);
 	
 }
 

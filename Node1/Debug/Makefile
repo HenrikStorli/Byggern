@@ -41,6 +41,7 @@ C_SRCS +=  \
 ../CAN_communication.c \
 ../CAN_joystick_messages.c \
 ../mcp2515_driver.c \
+../music.c \
 ../OLED.c \
 ../OLED_menu.c \
 ../pos_read.c \
@@ -61,6 +62,7 @@ ADC_driver.o \
 CAN_communication.o \
 CAN_joystick_messages.o \
 mcp2515_driver.o \
+music.o \
 OLED.o \
 OLED_menu.o \
 pos_read.o \
@@ -74,6 +76,7 @@ ADC_driver.o \
 CAN_communication.o \
 CAN_joystick_messages.o \
 mcp2515_driver.o \
+music.o \
 OLED.o \
 OLED_menu.o \
 pos_read.o \
@@ -87,6 +90,7 @@ ADC_driver.d \
 CAN_communication.d \
 CAN_joystick_messages.d \
 mcp2515_driver.d \
+music.d \
 OLED.d \
 OLED_menu.d \
 pos_read.d \
@@ -100,6 +104,7 @@ ADC_driver.d \
 CAN_communication.d \
 CAN_joystick_messages.d \
 mcp2515_driver.d \
+music.d \
 OLED.d \
 OLED_menu.d \
 pos_read.d \
@@ -144,6 +149,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./mcp2515_driver.o: .././mcp2515_driver.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./music.o: .././music.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

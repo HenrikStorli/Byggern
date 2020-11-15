@@ -16,6 +16,10 @@
 #include "CAN_joystick_messages.h"
 #include "CAN_communication.h"
 
+//#include "music.h"
+//#include "songs.h"
+//#include "notes.h"
+
 typedef enum{MAIN_MENU, PLAY_GAME, SCORE, SETTING, DIFFICULTY, DEBUGGINGN, END_MENU} MENU_ITEMS;
 
 typedef struct Node_t{
