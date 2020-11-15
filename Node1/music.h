@@ -11,7 +11,7 @@
 
 
 void InitMusic(void);
-void playMusic( int* p_notes, uint8_t tempo, uint8_t scale);
+void playMusic( int* p_notes, uint8_t scale);
 
 
 #endif /* MUSIC_H_ */

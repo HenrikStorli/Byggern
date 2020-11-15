@@ -31,13 +31,12 @@ void InitMusic()
 	plays music.
 */
 
-void playMusic( int* p_notes, uint8_t tempo, uint8_t scale)	{							 /** paying tempo from 0 to 100. Higher value = slower playback*/
+void playMusic( int* p_notes, uint8_t scale)	{							 /** paying tempo from 0 to 100. Higher value = slower playback*/
 //	uint16_t size = sizeof(*p_notes);
 
 	int duration;
 	int note;
 	uint8_t i = 0;
-	uint16_t delay = tempo * 10000;
    
 	while( *p_notes )
 	{
@@ -64,12 +63,7 @@ void playMusic( int* p_notes, uint8_t tempo, uint8_t scale)	{							 /** paying 
 			ICR1L = note;
 		}
 		// wait duration
-		for(i=0;i<32/duration;i++)
-		{
-			for(int j = 0; j<5; j++){
-			_delay_loop_2( delay );
-			}			
-		}
+		_delay_ms(150);
 	}
 	
 
