@@ -6,6 +6,11 @@
  */ 
 
 
+/**
+* @file
+* @brief Library for using servo motor
+*/
+
 #ifndef SERVO_CTRL_H_
 #define SERVO_CTRL_H_
 

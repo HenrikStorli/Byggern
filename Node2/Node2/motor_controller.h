@@ -6,6 +6,11 @@
  */ 
 
 
+/**
+* @file
+* @brief Library for using motor controller
+*/
+
 #ifndef MOTOR_CONTROLLER_H_
 #define MOTOR_CONTROLLER_H_
 

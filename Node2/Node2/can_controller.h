@@ -8,6 +8,10 @@
  *
  */ 
 
+/**
+* @file
+* @brief Library for using CAN
+*/
 
 #ifndef CAN_CONTROLLER_H_
 #define CAN_CONTROLLER_H_

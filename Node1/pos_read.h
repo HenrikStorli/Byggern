@@ -4,6 +4,13 @@
  * Created: 16.09.2020 13:43:55
  *  Author: Herbe
  */
+
+/**
+* @file
+* @brief Library for using ADC to read joystick information
+*/
+
+
 #include "ADC_driver.h"
 #include <avr/io.h>
 

@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Library for using SRAM
+*/
+
 
 #ifndef SRAM_DRIVER_H_
 #define SRAM_DRIVER_H_

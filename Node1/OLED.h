@@ -5,6 +5,12 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Library for using OLED
+*/
+
+
 #ifndef OLED_H_
 #define OLED_H_
 

@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Library for using UART
+*/
+
 
 #ifndef UART_DRIVER_H_
 #define UART_DRIVER_H_

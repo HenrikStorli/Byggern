@@ -6,6 +6,11 @@
  */ 
 
 
+/**
+* @file
+* @brief Library for using timers
+*/
+
 #ifndef TIMER_H_
 #define TIMER_H_
 

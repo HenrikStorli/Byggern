@@ -5,6 +5,10 @@
  *  Author: Herbe
  */ 
 
+/**
+* @file
+* @brief Library for using sending joystick-information on CAN
+*/
 
 #ifndef CAN_MESSAGES_H_
 #define CAN_MESSAGES_H_

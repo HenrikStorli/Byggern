@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Library for using can controller mcp2515
+*/
+
 
 #ifndef MCP2515_DRIVER_H_
 #define MCP2515_DRIVER_H_

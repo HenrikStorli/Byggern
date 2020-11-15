@@ -1,0 +1,226 @@
+\hypertarget{mcp2515__driver_8h}{}\section{Node1/mcp2515\+\_\+driver.h File Reference}
+\label{mcp2515__driver_8h}\index{Node1/mcp2515\+\_\+driver.\+h@{Node1/mcp2515\+\_\+driver.\+h}}
+
+
+Library for using can controller mcp2515.  
+
+
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}spi\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcp2515.\+h\char`\"{}}\newline
+Include dependency graph for mcp2515\+\_\+driver.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{mcp2515__driver_8h_a43bafb28b29491ec7f871319b5a3b2f8}\label{mcp2515__driver_8h_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\#define {\bfseries F\+\_\+\+C\+PU}~4915200
+\item 
+\mbox{\Hypertarget{mcp2515__driver_8h_ac2909a28e72d56f28c0ad931c4e565af}\label{mcp2515__driver_8h_ac2909a28e72d56f28c0ad931c4e565af}} 
+\#define {\bfseries D\+D\+R\+\_\+\+S\+PI}~D\+D\+RB
+\item 
+\mbox{\Hypertarget{mcp2515__driver_8h_a811601609d4b0f1f6b28d2315e7ed525}\label{mcp2515__driver_8h_a811601609d4b0f1f6b28d2315e7ed525}} 
+\#define {\bfseries P\+O\+R\+T\+\_\+\+S\+PI}~P\+O\+R\+TB
+\item 
+\mbox{\Hypertarget{mcp2515__driver_8h_a88f7782e210e61586baf33b93240d905}\label{mcp2515__driver_8h_a88f7782e210e61586baf33b93240d905}} 
+\#define {\bfseries SS}~P\+B4
+\item 
+\mbox{\Hypertarget{mcp2515__driver_8h_aee5a6be24ec44dac3daa36e3dfef3572}\label{mcp2515__driver_8h_aee5a6be24ec44dac3daa36e3dfef3572}} 
+\#define {\bfseries C\+A\+N\+\_\+\+SS}~P\+B2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{mcp2515__driver_8h_a5fa6a2ef079250ebd179af3c6dd96191}{mcp\+\_\+init} (uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Initializes the mcp with the given mode. \end{DoxyCompactList}\item 
+void \hyperlink{mcp2515__driver_8h_ac3ccf4ef7ea2a241fdb13c479e371dbf}{mcp\+\_\+set\+\_\+mode} (uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Sets the given mode for the mcp. \end{DoxyCompactList}\item 
+void \hyperlink{mcp2515__driver_8h_a4738b8c8799b8777fd9904d242df1a80}{mcp\+\_\+write} (uint8\+\_\+t adrs, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes to the mcp controller. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{mcp2515__driver_8h_ad6a226e9294c46cfbc8e6e5897a83f29}{mcp\+\_\+read} (uint8\+\_\+t adrs)
+\begin{DoxyCompactList}\small\item\em Reads a given adrs in the mcp. \end{DoxyCompactList}\item 
+void \hyperlink{mcp2515__driver_8h_a3cc2780065652874cabcafacf653d963}{spi\+\_\+master\+\_\+\+CS} (unsigned char state)
+\begin{DoxyCompactList}\small\item\em Chip select for the mcp. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mcp2515__driver_8h_acc36729b8b5481c89446f30f030e86f9}\label{mcp2515__driver_8h_acc36729b8b5481c89446f30f030e86f9}} 
+void \hyperlink{mcp2515__driver_8h_acc36729b8b5481c89446f30f030e86f9}{mcp\+\_\+reset} ()
+\begin{DoxyCompactList}\small\item\em Resets the mcp. \end{DoxyCompactList}\item 
+void \hyperlink{mcp2515__driver_8h_a611c305b58bf47f9487cb4bcea91f042}{mcp\+\_\+bit\+\_\+modify} (uint8\+\_\+t adrs, uint8\+\_\+t mask\+\_\+byte, uint8\+\_\+t data\+\_\+byte)
+\begin{DoxyCompactList}\small\item\em Modifies one or more bits in a register in the mcp. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{mcp2515__driver_8h_a439367e9b426923a17a8df5f5afb99a0}{mcp\+\_\+read\+\_\+status} ()
+\begin{DoxyCompactList}\small\item\em Reads the mcp\textquotesingle{}s status. \end{DoxyCompactList}\item 
+void \hyperlink{mcp2515__driver_8h_ad28e655064ffa3eb194b07443a5bea42}{mcp\+\_\+request\+\_\+to\+\_\+send} (uint8\+\_\+t buffer)
+\begin{DoxyCompactList}\small\item\em Sends a request to the mcp, that a message should be sent Input \char`\"{}3\char`\"{} if all TX\textquotesingle{}s should be requested. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using can controller mcp2515. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{mcp2515__driver_8h_a611c305b58bf47f9487cb4bcea91f042}\label{mcp2515__driver_8h_a611c305b58bf47f9487cb4bcea91f042}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+bit\+\_\+modify@{mcp\+\_\+bit\+\_\+modify}}
+\index{mcp\+\_\+bit\+\_\+modify@{mcp\+\_\+bit\+\_\+modify}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+bit\+\_\+modify()}{mcp\_bit\_modify()}}
+{\footnotesize\ttfamily void mcp\+\_\+bit\+\_\+modify (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{adrs,  }\item[{uint8\+\_\+t}]{mask\+\_\+byte,  }\item[{uint8\+\_\+t}]{data\+\_\+byte }\end{DoxyParamCaption})}
+
+
+
+Modifies one or more bits in a register in the mcp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adrs} & The adres that should be modified \\
+\hline
+{\em mask\+\_\+byte} & Byte that decides which bits can be modified \\
+\hline
+{\em data\+\_\+byte} & A byte containing the new data. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_a5fa6a2ef079250ebd179af3c6dd96191}\label{mcp2515__driver_8h_a5fa6a2ef079250ebd179af3c6dd96191}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+init@{mcp\+\_\+init}}
+\index{mcp\+\_\+init@{mcp\+\_\+init}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+init()}{mcp\_init()}}
+{\footnotesize\ttfamily uint8\+\_\+t mcp\+\_\+init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Initializes the mcp with the given mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode that should be set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 If something went wrong, 0 if initialized correctly. 
+\end{DoxyReturn}
+
+
+Definition at line 11 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_ad6a226e9294c46cfbc8e6e5897a83f29}\label{mcp2515__driver_8h_ad6a226e9294c46cfbc8e6e5897a83f29}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+read@{mcp\+\_\+read}}
+\index{mcp\+\_\+read@{mcp\+\_\+read}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+read()}{mcp\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t mcp\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{adrs }\end{DoxyParamCaption})}
+
+
+
+Reads a given adrs in the mcp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adrs\+The} & adress that should be read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The message contained in the adress 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_a439367e9b426923a17a8df5f5afb99a0}\label{mcp2515__driver_8h_a439367e9b426923a17a8df5f5afb99a0}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+read\+\_\+status@{mcp\+\_\+read\+\_\+status}}
+\index{mcp\+\_\+read\+\_\+status@{mcp\+\_\+read\+\_\+status}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+read\+\_\+status()}{mcp\_read\_status()}}
+{\footnotesize\ttfamily uint8\+\_\+t mcp\+\_\+read\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the mcp\textquotesingle{}s status. 
+
+\begin{DoxyReturn}{Returns}
+Byte containing the status of the mcp 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_ad28e655064ffa3eb194b07443a5bea42}\label{mcp2515__driver_8h_ad28e655064ffa3eb194b07443a5bea42}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+request\+\_\+to\+\_\+send@{mcp\+\_\+request\+\_\+to\+\_\+send}}
+\index{mcp\+\_\+request\+\_\+to\+\_\+send@{mcp\+\_\+request\+\_\+to\+\_\+send}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+request\+\_\+to\+\_\+send()}{mcp\_request\_to\_send()}}
+{\footnotesize\ttfamily void mcp\+\_\+request\+\_\+to\+\_\+send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Sends a request to the mcp, that a message should be sent Input \char`\"{}3\char`\"{} if all TX\textquotesingle{}s should be requested. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The buffer that is requested to send \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_ac3ccf4ef7ea2a241fdb13c479e371dbf}\label{mcp2515__driver_8h_ac3ccf4ef7ea2a241fdb13c479e371dbf}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+set\+\_\+mode@{mcp\+\_\+set\+\_\+mode}}
+\index{mcp\+\_\+set\+\_\+mode@{mcp\+\_\+set\+\_\+mode}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+set\+\_\+mode()}{mcp\_set\_mode()}}
+{\footnotesize\ttfamily void mcp\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Sets the given mode for the mcp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode that should be set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_a4738b8c8799b8777fd9904d242df1a80}\label{mcp2515__driver_8h_a4738b8c8799b8777fd9904d242df1a80}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!mcp\+\_\+write@{mcp\+\_\+write}}
+\index{mcp\+\_\+write@{mcp\+\_\+write}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{mcp\+\_\+write()}{mcp\_write()}}
+{\footnotesize\ttfamily void mcp\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{adrs,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Writes to the mcp controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adrs} & The adress that should be written to \\
+\hline
+{\em value} & The value that it written \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file mcp2515\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{mcp2515__driver_8h_a3cc2780065652874cabcafacf653d963}\label{mcp2515__driver_8h_a3cc2780065652874cabcafacf653d963}} 
+\index{mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}!spi\+\_\+master\+\_\+\+CS@{spi\+\_\+master\+\_\+\+CS}}
+\index{spi\+\_\+master\+\_\+\+CS@{spi\+\_\+master\+\_\+\+CS}!mcp2515\+\_\+driver.\+h@{mcp2515\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{spi\+\_\+master\+\_\+\+C\+S()}{spi\_master\_CS()}}
+{\footnotesize\ttfamily void spi\+\_\+master\+\_\+\+CS (\begin{DoxyParamCaption}\item[{unsigned char}]{state }\end{DoxyParamCaption})}
+
+
+
+Chip select for the mcp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 0 if chips should be selected, 1 if not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file mcp2515\+\_\+driver.\+c.
+

@@ -1,0 +1,97 @@
+\hypertarget{servo__ctrl_8h}{}\section{Node2/\+Node2/servo\+\_\+ctrl.h File Reference}
+\label{servo__ctrl_8h}\index{Node2/\+Node2/servo\+\_\+ctrl.\+h@{Node2/\+Node2/servo\+\_\+ctrl.\+h}}
+
+
+Library for using servo motor.  
+
+
+{\ttfamily \#include $<$sam.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}can\+\_\+interrupt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}printf-\/stdarg.\+h\char`\"{}}\newline
+Include dependency graph for servo\+\_\+ctrl.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{servo__ctrl_8h_a890fed302c0a8bcbd179d6d8d494490a}\label{servo__ctrl_8h_a890fed302c0a8bcbd179d6d8d494490a}} 
+void \hyperlink{servo__ctrl_8h_a890fed302c0a8bcbd179d6d8d494490a}{servo\+\_\+pwm\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the pwm peripheral. \end{DoxyCompactList}\item 
+int \hyperlink{servo__ctrl_8h_a71fb0344c7e24d6a2e357b10e527924b}{servo\+\_\+set\+\_\+pwm} (float duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Sets the given pwm signal. \end{DoxyCompactList}\item 
+void \hyperlink{servo__ctrl_8h_a2c7fefe2e8978a64fd7ef7828bd567bf}{servo\+\_\+set\+\_\+angle} (\hyperlink{structjoystick__data}{joystick\+\_\+data\+\_\+t} data)
+\begin{DoxyCompactList}\small\item\em Sets the angle on the servo. \end{DoxyCompactList}\item 
+void \hyperlink{servo__ctrl_8h_ab969ad14d4cbbc14b57ff81807d6fd63}{servo\+\_\+activate\+\_\+solonoid} (\hyperlink{structjoystick__data}{joystick\+\_\+data\+\_\+t} data)
+\begin{DoxyCompactList}\small\item\em Activates the solonoid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{servo__ctrl_8h_a7402b52a5a28148b4e28c72b2b2d4994}\label{servo__ctrl_8h_a7402b52a5a28148b4e28c72b2b2d4994}} 
+void \hyperlink{servo__ctrl_8h_a7402b52a5a28148b4e28c72b2b2d4994}{servo\+\_\+set\+\_\+pwm\+\_\+test} (void)
+\begin{DoxyCompactList}\small\item\em Tests if the pwm signal is correct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using servo motor. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{servo__ctrl_8h_ab969ad14d4cbbc14b57ff81807d6fd63}\label{servo__ctrl_8h_ab969ad14d4cbbc14b57ff81807d6fd63}} 
+\index{servo\+\_\+ctrl.\+h@{servo\+\_\+ctrl.\+h}!servo\+\_\+activate\+\_\+solonoid@{servo\+\_\+activate\+\_\+solonoid}}
+\index{servo\+\_\+activate\+\_\+solonoid@{servo\+\_\+activate\+\_\+solonoid}!servo\+\_\+ctrl.\+h@{servo\+\_\+ctrl.\+h}}
+\subsubsection{\texorpdfstring{servo\+\_\+activate\+\_\+solonoid()}{servo\_activate\_solonoid()}}
+{\footnotesize\ttfamily void servo\+\_\+activate\+\_\+solonoid (\begin{DoxyParamCaption}\item[{\hyperlink{structjoystick__data}{joystick\+\_\+data\+\_\+t}}]{data }\end{DoxyParamCaption})}
+
+
+
+Activates the solonoid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Struct containing information about the joystick position \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file servo\+\_\+ctrl.\+c.
+
+\mbox{\Hypertarget{servo__ctrl_8h_a2c7fefe2e8978a64fd7ef7828bd567bf}\label{servo__ctrl_8h_a2c7fefe2e8978a64fd7ef7828bd567bf}} 
+\index{servo\+\_\+ctrl.\+h@{servo\+\_\+ctrl.\+h}!servo\+\_\+set\+\_\+angle@{servo\+\_\+set\+\_\+angle}}
+\index{servo\+\_\+set\+\_\+angle@{servo\+\_\+set\+\_\+angle}!servo\+\_\+ctrl.\+h@{servo\+\_\+ctrl.\+h}}
+\subsubsection{\texorpdfstring{servo\+\_\+set\+\_\+angle()}{servo\_set\_angle()}}
+{\footnotesize\ttfamily void servo\+\_\+set\+\_\+angle (\begin{DoxyParamCaption}\item[{\hyperlink{structjoystick__data}{joystick\+\_\+data\+\_\+t}}]{data }\end{DoxyParamCaption})}
+
+
+
+Sets the angle on the servo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Struct containing information about the joystick position \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file servo\+\_\+ctrl.\+c.
+
+\mbox{\Hypertarget{servo__ctrl_8h_a71fb0344c7e24d6a2e357b10e527924b}\label{servo__ctrl_8h_a71fb0344c7e24d6a2e357b10e527924b}} 
+\index{servo\+\_\+ctrl.\+h@{servo\+\_\+ctrl.\+h}!servo\+\_\+set\+\_\+pwm@{servo\+\_\+set\+\_\+pwm}}
+\index{servo\+\_\+set\+\_\+pwm@{servo\+\_\+set\+\_\+pwm}!servo\+\_\+ctrl.\+h@{servo\+\_\+ctrl.\+h}}
+\subsubsection{\texorpdfstring{servo\+\_\+set\+\_\+pwm()}{servo\_set\_pwm()}}
+{\footnotesize\ttfamily int servo\+\_\+set\+\_\+pwm (\begin{DoxyParamCaption}\item[{float}]{duty\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+Sets the given pwm signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty\+\_\+cycle} & duty cycleof the pwm\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if duty\+\_\+cycle is too large or too small, else return 0. 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file servo\+\_\+ctrl.\+c.
+

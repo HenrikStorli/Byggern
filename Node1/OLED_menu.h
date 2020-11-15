@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief File for handling the oled-menu
+*/
+
 
 #ifndef OLED_MENU_H_
 #define OLED_MENU_H_

@@ -1,3 +1,9 @@
+/**
+* @file
+* @brief Library for using CAN
+*/
+
+
 #ifndef CAN_COMMUNICATION_H_
 #define CAN_COMMUNICATION_H_
 

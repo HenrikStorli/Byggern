@@ -1,0 +1,97 @@
+\hypertarget{ADC__driver_8h}{}\section{Node1/\+A\+D\+C\+\_\+driver.h File Reference}
+\label{ADC__driver_8h}\index{Node1/\+A\+D\+C\+\_\+driver.\+h@{Node1/\+A\+D\+C\+\_\+driver.\+h}}
+
+
+Library for using A\+DC.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+Include dependency graph for A\+D\+C\+\_\+driver.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcalibration__values__t}{calibration\+\_\+values\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ADC__driver_8h_a959aa750ff6f1cfa5e78f4ab4ea46a39}\label{ADC__driver_8h_a959aa750ff6f1cfa5e78f4ab4ea46a39}} 
+typedef struct \hyperlink{structcalibration__values__t}{calibration\+\_\+values\+\_\+t} {\bfseries calibration\+\_\+values}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{ADC__driver_8h_ab5e427cd2e5fe71fa9a885f20606e06a}{A\+D\+C\+\_\+read} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Reads the values from the adc. \end{DoxyCompactList}\item 
+void \hyperlink{ADC__driver_8h_a2df0af5114f5aeaad9b4f9425c323284}{A\+D\+C\+\_\+calibrate} (\hyperlink{structcalibration__values__t}{calibration\+\_\+values} $\ast$cal\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Calibrates the adc. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ADC__driver_8h_afec26f8d2a836a17338a825d762f40c9}\label{ADC__driver_8h_afec26f8d2a836a17338a825d762f40c9}} 
+void \hyperlink{ADC__driver_8h_afec26f8d2a836a17338a825d762f40c9}{A\+D\+C\+\_\+\+Test} (void)
+\begin{DoxyCompactList}\small\item\em Tests if the adc works appropriately. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ADC__driver_8h_a6ae9d52381ce6d4fd30837ed229d0cbc}\label{ADC__driver_8h_a6ae9d52381ce6d4fd30837ed229d0cbc}} 
+void \hyperlink{ADC__driver_8h_a6ae9d52381ce6d4fd30837ed229d0cbc}{A\+D\+C\+\_\+timer\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Sets the clock signal to the adc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ADC__driver_8h_a333540578d351f8192537326cb21f33e}\label{ADC__driver_8h_a333540578d351f8192537326cb21f33e}} 
+\hyperlink{structcalibration__values__t}{calibration\+\_\+values} {\bfseries P\+\_\+cal}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using A\+DC. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ADC__driver_8h_a2df0af5114f5aeaad9b4f9425c323284}\label{ADC__driver_8h_a2df0af5114f5aeaad9b4f9425c323284}} 
+\index{A\+D\+C\+\_\+driver.\+h@{A\+D\+C\+\_\+driver.\+h}!A\+D\+C\+\_\+calibrate@{A\+D\+C\+\_\+calibrate}}
+\index{A\+D\+C\+\_\+calibrate@{A\+D\+C\+\_\+calibrate}!A\+D\+C\+\_\+driver.\+h@{A\+D\+C\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{A\+D\+C\+\_\+calibrate()}{ADC\_calibrate()}}
+{\footnotesize\ttfamily void A\+D\+C\+\_\+calibrate (\begin{DoxyParamCaption}\item[{\hyperlink{structcalibration__values__t}{calibration\+\_\+values} $\ast$}]{cal\+\_\+pos }\end{DoxyParamCaption})}
+
+
+
+Calibrates the adc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cal\+\_\+pos} & pointer to the struct containing calibration values for the adc. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file A\+D\+C\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{ADC__driver_8h_ab5e427cd2e5fe71fa9a885f20606e06a}\label{ADC__driver_8h_ab5e427cd2e5fe71fa9a885f20606e06a}} 
+\index{A\+D\+C\+\_\+driver.\+h@{A\+D\+C\+\_\+driver.\+h}!A\+D\+C\+\_\+read@{A\+D\+C\+\_\+read}}
+\index{A\+D\+C\+\_\+read@{A\+D\+C\+\_\+read}!A\+D\+C\+\_\+driver.\+h@{A\+D\+C\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{A\+D\+C\+\_\+read()}{ADC\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t A\+D\+C\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Reads the values from the adc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The desired channal that wants to be converted.\\
+\hline
+\end{DoxyParams}
+channel 0 gives joystick X value. Channel 1 gives joystick Y. Channel 2 gives slider right. Channel 3 gives slider left .
+
+\begin{DoxyReturn}{Returns}
+The digital value return from the adc. 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file A\+D\+C\+\_\+driver.\+c.
+

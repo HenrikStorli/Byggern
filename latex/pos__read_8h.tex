@@ -1,0 +1,135 @@
+\hypertarget{pos__read_8h}{}\section{Node1/pos\+\_\+read.h File Reference}
+\label{pos__read_8h}\index{Node1/pos\+\_\+read.\+h@{Node1/pos\+\_\+read.\+h}}
+
+
+Library for using A\+DC to read joystick information.  
+
+
+{\ttfamily \#include \char`\"{}A\+D\+C\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for pos\+\_\+read.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structposition__t}{position\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pos__read_8h_a598a3330b3c21701223ee0ca14316eca}\label{pos__read_8h_a598a3330b3c21701223ee0ca14316eca}} 
+\#define {\bfseries PI}~3.\+141592654
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pos__read_8h_ab5f9ca64a7906e6a34ee7dd810ee7e9c}\label{pos__read_8h_ab5f9ca64a7906e6a34ee7dd810ee7e9c}} 
+typedef struct \hyperlink{structposition__t}{position\+\_\+t} {\bfseries position}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pos__read_8h_a5e971973be2594fa22ede92218adc82b}\label{pos__read_8h_a5e971973be2594fa22ede92218adc82b}} 
+enum {\bfseries U\+S\+B\+\_\+\+B\+U\+T\+T\+ON} \{ {\bfseries R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON}, 
+{\bfseries L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON}, 
+{\bfseries J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+B\+U\+T\+T\+ON}
+ \}
+\item 
+\mbox{\Hypertarget{pos__read_8h_aa268a41a13430b18e933ed40207178d0}\label{pos__read_8h_aa268a41a13430b18e933ed40207178d0}} 
+enum {\bfseries D\+I\+R\+E\+C\+T\+I\+ON} \{ \newline
+{\bfseries L\+E\+FT}, 
+{\bfseries R\+I\+G\+HT}, 
+{\bfseries UP}, 
+{\bfseries D\+O\+WN}, 
+\newline
+{\bfseries N\+E\+U\+T\+R\+AL}, 
+{\bfseries B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+SS}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{pos__read_8h_a003d8cc411f0322d86954560935d764b}{pos\+\_\+read} (\hyperlink{structposition__t}{position} $\ast$pos)
+\begin{DoxyCompactList}\small\item\em Gives the position of the joystick in the x-\/ and y-\/ axis on a scale from -\/100 to 100. \end{DoxyCompactList}\item 
+D\+I\+R\+E\+C\+T\+I\+ON \hyperlink{pos__read_8h_a3f89931268643ebbe82cec3a124ede7d}{joystick\+\_\+direction} (void)
+\begin{DoxyCompactList}\small\item\em Gives the direction of the joystick. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{pos__read_8h_a2eba7787a0b7e37246a45d9b53498ff8}{usb\+\_\+button\+\_\+pushed} (U\+S\+B\+\_\+\+B\+U\+T\+T\+ON B\+U\+T\+T\+ON)
+\begin{DoxyCompactList}\small\item\em Checks if one of the buttons on the U\+S\+B-\/multifunction board are pushed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{pos__read_8h_ac833e26b34c12711bb7c7f11b6a00051}\label{pos__read_8h_ac833e26b34c12711bb7c7f11b6a00051}} 
+void \hyperlink{pos__read_8h_ac833e26b34c12711bb7c7f11b6a00051}{pos\+\_\+read\+Settings} (void)
+\begin{DoxyCompactList}\small\item\em Sets the settings for the pos\+\_\+read module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pos__read_8h_a1f7e3aa833534fb44aa54b8801c94b16}\label{pos__read_8h_a1f7e3aa833534fb44aa54b8801c94b16}} 
+\hyperlink{structposition__t}{position} {\bfseries P\+\_\+pos}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using A\+DC to read joystick information. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{pos__read_8h_a3f89931268643ebbe82cec3a124ede7d}\label{pos__read_8h_a3f89931268643ebbe82cec3a124ede7d}} 
+\index{pos\+\_\+read.\+h@{pos\+\_\+read.\+h}!joystick\+\_\+direction@{joystick\+\_\+direction}}
+\index{joystick\+\_\+direction@{joystick\+\_\+direction}!pos\+\_\+read.\+h@{pos\+\_\+read.\+h}}
+\subsubsection{\texorpdfstring{joystick\+\_\+direction()}{joystick\_direction()}}
+{\footnotesize\ttfamily D\+I\+R\+E\+C\+T\+I\+ON joystick\+\_\+direction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gives the direction of the joystick. 
+
+\begin{DoxyReturn}{Returns}
+Direction of joystick (L\+E\+FT, R\+I\+G\+HT, UP, D\+O\+WN, N\+E\+U\+T\+R\+AL). 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file pos\+\_\+read.\+c.
+
+\mbox{\Hypertarget{pos__read_8h_a003d8cc411f0322d86954560935d764b}\label{pos__read_8h_a003d8cc411f0322d86954560935d764b}} 
+\index{pos\+\_\+read.\+h@{pos\+\_\+read.\+h}!pos\+\_\+read@{pos\+\_\+read}}
+\index{pos\+\_\+read@{pos\+\_\+read}!pos\+\_\+read.\+h@{pos\+\_\+read.\+h}}
+\subsubsection{\texorpdfstring{pos\+\_\+read()}{pos\_read()}}
+{\footnotesize\ttfamily void pos\+\_\+read (\begin{DoxyParamCaption}\item[{\hyperlink{structposition__t}{position} $\ast$}]{pos }\end{DoxyParamCaption})}
+
+
+
+Gives the position of the joystick in the x-\/ and y-\/ axis on a scale from -\/100 to 100. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Pointer to struct containg digital values returned from adc. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 14 of file pos\+\_\+read.\+c.
+
+\mbox{\Hypertarget{pos__read_8h_a2eba7787a0b7e37246a45d9b53498ff8}\label{pos__read_8h_a2eba7787a0b7e37246a45d9b53498ff8}} 
+\index{pos\+\_\+read.\+h@{pos\+\_\+read.\+h}!usb\+\_\+button\+\_\+pushed@{usb\+\_\+button\+\_\+pushed}}
+\index{usb\+\_\+button\+\_\+pushed@{usb\+\_\+button\+\_\+pushed}!pos\+\_\+read.\+h@{pos\+\_\+read.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+button\+\_\+pushed()}{usb\_button\_pushed()}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+button\+\_\+pushed (\begin{DoxyParamCaption}\item[{U\+S\+B\+\_\+\+B\+U\+T\+T\+ON}]{B\+U\+T\+T\+ON }\end{DoxyParamCaption})}
+
+
+
+Checks if one of the buttons on the U\+S\+B-\/multifunction board are pushed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em B\+U\+T\+T\+ON} & One of the two buttons (R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON or L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if one of the buttons are pushed, False otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file pos\+\_\+read.\+c.
+

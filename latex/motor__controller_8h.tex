@@ -1,0 +1,47 @@
+\hypertarget{motor__controller_8h}{}\section{Node2/\+Node2/motor\+\_\+controller.h File Reference}
+\label{motor__controller_8h}\index{Node2/\+Node2/motor\+\_\+controller.\+h@{Node2/\+Node2/motor\+\_\+controller.\+h}}
+
+
+Library for using motor controller.  
+
+
+{\ttfamily \#include \char`\"{}can\+\_\+interrupt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+interface.\+h\char`\"{}}\newline
+Include dependency graph for motor\+\_\+controller.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structregulator__parameter__t}{regulator\+\_\+parameter\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{motor__controller_8h_aaf612b30ea7074f8bd9084c275809e53}\label{motor__controller_8h_aaf612b30ea7074f8bd9084c275809e53}} 
+typedef struct \hyperlink{structregulator__parameter__t}{regulator\+\_\+parameter\+\_\+t} {\bfseries regulator\+\_\+parameter}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}\label{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}} 
+void {\bfseries init\+\_\+motor\+\_\+controller\+\_\+parameters} (float K\+\_\+i, float K\+\_\+p, float K\+\_\+d)
+\item 
+\mbox{\Hypertarget{motor__controller_8h_aa4bd3774d2dc8b11b5bf2754ac49bc61}\label{motor__controller_8h_aa4bd3774d2dc8b11b5bf2754ac49bc61}} 
+void {\bfseries motor\+\_\+controller\+\_\+update} ()
+\item 
+\mbox{\Hypertarget{motor__controller_8h_a2315b1583f13cd77a336b2cdd6d5c332}\label{motor__controller_8h_a2315b1583f13cd77a336b2cdd6d5c332}} 
+void {\bfseries motor\+\_\+controller\+\_\+set\+\_\+input} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{motor__controller_8h_a367ec7b8b02ad830b006f91ec692421d}\label{motor__controller_8h_a367ec7b8b02ad830b006f91ec692421d}} 
+\hyperlink{structregulator__parameter__t}{regulator\+\_\+parameter} {\bfseries reg\+\_\+parameters}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using motor controller. 
+

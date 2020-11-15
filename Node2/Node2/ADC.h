@@ -5,6 +5,10 @@
  *  Author: Herbe
  */ 
 
+/**
+* @file
+* @brief Library for using IR
+*/
 
 #ifndef IR_H_
 #define IR_H_

@@ -5,10 +5,13 @@
  *  Author: Herbe
  */ 
 
+/**
+* @file
+* @brief Library for using buzzer
+*/
 
 #ifndef MUSIC_H_
 #define MUSIC_H_
-
 
 void InitMusic(void);
 void playMusic( int* p_notes, uint8_t scale);

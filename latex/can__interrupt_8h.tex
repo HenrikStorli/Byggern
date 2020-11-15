@@ -1,0 +1,69 @@
+\hypertarget{can__interrupt_8h}{}\section{Node2/\+Node2/can\+\_\+interrupt.h File Reference}
+\label{can__interrupt_8h}\index{Node2/\+Node2/can\+\_\+interrupt.\+h@{Node2/\+Node2/can\+\_\+interrupt.\+h}}
+
+
+Library for using interrupt.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for can\+\_\+interrupt.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structjoystick__data}{joystick\+\_\+data}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{can__interrupt_8h_a0b438b756baf8d7ff5c065c78a5005ee}\label{can__interrupt_8h_a0b438b756baf8d7ff5c065c78a5005ee}} 
+typedef struct \hyperlink{structjoystick__data}{joystick\+\_\+data} {\bfseries joystick\+\_\+data\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{can__interrupt_8h_aa0f30c571420d42057d28b7b243e3b3e}{C\+A\+N0\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em C\+A\+N0 Interrupt handler for RX, TX and bus error interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{can__interrupt_8h_ac4320d69b80bea2f4b1ea161151dd28d}\label{can__interrupt_8h_ac4320d69b80bea2f4b1ea161151dd28d}} 
+\hyperlink{structjoystick__data}{joystick\+\_\+data\+\_\+t} {\bfseries received\+\_\+joystick\+\_\+data}
+\item 
+\mbox{\Hypertarget{can__interrupt_8h_a7d5c67cbbcc59e9abd3269f2f3ca0f77}\label{can__interrupt_8h_a7d5c67cbbcc59e9abd3269f2f3ca0f77}} 
+int {\bfseries start\+\_\+game}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using interrupt. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{can__interrupt_8h_aa0f30c571420d42057d28b7b243e3b3e}\label{can__interrupt_8h_aa0f30c571420d42057d28b7b243e3b3e}} 
+\index{can\+\_\+interrupt.\+h@{can\+\_\+interrupt.\+h}!C\+A\+N0\+\_\+\+Handler@{C\+A\+N0\+\_\+\+Handler}}
+\index{C\+A\+N0\+\_\+\+Handler@{C\+A\+N0\+\_\+\+Handler}!can\+\_\+interrupt.\+h@{can\+\_\+interrupt.\+h}}
+\subsubsection{\texorpdfstring{C\+A\+N0\+\_\+\+Handler()}{CAN0\_Handler()}}
+{\footnotesize\ttfamily void C\+A\+N0\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+C\+A\+N0 Interrupt handler for RX, TX and bus error interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 31 of file can\+\_\+interrupt.\+c.
+

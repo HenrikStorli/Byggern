@@ -1,0 +1,79 @@
+\hypertarget{UART__driver_8h}{}\section{Node1/\+U\+A\+R\+T\+\_\+driver.h File Reference}
+\label{UART__driver_8h}\index{Node1/\+U\+A\+R\+T\+\_\+driver.\+h@{Node1/\+U\+A\+R\+T\+\_\+driver.\+h}}
+
+
+Library for using U\+A\+RT.  
+
+
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for U\+A\+R\+T\+\_\+driver.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{UART__driver_8h_a43bafb28b29491ec7f871319b5a3b2f8}\label{UART__driver_8h_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\#define {\bfseries F\+\_\+\+C\+PU}~4915200
+\item 
+\mbox{\Hypertarget{UART__driver_8h_a734bbab06e1a9fd2e5522db0221ff6e3}\label{UART__driver_8h_a734bbab06e1a9fd2e5522db0221ff6e3}} 
+\#define {\bfseries B\+A\+U\+D\+R\+A\+TE}~9600
+\item 
+\mbox{\Hypertarget{UART__driver_8h_a7a9db3464aa99027082d9daf5f43a95d}\label{UART__driver_8h_a7a9db3464aa99027082d9daf5f43a95d}} 
+\#define {\bfseries B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}~(((F\+\_\+\+C\+PU / (B\+A\+U\+D\+R\+A\+TE $\ast$16\+U\+L))) -\/ 1 )
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{UART__driver_8h_aada537c2290ac7e2235c45f0dd18748b}\label{UART__driver_8h_aada537c2290ac7e2235c45f0dd18748b}} 
+void \hyperlink{UART__driver_8h_aada537c2290ac7e2235c45f0dd18748b}{U\+S\+A\+R\+T\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the uart. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{UART__driver_8h_a4827354596d308a6eded0b088c55e1b1}{U\+S\+A\+R\+T\+\_\+receive} (void)
+\begin{DoxyCompactList}\small\item\em Gives the message received on the usart. \end{DoxyCompactList}\item 
+void \hyperlink{UART__driver_8h_ac555a9be4a437206f46841d14cc15613}{U\+S\+A\+R\+T\+\_\+send} (unsigned char data)
+\begin{DoxyCompactList}\small\item\em Sends data over the U\+S\+A\+RT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using U\+A\+RT. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{UART__driver_8h_a4827354596d308a6eded0b088c55e1b1}\label{UART__driver_8h_a4827354596d308a6eded0b088c55e1b1}} 
+\index{U\+A\+R\+T\+\_\+driver.\+h@{U\+A\+R\+T\+\_\+driver.\+h}!U\+S\+A\+R\+T\+\_\+receive@{U\+S\+A\+R\+T\+\_\+receive}}
+\index{U\+S\+A\+R\+T\+\_\+receive@{U\+S\+A\+R\+T\+\_\+receive}!U\+A\+R\+T\+\_\+driver.\+h@{U\+A\+R\+T\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+receive()}{USART\_receive()}}
+{\footnotesize\ttfamily unsigned char U\+S\+A\+R\+T\+\_\+receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gives the message received on the usart. 
+
+\begin{DoxyReturn}{Returns}
+The value received 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file U\+A\+R\+T\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{UART__driver_8h_ac555a9be4a437206f46841d14cc15613}\label{UART__driver_8h_ac555a9be4a437206f46841d14cc15613}} 
+\index{U\+A\+R\+T\+\_\+driver.\+h@{U\+A\+R\+T\+\_\+driver.\+h}!U\+S\+A\+R\+T\+\_\+send@{U\+S\+A\+R\+T\+\_\+send}}
+\index{U\+S\+A\+R\+T\+\_\+send@{U\+S\+A\+R\+T\+\_\+send}!U\+A\+R\+T\+\_\+driver.\+h@{U\+A\+R\+T\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+A\+R\+T\+\_\+send()}{USART\_send()}}
+{\footnotesize\ttfamily void U\+S\+A\+R\+T\+\_\+send (\begin{DoxyParamCaption}\item[{unsigned char}]{data }\end{DoxyParamCaption})}
+
+
+
+Sends data over the U\+S\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be sent \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file U\+A\+R\+T\+\_\+driver.\+c.
+

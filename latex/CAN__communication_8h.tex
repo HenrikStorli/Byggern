@@ -1,0 +1,147 @@
+\hypertarget{CAN__communication_8h}{}\section{Node1/\+C\+A\+N\+\_\+communication.h File Reference}
+\label{CAN__communication_8h}\index{Node1/\+C\+A\+N\+\_\+communication.\+h@{Node1/\+C\+A\+N\+\_\+communication.\+h}}
+
+
+Library for using C\+AN.  
+
+
+{\ttfamily \#include \char`\"{}mcp2515.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mcp2515\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+Include dependency graph for C\+A\+N\+\_\+communication.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structCAN__message}{C\+A\+N\+\_\+message}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{CAN__communication_8h_af76649dbf52c271f4e939fef11933c5a}\label{CAN__communication_8h_af76649dbf52c271f4e939fef11933c5a}} 
+typedef struct \hyperlink{structCAN__message}{C\+A\+N\+\_\+message} {\bfseries C\+A\+N\+\_\+message\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{CAN__communication_8h_a22e7c0f078b72770309079304caa977b}{C\+A\+N\+\_\+init} (uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Initializes the C\+A\+N-\/controller with the given mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{CAN__communication_8h_a6ad35268a5763960e6dd098405e2d383}{C\+A\+N\+\_\+message\+\_\+transmission} (\hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} $\ast$can\+\_\+message)
+\begin{DoxyCompactList}\small\item\em Sends can message. \end{DoxyCompactList}\item 
+\hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} \hyperlink{CAN__communication_8h_a6a7bfa4744d3a9e79eec69fd71f41f2b}{C\+A\+N\+\_\+meessage\+\_\+reception} ()
+\begin{DoxyCompactList}\small\item\em Receives message on buffer 0. \end{DoxyCompactList}\item 
+\hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} \hyperlink{CAN__communication_8h_abd27d1d66d9534b53302ae204fcd0cde}{C\+A\+N\+\_\+meessage\+\_\+reception2} ()
+\begin{DoxyCompactList}\small\item\em Receives message on buffer 1. \end{DoxyCompactList}\item 
+\hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} \hyperlink{CAN__communication_8h_aebaa3a9a3b0de72e7df962e643c6cb88}{message\+\_\+handler} ()
+\begin{DoxyCompactList}\small\item\em Checks both buffers for a message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{CAN__communication_8h_ac18c056a287180df098294630203f85c}\label{CAN__communication_8h_ac18c056a287180df098294630203f85c}} 
+void \hyperlink{CAN__communication_8h_ac18c056a287180df098294630203f85c}{C\+A\+N\+\_\+communication\+\_\+test} ()
+\begin{DoxyCompactList}\small\item\em Tests the C\+AN controller. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{CAN__communication_8h_a0884911bcdd0ef506ed4a07e8810dc5c}\label{CAN__communication_8h_a0884911bcdd0ef506ed4a07e8810dc5c}} 
+void \hyperlink{CAN__communication_8h_a0884911bcdd0ef506ed4a07e8810dc5c}{C\+A\+N\+\_\+communication\+\_\+test2} ()
+\begin{DoxyCompactList}\small\item\em Tests the C\+AN controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using C\+AN. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{CAN__communication_8h_a22e7c0f078b72770309079304caa977b}\label{CAN__communication_8h_a22e7c0f078b72770309079304caa977b}} 
+\index{C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}!C\+A\+N\+\_\+init@{C\+A\+N\+\_\+init}}
+\index{C\+A\+N\+\_\+init@{C\+A\+N\+\_\+init}!C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}}
+\subsubsection{\texorpdfstring{C\+A\+N\+\_\+init()}{CAN\_init()}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+A\+N\+\_\+init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Initializes the C\+A\+N-\/controller with the given mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode that should be set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 If something went wrong, 0 if initialized correctly. 
+\end{DoxyReturn}
+
+
+Definition at line 5 of file C\+A\+N\+\_\+communication.\+c.
+
+\mbox{\Hypertarget{CAN__communication_8h_a6a7bfa4744d3a9e79eec69fd71f41f2b}\label{CAN__communication_8h_a6a7bfa4744d3a9e79eec69fd71f41f2b}} 
+\index{C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}!C\+A\+N\+\_\+meessage\+\_\+reception@{C\+A\+N\+\_\+meessage\+\_\+reception}}
+\index{C\+A\+N\+\_\+meessage\+\_\+reception@{C\+A\+N\+\_\+meessage\+\_\+reception}!C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}}
+\subsubsection{\texorpdfstring{C\+A\+N\+\_\+meessage\+\_\+reception()}{CAN\_meessage\_reception()}}
+{\footnotesize\ttfamily \hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} C\+A\+N\+\_\+meessage\+\_\+reception (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives message on buffer 0. 
+
+\begin{DoxyReturn}{Returns}
+The received message 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file C\+A\+N\+\_\+communication.\+c.
+
+\mbox{\Hypertarget{CAN__communication_8h_abd27d1d66d9534b53302ae204fcd0cde}\label{CAN__communication_8h_abd27d1d66d9534b53302ae204fcd0cde}} 
+\index{C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}!C\+A\+N\+\_\+meessage\+\_\+reception2@{C\+A\+N\+\_\+meessage\+\_\+reception2}}
+\index{C\+A\+N\+\_\+meessage\+\_\+reception2@{C\+A\+N\+\_\+meessage\+\_\+reception2}!C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}}
+\subsubsection{\texorpdfstring{C\+A\+N\+\_\+meessage\+\_\+reception2()}{CAN\_meessage\_reception2()}}
+{\footnotesize\ttfamily \hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} C\+A\+N\+\_\+meessage\+\_\+reception2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Receives message on buffer 1. 
+
+\begin{DoxyReturn}{Returns}
+The received message 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file C\+A\+N\+\_\+communication.\+c.
+
+\mbox{\Hypertarget{CAN__communication_8h_a6ad35268a5763960e6dd098405e2d383}\label{CAN__communication_8h_a6ad35268a5763960e6dd098405e2d383}} 
+\index{C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}!C\+A\+N\+\_\+message\+\_\+transmission@{C\+A\+N\+\_\+message\+\_\+transmission}}
+\index{C\+A\+N\+\_\+message\+\_\+transmission@{C\+A\+N\+\_\+message\+\_\+transmission}!C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}}
+\subsubsection{\texorpdfstring{C\+A\+N\+\_\+message\+\_\+transmission()}{CAN\_message\_transmission()}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+A\+N\+\_\+message\+\_\+transmission (\begin{DoxyParamCaption}\item[{\hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} $\ast$}]{can\+\_\+message }\end{DoxyParamCaption})}
+
+
+
+Sends can message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em can\+\_\+message} & A pointer to the message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if something went wrong, 0 otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file C\+A\+N\+\_\+communication.\+c.
+
+\mbox{\Hypertarget{CAN__communication_8h_aebaa3a9a3b0de72e7df962e643c6cb88}\label{CAN__communication_8h_aebaa3a9a3b0de72e7df962e643c6cb88}} 
+\index{C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}!message\+\_\+handler@{message\+\_\+handler}}
+\index{message\+\_\+handler@{message\+\_\+handler}!C\+A\+N\+\_\+communication.\+h@{C\+A\+N\+\_\+communication.\+h}}
+\subsubsection{\texorpdfstring{message\+\_\+handler()}{message\_handler()}}
+{\footnotesize\ttfamily \hyperlink{structCAN__message}{C\+A\+N\+\_\+message\+\_\+t} message\+\_\+handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks both buffers for a message. 
+
+\begin{DoxyReturn}{Returns}
+The received message 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file C\+A\+N\+\_\+communication.\+c.
+

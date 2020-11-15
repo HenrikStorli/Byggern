@@ -1,0 +1,26 @@
+digraph "Node1/ADC_driver.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node6 [label="Node1/ADC_driver.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Node1/ADC_driver.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ADC__driver_8c_source.html"];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Node1/pos_read.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pos__read_8h.html",tooltip="Library for using ADC to read joystick information. "];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Node1/CAN_joystick\l_messages.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CAN__joystick__messages_8h.html",tooltip="Library for using sending joystick-information on CAN. "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Node1/CAN_joystick\l_messages.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CAN__joystick__messages_8c_source.html"];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="Node1/OLED_menu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$OLED__menu_8h.html",tooltip="File for handling the oled-menu. "];
+  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Node1/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Node1_2main_8c_source.html"];
+  Node11 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Node1/OLED_menu.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$OLED__menu_8c_source.html"];
+  Node9 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="Node1/pos_read.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pos__read_8c_source.html"];
+  Node6 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

@@ -1,0 +1,90 @@
+\hypertarget{spi__driver_8h}{}\section{Node1/spi\+\_\+driver.h File Reference}
+\label{spi__driver_8h}\index{Node1/spi\+\_\+driver.\+h@{Node1/spi\+\_\+driver.\+h}}
+
+
+Library for using S\+PI.  
+
+
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}iom162.\+h\char`\"{}}\newline
+Include dependency graph for spi\+\_\+driver.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{spi__driver_8h_ac2909a28e72d56f28c0ad931c4e565af}\label{spi__driver_8h_ac2909a28e72d56f28c0ad931c4e565af}} 
+\#define {\bfseries D\+D\+R\+\_\+\+S\+PI}~D\+D\+RB
+\item 
+\mbox{\Hypertarget{spi__driver_8h_a5d3f11f2fdf8a7e27b975291e0c2c8cc}\label{spi__driver_8h_a5d3f11f2fdf8a7e27b975291e0c2c8cc}} 
+\#define {\bfseries M\+O\+SI}~P\+B5
+\item 
+\mbox{\Hypertarget{spi__driver_8h_a2dd443a4430713d325ab86895a4a45eb}\label{spi__driver_8h_a2dd443a4430713d325ab86895a4a45eb}} 
+\#define {\bfseries S\+CK}~P\+B7
+\item 
+\mbox{\Hypertarget{spi__driver_8h_a88f7782e210e61586baf33b93240d905}\label{spi__driver_8h_a88f7782e210e61586baf33b93240d905}} 
+\#define {\bfseries SS}~P\+B4
+\item 
+\mbox{\Hypertarget{spi__driver_8h_a811601609d4b0f1f6b28d2315e7ed525}\label{spi__driver_8h_a811601609d4b0f1f6b28d2315e7ed525}} 
+\#define {\bfseries P\+O\+R\+T\+\_\+\+S\+PI}~P\+O\+R\+TB
+\item 
+\mbox{\Hypertarget{spi__driver_8h_a35beee7b0f2f3e294c4a4a69a5f02df4}\label{spi__driver_8h_a35beee7b0f2f3e294c4a4a69a5f02df4}} 
+\#define {\bfseries D\+U\+M\+MY}~0b01010110
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi__driver_8h_a49f141469f72b159771fb765a78ecbe5}{spi\+\_\+write} (char data)
+\begin{DoxyCompactList}\small\item\em Writes data on the spi for the atmega162. \end{DoxyCompactList}\item 
+char \hyperlink{spi__driver_8h_a29a81c299d36f507256576311f1d5e61}{spi\+\_\+read} (void)
+\begin{DoxyCompactList}\small\item\em Reads the data contained in the S\+PI Data Register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{spi__driver_8h_ae909944aa85ae98323073c628be541aa}\label{spi__driver_8h_ae909944aa85ae98323073c628be541aa}} 
+void \hyperlink{spi__driver_8h_ae909944aa85ae98323073c628be541aa}{spi\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the spi module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using S\+PI. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{spi__driver_8h_a29a81c299d36f507256576311f1d5e61}\label{spi__driver_8h_a29a81c299d36f507256576311f1d5e61}} 
+\index{spi\+\_\+driver.\+h@{spi\+\_\+driver.\+h}!spi\+\_\+read@{spi\+\_\+read}}
+\index{spi\+\_\+read@{spi\+\_\+read}!spi\+\_\+driver.\+h@{spi\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{spi\+\_\+read()}{spi\_read()}}
+{\footnotesize\ttfamily char spi\+\_\+read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads the data contained in the S\+PI Data Register. 
+
+\begin{DoxyReturn}{Returns}
+the data contained in S\+PI Data Register 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file spi\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{spi__driver_8h_a49f141469f72b159771fb765a78ecbe5}\label{spi__driver_8h_a49f141469f72b159771fb765a78ecbe5}} 
+\index{spi\+\_\+driver.\+h@{spi\+\_\+driver.\+h}!spi\+\_\+write@{spi\+\_\+write}}
+\index{spi\+\_\+write@{spi\+\_\+write}!spi\+\_\+driver.\+h@{spi\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{spi\+\_\+write()}{spi\_write()}}
+{\footnotesize\ttfamily void spi\+\_\+write (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes data on the spi for the atmega162. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be sent trough spi \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file spi\+\_\+driver.\+c.
+
