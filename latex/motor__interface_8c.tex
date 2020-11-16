@@ -1,0 +1,133 @@
+\hypertarget{motor__interface_8c}{}\section{Node2/\+Node2/motor\+\_\+interface.c File Reference}
+\label{motor__interface_8c}\index{Node2/\+Node2/motor\+\_\+interface.\+c@{Node2/\+Node2/motor\+\_\+interface.\+c}}
+
+
+Implementation file for motor\+\_\+interface.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+interface.\+h\char`\"{}}\newline
+Include dependency graph for motor\+\_\+interface.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{motor__interface_8c_a91f2dbdfab3c35021992b3a66c6374d4}\label{motor__interface_8c_a91f2dbdfab3c35021992b3a66c6374d4}} 
+void \hyperlink{motor__interface_8c_a91f2dbdfab3c35021992b3a66c6374d4}{motor\+\_\+init\+\_\+\+D\+AC} ()
+\begin{DoxyCompactList}\small\item\em Initializes the motor and the D\+AC. \end{DoxyCompactList}\item 
+void \hyperlink{motor__interface_8c_a0e78fa4dcc812ee194db787cd914ba49}{motor\+\_\+set\+\_\+input} (int input)
+\begin{DoxyCompactList}\small\item\em Sets the given input to the motor. \end{DoxyCompactList}\item 
+void \hyperlink{motor__interface_8c_af721929f92aba75785590b8e394da541}{motor\+\_\+select\+\_\+direction} (M\+O\+T\+O\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+ON direction)
+\begin{DoxyCompactList}\small\item\em Selects the given direction for the motor box. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{motor__interface_8c_a8d3f3c8b0807d3879f832e346e86c0c2}\label{motor__interface_8c_a8d3f3c8b0807d3879f832e346e86c0c2}} 
+void \hyperlink{motor__interface_8c_a8d3f3c8b0807d3879f832e346e86c0c2}{motor\+\_\+enable} (void)
+\begin{DoxyCompactList}\small\item\em Enables the motor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{motor__interface_8c_a3b1f68c404e5c30fd31568348173de58}\label{motor__interface_8c_a3b1f68c404e5c30fd31568348173de58}} 
+void \hyperlink{motor__interface_8c_a3b1f68c404e5c30fd31568348173de58}{motor\+\_\+reset\+\_\+counter} (void)
+\begin{DoxyCompactList}\small\item\em Resets the encoder value in the motorbox. \end{DoxyCompactList}\item 
+void \hyperlink{motor__interface_8c_a857b97bd31880b6cf4d4738e5703849a}{motor\+\_\+activate\+\_\+counter\+\_\+output} (uint8\+\_\+t on)
+\begin{DoxyCompactList}\small\item\em Controls the output of the motor box counter. \end{DoxyCompactList}\item 
+void \hyperlink{motor__interface_8c_a83925b5ba358ee682a8da53ab7f4d925}{motor\+\_\+select\+\_\+encoder\+\_\+byte} (E\+N\+C\+O\+D\+E\+R\+\_\+\+B\+Y\+TE byte)
+\begin{DoxyCompactList}\small\item\em Selects the desired byte to output from the motot box counter. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{motor__interface_8c_a45ce4888dc42199ce1c981fea0aa3114}{motor\+\_\+read\+\_\+counter} ()
+\begin{DoxyCompactList}\small\item\em Reads the encoder value from the motor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for motor\+\_\+interface. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{motor__interface_8c_a857b97bd31880b6cf4d4738e5703849a}\label{motor__interface_8c_a857b97bd31880b6cf4d4738e5703849a}} 
+\index{motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}!motor\+\_\+activate\+\_\+counter\+\_\+output@{motor\+\_\+activate\+\_\+counter\+\_\+output}}
+\index{motor\+\_\+activate\+\_\+counter\+\_\+output@{motor\+\_\+activate\+\_\+counter\+\_\+output}!motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+activate\+\_\+counter\+\_\+output()}{motor\_activate\_counter\_output()}}
+{\footnotesize\ttfamily void motor\+\_\+activate\+\_\+counter\+\_\+output (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{on }\end{DoxyParamCaption})}
+
+
+
+Controls the output of the motor box counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & 1 if it is to activate, 0 if not \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file motor\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{motor__interface_8c_a45ce4888dc42199ce1c981fea0aa3114}\label{motor__interface_8c_a45ce4888dc42199ce1c981fea0aa3114}} 
+\index{motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}!motor\+\_\+read\+\_\+counter@{motor\+\_\+read\+\_\+counter}}
+\index{motor\+\_\+read\+\_\+counter@{motor\+\_\+read\+\_\+counter}!motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+read\+\_\+counter()}{motor\_read\_counter()}}
+{\footnotesize\ttfamily uint16\+\_\+t motor\+\_\+read\+\_\+counter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads the encoder value from the motor. 
+
+\begin{DoxyReturn}{Returns}
+The encoder value 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file motor\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{motor__interface_8c_af721929f92aba75785590b8e394da541}\label{motor__interface_8c_af721929f92aba75785590b8e394da541}} 
+\index{motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}!motor\+\_\+select\+\_\+direction@{motor\+\_\+select\+\_\+direction}}
+\index{motor\+\_\+select\+\_\+direction@{motor\+\_\+select\+\_\+direction}!motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+select\+\_\+direction()}{motor\_select\_direction()}}
+{\footnotesize\ttfamily void motor\+\_\+select\+\_\+direction (\begin{DoxyParamCaption}\item[{M\+O\+T\+O\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+ON}]{direction }\end{DoxyParamCaption})}
+
+
+
+Selects the given direction for the motor box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The direction the motor should move in \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file motor\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{motor__interface_8c_a83925b5ba358ee682a8da53ab7f4d925}\label{motor__interface_8c_a83925b5ba358ee682a8da53ab7f4d925}} 
+\index{motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}!motor\+\_\+select\+\_\+encoder\+\_\+byte@{motor\+\_\+select\+\_\+encoder\+\_\+byte}}
+\index{motor\+\_\+select\+\_\+encoder\+\_\+byte@{motor\+\_\+select\+\_\+encoder\+\_\+byte}!motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+select\+\_\+encoder\+\_\+byte()}{motor\_select\_encoder\_byte()}}
+{\footnotesize\ttfamily void motor\+\_\+select\+\_\+encoder\+\_\+byte (\begin{DoxyParamCaption}\item[{E\+N\+C\+O\+D\+E\+R\+\_\+\+B\+Y\+TE}]{byte }\end{DoxyParamCaption})}
+
+
+
+Selects the desired byte to output from the motot box counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte} & Select the higher or lower byte in the 16-\/bit register \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file motor\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{motor__interface_8c_a0e78fa4dcc812ee194db787cd914ba49}\label{motor__interface_8c_a0e78fa4dcc812ee194db787cd914ba49}} 
+\index{motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}!motor\+\_\+set\+\_\+input@{motor\+\_\+set\+\_\+input}}
+\index{motor\+\_\+set\+\_\+input@{motor\+\_\+set\+\_\+input}!motor\+\_\+interface.\+c@{motor\+\_\+interface.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+set\+\_\+input()}{motor\_set\_input()}}
+{\footnotesize\ttfamily void motor\+\_\+set\+\_\+input (\begin{DoxyParamCaption}\item[{int}]{input }\end{DoxyParamCaption})}
+
+
+
+Sets the given input to the motor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The input that sets the speed to the motor \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file motor\+\_\+interface.\+c.
+

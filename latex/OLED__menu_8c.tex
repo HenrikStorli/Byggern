@@ -1,0 +1,347 @@
+\hypertarget{OLED__menu_8c}{}\section{Node1/\+O\+L\+E\+D\+\_\+menu.c File Reference}
+\label{OLED__menu_8c}\index{Node1/\+O\+L\+E\+D\+\_\+menu.\+c@{Node1/\+O\+L\+E\+D\+\_\+menu.\+c}}
+
+
+Implementation file for O\+L\+E\+D\+\_\+menu.  
+
+
+{\ttfamily \#include \char`\"{}O\+L\+E\+D\+\_\+menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}songs.\+h\char`\"{}}\newline
+Include dependency graph for O\+L\+E\+D\+\_\+menu.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{OLED__menu_8c_a90adc1695a53f43d67c165905d0a8d86}{build\+\_\+node} (\hyperlink{structNode__t}{Node} $\ast$this\+\_\+node, \hyperlink{structNode__t}{Node} $\ast$father\+\_\+node, char node\+\_\+name\mbox{[}$\,$\mbox{]}, void($\ast$do\+\_\+function)(void), \hyperlink{structNode__t}{Node} $\ast$children\+\_\+nodes\mbox{[}8\mbox{]}, int elements\+\_\+on\+\_\+screen)
+\begin{DoxyCompactList}\small\item\em Builds the menu node, and places it in the correct place. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a9bdeb324dab2b40cd23a474a8fbdbc88}{go\+\_\+up} (\hyperlink{structNode__t}{Node} $\ast$$\ast$this\+\_\+node)
+\begin{DoxyCompactList}\small\item\em Changes the current pointer to point to the parent node. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a005e5946f673a70b0ad108041b7e86ee}{go\+\_\+down} (\hyperlink{structNode__t}{Node} $\ast$$\ast$this\+\_\+node, int child)
+\begin{DoxyCompactList}\small\item\em Chenges this\+\_\+node so it points to one of its childs. \end{DoxyCompactList}\item 
+D\+I\+R\+E\+C\+T\+I\+ON \hyperlink{OLED__menu_8c_afd4a140f086bd92bd4726eadf83106b3}{wait\+\_\+for\+\_\+action} (void)
+\begin{DoxyCompactList}\small\item\em Waits until the user does something withthe joystick. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{OLED__menu_8c_a24689bca3377ed5ada003d7bec65bf11}\label{OLED__menu_8c_a24689bca3377ed5ada003d7bec65bf11}} 
+void \hyperlink{OLED__menu_8c_a24689bca3377ed5ada003d7bec65bf11}{wait\+\_\+for\+\_\+neutral\+\_\+joystick\+\_\+position} ()
+\begin{DoxyCompactList}\small\item\em Waits until the joystick is in neutral position. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a55cd87de9ef4bec3b7281bdb2d9e2252}{update\+\_\+screen} (\hyperlink{structNode__t}{Node} $\ast$current\+\_\+node, int child)
+\begin{DoxyCompactList}\small\item\em Updates the screen according to the given node. \end{DoxyCompactList}\item 
+int \hyperlink{OLED__menu_8c_aecb72a6801bd1ab8ea772d2b1603662b}{update\+\_\+element\+\_\+up} (\hyperlink{structNode__t}{Node} $\ast$current\+\_\+node, int child)
+\begin{DoxyCompactList}\small\item\em Updates the index for element when joystick is moved up. \end{DoxyCompactList}\item 
+int \hyperlink{OLED__menu_8c_ae29b58fd3b642666cb58f56bc797951a}{update\+\_\+element\+\_\+down} (\hyperlink{structNode__t}{Node} $\ast$current\+\_\+node, int child)
+\begin{DoxyCompactList}\small\item\em Updates the index for element when joystick is moved down. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{OLED__menu_8c_a2a0e843767aeea4f433a28b9c54f573a}\label{OLED__menu_8c_a2a0e843767aeea4f433a28b9c54f573a}} 
+void \hyperlink{OLED__menu_8c_a2a0e843767aeea4f433a28b9c54f573a}{menu} ()
+\begin{DoxyCompactList}\small\item\em Runs the menu. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a99ef4a1f10748a09e17f8962692d6143}{print\+\_\+main\+\_\+menu\+\_\+objects} (int child)
+\begin{DoxyCompactList}\small\item\em Prints the objects of main menu node. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_ae125df417c8ca2d7a86cc7421e6190f2}{print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects} (int child)
+\begin{DoxyCompactList}\small\item\em Prints the objects of new game menu. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a55b1d05f7a725e7c15497ab36ff6a78f}{check\+\_\+highscore} (int highscore)
+\begin{DoxyCompactList}\small\item\em Updates the highscore list. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_af18d94addfc99b66137a022cd81b95fc}{print\+\_\+score\+\_\+menu\+\_\+objects} (int child)
+\begin{DoxyCompactList}\small\item\em Prints the objects of score menu. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a5af3990094e95f2ddcaee3d4e5c0e603}{print\+\_\+difficulty\+\_\+menu\+\_\+objects} (int child)
+\begin{DoxyCompactList}\small\item\em Prints the objects of difficulty menu. \end{DoxyCompactList}\item 
+void \hyperlink{OLED__menu_8c_a37b09a466ccd9261fa70d3db05764e1b}{print\+\_\+selecting\+\_\+arrow} (int child)
+\begin{DoxyCompactList}\small\item\em Prints arrow showing which element is selected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{OLED__menu_8c_a17471c537659747b95c3c2aa8b22790b}\label{OLED__menu_8c_a17471c537659747b95c3c2aa8b22790b}} 
+void \hyperlink{OLED__menu_8c_a17471c537659747b95c3c2aa8b22790b}{play\+\_\+game} ()
+\begin{DoxyCompactList}\small\item\em Runs the ping-\/pong game. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{OLED__menu_8c_a3289afffe008c31407f946dc3fd6a3c2}\label{OLED__menu_8c_a3289afffe008c31407f946dc3fd6a3c2}} 
+void \hyperlink{OLED__menu_8c_a3289afffe008c31407f946dc3fd6a3c2}{set\+\_\+difficulty} ()
+\begin{DoxyCompactList}\small\item\em Sets the desired difficulty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{OLED__menu_8c_a3b8e75569e8adf99866056f56b894149}\label{OLED__menu_8c_a3b8e75569e8adf99866056f56b894149}} 
+int {\bfseries \+\_\+1\+ST}
+\item 
+\mbox{\Hypertarget{OLED__menu_8c_a6fe8918485161924485abfb5b1719e7f}\label{OLED__menu_8c_a6fe8918485161924485abfb5b1719e7f}} 
+int {\bfseries \+\_\+2\+ND}
+\item 
+\mbox{\Hypertarget{OLED__menu_8c_aab6f060be427e0dd67a73c85ca3ea2d1}\label{OLED__menu_8c_aab6f060be427e0dd67a73c85ca3ea2d1}} 
+int {\bfseries \+\_\+3\+RD} = 0
+\item 
+\mbox{\Hypertarget{OLED__menu_8c_a4d7e3f55d165c752486b8f10d9af6b56}\label{OLED__menu_8c_a4d7e3f55d165c752486b8f10d9af6b56}} 
+int {\bfseries child} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for O\+L\+E\+D\+\_\+menu. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{OLED__menu_8c_a90adc1695a53f43d67c165905d0a8d86}\label{OLED__menu_8c_a90adc1695a53f43d67c165905d0a8d86}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!build\+\_\+node@{build\+\_\+node}}
+\index{build\+\_\+node@{build\+\_\+node}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{build\+\_\+node()}{build\_node()}}
+{\footnotesize\ttfamily void build\+\_\+node (\begin{DoxyParamCaption}\item[{\hyperlink{structNode__t}{Node} $\ast$}]{this\+\_\+node,  }\item[{\hyperlink{structNode__t}{Node} $\ast$}]{father\+\_\+node,  }\item[{char}]{node\+\_\+name\mbox{[}$\,$\mbox{]},  }\item[{void($\ast$)(void)}]{do\+\_\+function,  }\item[{\hyperlink{structNode__t}{Node} $\ast$}]{children\+\_\+nodes\mbox{[}8\mbox{]},  }\item[{int}]{elements\+\_\+on\+\_\+screen }\end{DoxyParamCaption})}
+
+
+
+Builds the menu node, and places it in the correct place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this\+\_\+node} & Pointer to the node that you want to build. \\
+\hline
+{\em father\+\_\+node} & Pointer to the parent node. \\
+\hline
+{\em node\+\_\+name} & Array of caracthers containing name of the node. \\
+\hline
+{\em do\+\_\+function} & Pointer to function node should do. \\
+\hline
+{\em children\+\_\+nodes} & The node\textquotesingle{}s children. \\
+\hline
+{\em elements\+\_\+on\+\_\+screen} & Number of elements that the current node is showing on screen \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a55b1d05f7a725e7c15497ab36ff6a78f}\label{OLED__menu_8c_a55b1d05f7a725e7c15497ab36ff6a78f}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!check\+\_\+highscore@{check\+\_\+highscore}}
+\index{check\+\_\+highscore@{check\+\_\+highscore}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{check\+\_\+highscore()}{check\_highscore()}}
+{\footnotesize\ttfamily void check\+\_\+highscore (\begin{DoxyParamCaption}\item[{int}]{highscore }\end{DoxyParamCaption})}
+
+
+
+Updates the highscore list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em highscore} & The value to update the score list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a005e5946f673a70b0ad108041b7e86ee}\label{OLED__menu_8c_a005e5946f673a70b0ad108041b7e86ee}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!go\+\_\+down@{go\+\_\+down}}
+\index{go\+\_\+down@{go\+\_\+down}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{go\+\_\+down()}{go\_down()}}
+{\footnotesize\ttfamily void go\+\_\+down (\begin{DoxyParamCaption}\item[{\hyperlink{structNode__t}{Node} $\ast$$\ast$}]{this\+\_\+node,  }\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Chenges this\+\_\+node so it points to one of its childs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this\+\_\+node} & Pointer to a pointer that points to a node. \\
+\hline
+{\em child} & The index for the child that should be pointed to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a9bdeb324dab2b40cd23a474a8fbdbc88}\label{OLED__menu_8c_a9bdeb324dab2b40cd23a474a8fbdbc88}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!go\+\_\+up@{go\+\_\+up}}
+\index{go\+\_\+up@{go\+\_\+up}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{go\+\_\+up()}{go\_up()}}
+{\footnotesize\ttfamily void go\+\_\+up (\begin{DoxyParamCaption}\item[{\hyperlink{structNode__t}{Node} $\ast$$\ast$}]{this\+\_\+node }\end{DoxyParamCaption})}
+
+
+
+Changes the current pointer to point to the parent node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this\+\_\+node} & Pointer to a pointer that points to a node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a5af3990094e95f2ddcaee3d4e5c0e603}\label{OLED__menu_8c_a5af3990094e95f2ddcaee3d4e5c0e603}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!print\+\_\+difficulty\+\_\+menu\+\_\+objects@{print\+\_\+difficulty\+\_\+menu\+\_\+objects}}
+\index{print\+\_\+difficulty\+\_\+menu\+\_\+objects@{print\+\_\+difficulty\+\_\+menu\+\_\+objects}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+difficulty\+\_\+menu\+\_\+objects()}{print\_difficulty\_menu\_objects()}}
+{\footnotesize\ttfamily void print\+\_\+difficulty\+\_\+menu\+\_\+objects (\begin{DoxyParamCaption}\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Prints the objects of difficulty menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & index for the child. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 259 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a99ef4a1f10748a09e17f8962692d6143}\label{OLED__menu_8c_a99ef4a1f10748a09e17f8962692d6143}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!print\+\_\+main\+\_\+menu\+\_\+objects@{print\+\_\+main\+\_\+menu\+\_\+objects}}
+\index{print\+\_\+main\+\_\+menu\+\_\+objects@{print\+\_\+main\+\_\+menu\+\_\+objects}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+main\+\_\+menu\+\_\+objects()}{print\_main\_menu\_objects()}}
+{\footnotesize\ttfamily void print\+\_\+main\+\_\+menu\+\_\+objects (\begin{DoxyParamCaption}\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Prints the objects of main menu node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & index for the child. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 182 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_ae125df417c8ca2d7a86cc7421e6190f2}\label{OLED__menu_8c_ae125df417c8ca2d7a86cc7421e6190f2}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects@{print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects}}
+\index{print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects@{print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects()}{print\_new\_game\_menu\_objects()}}
+{\footnotesize\ttfamily void print\+\_\+new\+\_\+game\+\_\+menu\+\_\+objects (\begin{DoxyParamCaption}\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Prints the objects of new game menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & index for the child. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 202 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_af18d94addfc99b66137a022cd81b95fc}\label{OLED__menu_8c_af18d94addfc99b66137a022cd81b95fc}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!print\+\_\+score\+\_\+menu\+\_\+objects@{print\+\_\+score\+\_\+menu\+\_\+objects}}
+\index{print\+\_\+score\+\_\+menu\+\_\+objects@{print\+\_\+score\+\_\+menu\+\_\+objects}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+score\+\_\+menu\+\_\+objects()}{print\_score\_menu\_objects()}}
+{\footnotesize\ttfamily void print\+\_\+score\+\_\+menu\+\_\+objects (\begin{DoxyParamCaption}\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Prints the objects of score menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & index for the child. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 229 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a37b09a466ccd9261fa70d3db05764e1b}\label{OLED__menu_8c_a37b09a466ccd9261fa70d3db05764e1b}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!print\+\_\+selecting\+\_\+arrow@{print\+\_\+selecting\+\_\+arrow}}
+\index{print\+\_\+selecting\+\_\+arrow@{print\+\_\+selecting\+\_\+arrow}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+selecting\+\_\+arrow()}{print\_selecting\_arrow()}}
+{\footnotesize\ttfamily void print\+\_\+selecting\+\_\+arrow (\begin{DoxyParamCaption}\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Prints arrow showing which element is selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & index for the child. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 278 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_ae29b58fd3b642666cb58f56bc797951a}\label{OLED__menu_8c_ae29b58fd3b642666cb58f56bc797951a}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!update\+\_\+element\+\_\+down@{update\+\_\+element\+\_\+down}}
+\index{update\+\_\+element\+\_\+down@{update\+\_\+element\+\_\+down}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{update\+\_\+element\+\_\+down()}{update\_element\_down()}}
+{\footnotesize\ttfamily int update\+\_\+element\+\_\+down (\begin{DoxyParamCaption}\item[{\hyperlink{structNode__t}{Node} $\ast$}]{current\+\_\+node,  }\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Updates the index for element when joystick is moved down. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+node} & Pointer to the current\+\_\+node. \\
+\hline
+{\em child} & index for the child.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new index for the child. 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_aecb72a6801bd1ab8ea772d2b1603662b}\label{OLED__menu_8c_aecb72a6801bd1ab8ea772d2b1603662b}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!update\+\_\+element\+\_\+up@{update\+\_\+element\+\_\+up}}
+\index{update\+\_\+element\+\_\+up@{update\+\_\+element\+\_\+up}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{update\+\_\+element\+\_\+up()}{update\_element\_up()}}
+{\footnotesize\ttfamily int update\+\_\+element\+\_\+up (\begin{DoxyParamCaption}\item[{\hyperlink{structNode__t}{Node} $\ast$}]{current\+\_\+node,  }\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Updates the index for element when joystick is moved up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+node} & Pointer to the current\+\_\+node. \\
+\hline
+{\em child} & index for the child.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new index for the child. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_a55cd87de9ef4bec3b7281bdb2d9e2252}\label{OLED__menu_8c_a55cd87de9ef4bec3b7281bdb2d9e2252}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!update\+\_\+screen@{update\+\_\+screen}}
+\index{update\+\_\+screen@{update\+\_\+screen}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{update\+\_\+screen()}{update\_screen()}}
+{\footnotesize\ttfamily void update\+\_\+screen (\begin{DoxyParamCaption}\item[{\hyperlink{structNode__t}{Node} $\ast$}]{current\+\_\+node,  }\item[{int}]{child }\end{DoxyParamCaption})}
+
+
+
+Updates the screen according to the given node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+node} & A pointer to the current node. \\
+\hline
+{\em child} & Index for the current nodes child.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if one of the buttons are pushed, False otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file O\+L\+E\+D\+\_\+menu.\+c.
+
+\mbox{\Hypertarget{OLED__menu_8c_afd4a140f086bd92bd4726eadf83106b3}\label{OLED__menu_8c_afd4a140f086bd92bd4726eadf83106b3}} 
+\index{O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}!wait\+\_\+for\+\_\+action@{wait\+\_\+for\+\_\+action}}
+\index{wait\+\_\+for\+\_\+action@{wait\+\_\+for\+\_\+action}!O\+L\+E\+D\+\_\+menu.\+c@{O\+L\+E\+D\+\_\+menu.\+c}}
+\subsubsection{\texorpdfstring{wait\+\_\+for\+\_\+action()}{wait\_for\_action()}}
+{\footnotesize\ttfamily D\+I\+R\+E\+C\+T\+I\+ON wait\+\_\+for\+\_\+action (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Waits until the user does something withthe joystick. 
+
+\begin{DoxyReturn}{Returns}
+Direction of the joystick \mbox{[}L\+E\+FT, R\+I\+G\+HT, UP, D\+O\+WN, N\+E\+U\+T\+R\+AL, B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+SS\mbox{]}. 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file O\+L\+E\+D\+\_\+menu.\+c.
+

@@ -6,6 +6,11 @@
  */
 
 
+/**
+* @file
+* @brief Implementation file for pos_read
+*/
+
 #include <avr/io.h>
 #include <stdio.h>
 #include "pos_read.h"

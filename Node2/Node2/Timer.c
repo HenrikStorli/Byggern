@@ -4,6 +4,11 @@
  * Created: 21.10.2020 15:01:05
  *  Author: Herbe
  */ 
+
+/**
+* @file
+* @brief Implementation file for Timer
+*/
 #include "Timer.h"
 
 

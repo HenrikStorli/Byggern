@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['servo_5factivate_5fsolonoid',['servo_activate_solonoid',['../servo__ctrl_8h.html#ab969ad14d4cbbc14b57ff81807d6fd63',1,'servo_ctrl.c']]],
-  ['servo_5fpwm_5finit',['servo_pwm_init',['../servo__ctrl_8h.html#a890fed302c0a8bcbd179d6d8d494490a',1,'servo_ctrl.c']]],
-  ['servo_5fset_5fangle',['servo_set_angle',['../servo__ctrl_8h.html#a2c7fefe2e8978a64fd7ef7828bd567bf',1,'servo_ctrl.c']]],
-  ['servo_5fset_5fpwm',['servo_set_pwm',['../servo__ctrl_8h.html#a71fb0344c7e24d6a2e357b10e527924b',1,'servo_ctrl.c']]],
-  ['servo_5fset_5fpwm_5ftest',['servo_set_pwm_test',['../servo__ctrl_8h.html#a7402b52a5a28148b4e28c72b2b2d4994',1,'servo_ctrl.c']]],
-  ['set_5fdifficulty',['set_difficulty',['../OLED__menu_8h.html#a3289afffe008c31407f946dc3fd6a3c2',1,'OLED_menu.c']]],
-  ['spi_5finit',['spi_init',['../spi__driver_8h.html#ae909944aa85ae98323073c628be541aa',1,'spi_driver.c']]],
-  ['spi_5fmaster_5fcs',['spi_master_CS',['../mcp2515__driver_8h.html#a3cc2780065652874cabcafacf653d963',1,'mcp2515_driver.c']]],
-  ['spi_5fread',['spi_read',['../spi__driver_8h.html#a29a81c299d36f507256576311f1d5e61',1,'spi_driver.c']]],
-  ['spi_5fwrite',['spi_write',['../spi__driver_8h.html#a49f141469f72b159771fb765a78ecbe5',1,'spi_driver.c']]],
-  ['sram_5finit',['SRAM_init',['../SRAM__driver_8h.html#ad607bcb84cc9434b858ce5502242c54f',1,'SRAM_driver.c']]],
-  ['sram_5ftest',['SRAM_test',['../SRAM__driver_8h.html#a2e2934cf8f43363e11e4fd6c60db1666',1,'SRAM_driver.c']]]
+  ['play_5fgame',['play_game',['../OLED__menu_8c.html#a17471c537659747b95c3c2aa8b22790b',1,'play_game():&#160;OLED_menu.c'],['../OLED__menu_8h.html#a17471c537659747b95c3c2aa8b22790b',1,'play_game():&#160;OLED_menu.c']]],
+  ['playmusic',['playMusic',['../music_8c.html#a8b33490d65c0c769f15daea980a7d44e',1,'playMusic(int *p_notes, uint8_t scale):&#160;music.c'],['../music_8h.html#a8b33490d65c0c769f15daea980a7d44e',1,'playMusic(int *p_notes, uint8_t scale):&#160;music.c']]],
+  ['pos_5fread',['pos_read',['../pos__read_8c.html#a003d8cc411f0322d86954560935d764b',1,'pos_read(position *pos):&#160;pos_read.c'],['../pos__read_8h.html#a003d8cc411f0322d86954560935d764b',1,'pos_read(position *pos):&#160;pos_read.c']]],
+  ['pos_5freadsettings',['pos_readSettings',['../pos__read_8c.html#ac833e26b34c12711bb7c7f11b6a00051',1,'pos_readSettings(void):&#160;pos_read.c'],['../pos__read_8h.html#ac833e26b34c12711bb7c7f11b6a00051',1,'pos_readSettings(void):&#160;pos_read.c']]],
+  ['print_5fdifficulty_5fmenu_5fobjects',['print_difficulty_menu_objects',['../OLED__menu_8c.html#a5af3990094e95f2ddcaee3d4e5c0e603',1,'print_difficulty_menu_objects(int child):&#160;OLED_menu.c'],['../OLED__menu_8h.html#a5af3990094e95f2ddcaee3d4e5c0e603',1,'print_difficulty_menu_objects(int child):&#160;OLED_menu.c']]],
+  ['print_5fmain_5fmenu_5fobjects',['print_main_menu_objects',['../OLED__menu_8c.html#a99ef4a1f10748a09e17f8962692d6143',1,'print_main_menu_objects(int child):&#160;OLED_menu.c'],['../OLED__menu_8h.html#a99ef4a1f10748a09e17f8962692d6143',1,'print_main_menu_objects(int child):&#160;OLED_menu.c']]],
+  ['print_5fnew_5fgame_5fmenu_5fobjects',['print_new_game_menu_objects',['../OLED__menu_8c.html#ae125df417c8ca2d7a86cc7421e6190f2',1,'print_new_game_menu_objects(int child):&#160;OLED_menu.c'],['../OLED__menu_8h.html#ae125df417c8ca2d7a86cc7421e6190f2',1,'print_new_game_menu_objects(int child):&#160;OLED_menu.c']]],
+  ['print_5fscore_5fmenu_5fobjects',['print_score_menu_objects',['../OLED__menu_8c.html#af18d94addfc99b66137a022cd81b95fc',1,'print_score_menu_objects(int child):&#160;OLED_menu.c'],['../OLED__menu_8h.html#af18d94addfc99b66137a022cd81b95fc',1,'print_score_menu_objects(int child):&#160;OLED_menu.c']]],
+  ['print_5fselecting_5farrow',['print_selecting_arrow',['../OLED__menu_8c.html#a37b09a466ccd9261fa70d3db05764e1b',1,'print_selecting_arrow(int child):&#160;OLED_menu.c'],['../OLED__menu_8h.html#a37b09a466ccd9261fa70d3db05764e1b',1,'print_selecting_arrow(int child):&#160;OLED_menu.c']]]
 ];

@@ -136,8 +136,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OLED
 <tr class="memitem:a15d79de9c02ea5de36c9dfb92be68b0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OLED_8h.html#a15d79de9c02ea5de36c9dfb92be68b0c">oled_clear_line</a> (uint8_t page)</td></tr>
 <tr class="memdesc:a15d79de9c02ea5de36c9dfb92be68b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a given line on the OLED.  <a href="#a15d79de9c02ea5de36c9dfb92be68b0c">More...</a><br /></td></tr>
 <tr class="separator:a15d79de9c02ea5de36c9dfb92be68b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b1d05f7a725e7c15497ab36ff6a78f"><td class="memItemLeft" align="right" valign="top"><a id="a55b1d05f7a725e7c15497ab36ff6a78f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>check_highscore</b> (int highscore)</td></tr>
+<tr class="memitem:a55b1d05f7a725e7c15497ab36ff6a78f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OLED_8h.html#a55b1d05f7a725e7c15497ab36ff6a78f">check_highscore</a> (int highscore)</td></tr>
+<tr class="memdesc:a55b1d05f7a725e7c15497ab36ff6a78f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the highscore list.  <a href="#a55b1d05f7a725e7c15497ab36ff6a78f">More...</a><br /></td></tr>
 <tr class="separator:a55b1d05f7a725e7c15497ab36ff6a78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a703cd0522c62333ab04587e9bd675e4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="OLED_8h.html#a703cd0522c62333ab04587e9bd675e4f">oled_write_character</a> (uint8_t c)</td></tr>
 <tr class="memdesc:a703cd0522c62333ab04587e9bd675e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a char on the OLED.  <a href="#a703cd0522c62333ab04587e9bd675e4f">More...</a><br /></td></tr>
@@ -166,6 +166,34 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
 
 <p class="definition">Definition in file <a class="el" href="OLED_8h_source.html">OLED.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a55b1d05f7a725e7c15497ab36ff6a78f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b1d05f7a725e7c15497ab36ff6a78f">&#9670;&nbsp;</a></span>check_highscore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void check_highscore </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>highscore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the highscore list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">highscore</td><td>The value to update the score list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="OLED__menu_8c_source.html#l00212">212</a> of file <a class="el" href="OLED__menu_8c_source.html">OLED_menu.c</a>.</p>
+
+</div>
+</div>
 <a id="a15d79de9c02ea5de36c9dfb92be68b0c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15d79de9c02ea5de36c9dfb92be68b0c">&#9670;&nbsp;</a></span>oled_clear_line()</h2>
 
@@ -190,7 +218,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00100">100</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00102">102</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -218,7 +246,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00077">77</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00081">81</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -257,7 +285,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00095">95</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00097">97</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -285,7 +313,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00114">114</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00116">116</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -324,7 +352,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00124">124</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00126">126</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -352,7 +380,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00065">65</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00069">69</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -380,7 +408,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00060">60</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00064">64</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -408,7 +436,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00108">108</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00110">110</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -436,7 +464,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00056">56</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00060">60</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>
@@ -464,7 +492,7 @@ volatile <a class="el" href="structoled__pos.html">oled_pos_t</a>&#160;</td><td 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00052">52</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="OLED_8c_source.html#l00056">56</a> of file <a class="el" href="OLED_8c_source.html">OLED.c</a>.</p>
 
 </div>
 </div>

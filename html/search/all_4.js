@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['joystick_5fcan_5fmessage',['joyStick_Can_Message',['../CAN__joystick__messages_8h.html#acc1302c2475a10ec65449d6ad7edfb8d',1,'CAN_joystick_messages.c']]],
-  ['joystick_5fdata',['joystick_data',['../structjoystick__data.html',1,'']]],
-  ['joystick_5fdirection',['joystick_direction',['../pos__read_8h.html#a3f89931268643ebbe82cec3a124ede7d',1,'pos_read.c']]]
+  ['go_5fdown',['go_down',['../OLED__menu_8c.html#a005e5946f673a70b0ad108041b7e86ee',1,'go_down(Node **this_node, int child):&#160;OLED_menu.c'],['../OLED__menu_8h.html#a005e5946f673a70b0ad108041b7e86ee',1,'go_down(Node **this_node, int child):&#160;OLED_menu.c']]],
+  ['go_5fup',['go_up',['../OLED__menu_8c.html#a9bdeb324dab2b40cd23a474a8fbdbc88',1,'go_up(Node **this_node):&#160;OLED_menu.c'],['../OLED__menu_8h.html#a9bdeb324dab2b40cd23a474a8fbdbc88',1,'go_up(Node **this_node):&#160;OLED_menu.c']]]
 ];

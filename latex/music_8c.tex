@@ -1,0 +1,59 @@
+\hypertarget{music_8c}{}\section{Node1/music.c File Reference}
+\label{music_8c}\index{Node1/music.\+c@{Node1/music.\+c}}
+
+
+Implementation file for music.  
+
+
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}music.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}notes.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+Include dependency graph for music.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{music_8c_a43bafb28b29491ec7f871319b5a3b2f8}\label{music_8c_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\#define {\bfseries F\+\_\+\+C\+PU}~4915200
+\item 
+\mbox{\Hypertarget{music_8c_a2c0c52208e7308ae9eecd726fe8d94b9}\label{music_8c_a2c0c52208e7308ae9eecd726fe8d94b9}} 
+\#define {\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+O\+L\+U\+ME}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{music_8c_adb7fcc79f60094b3596d931faf354d0c}\label{music_8c_adb7fcc79f60094b3596d931faf354d0c}} 
+void \hyperlink{music_8c_adb7fcc79f60094b3596d931faf354d0c}{Init\+Music} ()
+\begin{DoxyCompactList}\small\item\em Initializes the pwm signal used for the buzzer. \end{DoxyCompactList}\item 
+void \hyperlink{music_8c_a8b33490d65c0c769f15daea980a7d44e}{play\+Music} (int $\ast$p\+\_\+notes, uint8\+\_\+t scale)
+\begin{DoxyCompactList}\small\item\em Initializes the C\+A\+N-\/controller with the given mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for music. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{music_8c_a8b33490d65c0c769f15daea980a7d44e}\label{music_8c_a8b33490d65c0c769f15daea980a7d44e}} 
+\index{music.\+c@{music.\+c}!play\+Music@{play\+Music}}
+\index{play\+Music@{play\+Music}!music.\+c@{music.\+c}}
+\subsubsection{\texorpdfstring{play\+Music()}{playMusic()}}
+{\footnotesize\ttfamily void play\+Music (\begin{DoxyParamCaption}\item[{int $\ast$}]{p\+\_\+notes,  }\item[{uint8\+\_\+t}]{scale }\end{DoxyParamCaption})}
+
+
+
+Initializes the C\+A\+N-\/controller with the given mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+notes} & pointer to the notes that should be played \\
+\hline
+{\em scale} & How the notes should be scaled \\
+\hline
+\end{DoxyParams}
+paying tempo from 0 to 100. Higher value = slower playback 
+
+Definition at line 38 of file music.\+c.
+

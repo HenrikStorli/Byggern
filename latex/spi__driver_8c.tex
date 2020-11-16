@@ -1,0 +1,64 @@
+\hypertarget{spi__driver_8c}{}\section{Node1/spi\+\_\+driver.c File Reference}
+\label{spi__driver_8c}\index{Node1/spi\+\_\+driver.\+c@{Node1/spi\+\_\+driver.\+c}}
+
+
+Implementation file for spi\+\_\+driver.  
+
+
+{\ttfamily \#include \char`\"{}spi\+\_\+driver.\+h\char`\"{}}\newline
+Include dependency graph for spi\+\_\+driver.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi__driver_8c_a49f141469f72b159771fb765a78ecbe5}{spi\+\_\+write} (char data)
+\begin{DoxyCompactList}\small\item\em Writes data on the spi for the atmega162. \end{DoxyCompactList}\item 
+char \hyperlink{spi__driver_8c_a29a81c299d36f507256576311f1d5e61}{spi\+\_\+read} (void)
+\begin{DoxyCompactList}\small\item\em Reads the data contained in the S\+PI Data Register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{spi__driver_8c_ae909944aa85ae98323073c628be541aa}\label{spi__driver_8c_ae909944aa85ae98323073c628be541aa}} 
+void \hyperlink{spi__driver_8c_ae909944aa85ae98323073c628be541aa}{spi\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the spi module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for spi\+\_\+driver. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{spi__driver_8c_a29a81c299d36f507256576311f1d5e61}\label{spi__driver_8c_a29a81c299d36f507256576311f1d5e61}} 
+\index{spi\+\_\+driver.\+c@{spi\+\_\+driver.\+c}!spi\+\_\+read@{spi\+\_\+read}}
+\index{spi\+\_\+read@{spi\+\_\+read}!spi\+\_\+driver.\+c@{spi\+\_\+driver.\+c}}
+\subsubsection{\texorpdfstring{spi\+\_\+read()}{spi\_read()}}
+{\footnotesize\ttfamily char spi\+\_\+read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads the data contained in the S\+PI Data Register. 
+
+\begin{DoxyReturn}{Returns}
+the data contained in S\+PI Data Register 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file spi\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{spi__driver_8c_a49f141469f72b159771fb765a78ecbe5}\label{spi__driver_8c_a49f141469f72b159771fb765a78ecbe5}} 
+\index{spi\+\_\+driver.\+c@{spi\+\_\+driver.\+c}!spi\+\_\+write@{spi\+\_\+write}}
+\index{spi\+\_\+write@{spi\+\_\+write}!spi\+\_\+driver.\+c@{spi\+\_\+driver.\+c}}
+\subsubsection{\texorpdfstring{spi\+\_\+write()}{spi\_write()}}
+{\footnotesize\ttfamily void spi\+\_\+write (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes data on the spi for the atmega162. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be sent trough spi \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file spi\+\_\+driver.\+c.
+

@@ -4,6 +4,13 @@
  * Created: 19.10.2020 14:02:12
  *  Author: Herbe
  */ 
+
+
+/**
+* @file
+* @brief Implementation file for IR_driver
+*/
+
 #include "IR.h"
 
 void IR_init(void){

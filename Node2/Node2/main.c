@@ -5,6 +5,11 @@
  * Author : Herbe
  */ 
 
+/**
+* @file
+* @brief Main file of Node 2
+*/
+
 #include <sam3x8e.h>
 #include "sam.h"
 

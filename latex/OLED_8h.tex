@@ -47,9 +47,8 @@ void \hyperlink{OLED_8h_a4fb85242f1721856beae7ddb9b30c477}{oled\+\_\+pos\+\_\+se
 \begin{DoxyCompactList}\small\item\em Sets the position to be written to. \end{DoxyCompactList}\item 
 void \hyperlink{OLED_8h_a15d79de9c02ea5de36c9dfb92be68b0c}{oled\+\_\+clear\+\_\+line} (uint8\+\_\+t page)
 \begin{DoxyCompactList}\small\item\em Clears a given line on the O\+L\+ED. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{OLED_8h_a55b1d05f7a725e7c15497ab36ff6a78f}\label{OLED_8h_a55b1d05f7a725e7c15497ab36ff6a78f}} 
-void {\bfseries check\+\_\+highscore} (int highscore)
-\item 
+void \hyperlink{OLED_8h_a55b1d05f7a725e7c15497ab36ff6a78f}{check\+\_\+highscore} (int highscore)
+\begin{DoxyCompactList}\small\item\em Updates the highscore list. \end{DoxyCompactList}\item 
 void \hyperlink{OLED_8h_a703cd0522c62333ab04587e9bd675e4f}{oled\+\_\+write\+\_\+character} (uint8\+\_\+t c)
 \begin{DoxyCompactList}\small\item\em Writes a char on the O\+L\+ED. \end{DoxyCompactList}\item 
 void \hyperlink{OLED_8h_a9bd24ae3cb521163bdb7c164ee9e0735}{oled\+\_\+print} (char $\ast$c)
@@ -76,6 +75,25 @@ Library for using O\+L\+ED.
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{OLED_8h_a55b1d05f7a725e7c15497ab36ff6a78f}\label{OLED_8h_a55b1d05f7a725e7c15497ab36ff6a78f}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!check\+\_\+highscore@{check\+\_\+highscore}}
+\index{check\+\_\+highscore@{check\+\_\+highscore}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{check\+\_\+highscore()}{check\_highscore()}}
+{\footnotesize\ttfamily void check\+\_\+highscore (\begin{DoxyParamCaption}\item[{int}]{highscore }\end{DoxyParamCaption})}
+
+
+
+Updates the highscore list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em highscore} & The value to update the score list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file O\+L\+E\+D\+\_\+menu.\+c.
+
 \mbox{\Hypertarget{OLED_8h_a15d79de9c02ea5de36c9dfb92be68b0c}\label{OLED_8h_a15d79de9c02ea5de36c9dfb92be68b0c}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+clear\+\_\+line@{oled\+\_\+clear\+\_\+line}}
 \index{oled\+\_\+clear\+\_\+line@{oled\+\_\+clear\+\_\+line}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
@@ -93,7 +111,7 @@ Clears a given line on the O\+L\+ED.
 \end{DoxyParams}
 
 
-Definition at line 100 of file O\+L\+E\+D.\+c.
+Definition at line 102 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_ac823985d98ef4c1a19113548d3feae33}\label{OLED_8h_ac823985d98ef4c1a19113548d3feae33}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+line\+\_\+down@{oled\+\_\+line\+\_\+down}}
@@ -112,7 +130,7 @@ Adjust the writing area a numbers of line down.
 \end{DoxyParams}
 
 
-Definition at line 77 of file O\+L\+E\+D.\+c.
+Definition at line 81 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_a4fb85242f1721856beae7ddb9b30c477}\label{OLED_8h_a4fb85242f1721856beae7ddb9b30c477}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+pos\+\_\+set@{oled\+\_\+pos\+\_\+set}}
@@ -133,7 +151,7 @@ Sets the position to be written to.
 \end{DoxyParams}
 
 
-Definition at line 95 of file O\+L\+E\+D.\+c.
+Definition at line 97 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_a9bd24ae3cb521163bdb7c164ee9e0735}\label{OLED_8h_a9bd24ae3cb521163bdb7c164ee9e0735}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+print@{oled\+\_\+print}}
@@ -152,7 +170,7 @@ Writes a string in the O\+L\+ED.
 \end{DoxyParams}
 
 
-Definition at line 114 of file O\+L\+E\+D.\+c.
+Definition at line 116 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_aaaa55e6c4d13184ff544b96513b4fd37}\label{OLED_8h_aaaa55e6c4d13184ff544b96513b4fd37}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+print\+\_\+arrow@{oled\+\_\+print\+\_\+arrow}}
@@ -173,7 +191,7 @@ Prints an arraow in the screen in the given position.
 \end{DoxyParams}
 
 
-Definition at line 124 of file O\+L\+E\+D.\+c.
+Definition at line 126 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_adb9592a9d85c872be96781be10c6d83f}\label{OLED_8h_adb9592a9d85c872be96781be10c6d83f}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+sel\+\_\+col@{oled\+\_\+sel\+\_\+col}}
@@ -192,7 +210,7 @@ Selects a given coloumn, so it can be written to.
 \end{DoxyParams}
 
 
-Definition at line 65 of file O\+L\+E\+D.\+c.
+Definition at line 69 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_af4f99a6c352d4a03d22fcc5cc0da9eaf}\label{OLED_8h_af4f99a6c352d4a03d22fcc5cc0da9eaf}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+sel\+\_\+row@{oled\+\_\+sel\+\_\+row}}
@@ -211,7 +229,7 @@ Selects a given page, so it can be written on.
 \end{DoxyParams}
 
 
-Definition at line 60 of file O\+L\+E\+D.\+c.
+Definition at line 64 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_a703cd0522c62333ab04587e9bd675e4f}\label{OLED_8h_a703cd0522c62333ab04587e9bd675e4f}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!oled\+\_\+write\+\_\+character@{oled\+\_\+write\+\_\+character}}
@@ -230,7 +248,7 @@ Writes a char on the O\+L\+ED.
 \end{DoxyParams}
 
 
-Definition at line 108 of file O\+L\+E\+D.\+c.
+Definition at line 110 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_a27022bd83812561568d304a82aa4929a}\label{OLED_8h_a27022bd83812561568d304a82aa4929a}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!write\+\_\+cmd@{write\+\_\+cmd}}
@@ -249,7 +267,7 @@ Writes a command to the O\+L\+ED.
 \end{DoxyParams}
 
 
-Definition at line 56 of file O\+L\+E\+D.\+c.
+Definition at line 60 of file O\+L\+E\+D.\+c.
 
 \mbox{\Hypertarget{OLED_8h_ace3cdfd9b9340c234db47e92ebfcecf3}\label{OLED_8h_ace3cdfd9b9340c234db47e92ebfcecf3}} 
 \index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!write\+\_\+data@{write\+\_\+data}}
@@ -268,5 +286,5 @@ writes data on the oled-\/screen
 \end{DoxyParams}
 
 
-Definition at line 52 of file O\+L\+E\+D.\+c.
+Definition at line 56 of file O\+L\+E\+D.\+c.
 

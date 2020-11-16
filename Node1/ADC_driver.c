@@ -4,6 +4,12 @@
  * Created: 09.09.2020 13:13:13
  *  Author: Herbe
  */
+
+/**
+* @file
+* @brief Implementation file for ADC_driver
+*/
+
 #define F_CPU 4915200
 
 #include "ADC_driver.h"

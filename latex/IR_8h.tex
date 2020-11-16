@@ -1,0 +1,64 @@
+\hypertarget{IR_8h}{}\section{Node2/\+Node2/\+IR.h File Reference}
+\label{IR_8h}\index{Node2/\+Node2/\+I\+R.\+h@{Node2/\+Node2/\+I\+R.\+h}}
+
+
+Library for using IR.  
+
+
+{\ttfamily \#include \char`\"{}sam.\+h\char`\"{}}\newline
+Include dependency graph for I\+R.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{IR_8h_a359e5e1e15be54e36af3a49d9715f6f5}\label{IR_8h_a359e5e1e15be54e36af3a49d9715f6f5}} 
+void \hyperlink{IR_8h_a359e5e1e15be54e36af3a49d9715f6f5}{I\+R\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the IR. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{IR_8h_a7081b94abbfb4de5fbcccbc3d04b32e3}{I\+R\+\_\+read} (void)
+\begin{DoxyCompactList}\small\item\em Reads the digital value from the reciever diode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{IR_8h_aad310cacbceaf179721f0d872d55ab9d}{I\+R\+\_\+check} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the value is under a certan threshold. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Library for using IR. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{IR_8h_aad310cacbceaf179721f0d872d55ab9d}\label{IR_8h_aad310cacbceaf179721f0d872d55ab9d}} 
+\index{I\+R.\+h@{I\+R.\+h}!I\+R\+\_\+check@{I\+R\+\_\+check}}
+\index{I\+R\+\_\+check@{I\+R\+\_\+check}!I\+R.\+h@{I\+R.\+h}}
+\subsubsection{\texorpdfstring{I\+R\+\_\+check()}{IR\_check()}}
+{\footnotesize\ttfamily uint8\+\_\+t I\+R\+\_\+check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the value is under a certan threshold. 
+
+\begin{DoxyReturn}{Returns}
+1 if the value is under the threshold, 0 else. 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file I\+R.\+c.
+
+\mbox{\Hypertarget{IR_8h_a7081b94abbfb4de5fbcccbc3d04b32e3}\label{IR_8h_a7081b94abbfb4de5fbcccbc3d04b32e3}} 
+\index{I\+R.\+h@{I\+R.\+h}!I\+R\+\_\+read@{I\+R\+\_\+read}}
+\index{I\+R\+\_\+read@{I\+R\+\_\+read}!I\+R.\+h@{I\+R.\+h}}
+\subsubsection{\texorpdfstring{I\+R\+\_\+read()}{IR\_read()}}
+{\footnotesize\ttfamily uint16\+\_\+t I\+R\+\_\+read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads the digital value from the reciever diode. 
+
+\begin{DoxyReturn}{Returns}
+The value from the adc. 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file I\+R.\+c.
+

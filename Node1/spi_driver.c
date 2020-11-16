@@ -4,6 +4,13 @@
  * Created: 30.09.2020 14:03:40
  *  Author: Herbe
  */
+
+/**
+* @file
+* @brief Implementation file for spi_driver
+*/
+
+
 #include "spi_driver.h"
 
 

@@ -1,0 +1,87 @@
+\hypertarget{uart_8c}{}\section{Node2/\+Node2/uart.c File Reference}
+\label{uart_8c}\index{Node2/\+Node2/uart.\+c@{Node2/\+Node2/uart.\+c}}
+
+
+Implementation file for uart.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}sam.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+Include dependency graph for uart.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart_8c_ab5b2eb7c61969e61bef72eeb48dd058d}{configure\+\_\+uart} (void)
+\begin{DoxyCompactList}\small\item\em Configure U\+A\+RT. \end{DoxyCompactList}\item 
+int \hyperlink{uart_8c_a1c201c2740c7aa7102270bb667069f38}{uart\+\_\+getchar} (uint8\+\_\+t $\ast$c)
+\begin{DoxyCompactList}\small\item\em Get character from U\+A\+RT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8c_ae12fb3c9b87465c2fa0f0b2f78c13257}\label{uart_8c_ae12fb3c9b87465c2fa0f0b2f78c13257}} 
+int {\bfseries uart\+\_\+putchar} (const uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{uart_8c_a5e433d3a46eda66a50c81c1eda46c84b}\label{uart_8c_a5e433d3a46eda66a50c81c1eda46c84b}} 
+void {\bfseries U\+A\+R\+T\+\_\+\+Handler} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{uart_8c_ab7c2eeebc26b7ad1e38b702d04ae3bd4}\label{uart_8c_ab7c2eeebc26b7ad1e38b702d04ae3bd4}} 
+\hyperlink{structuart__ringbuffer__t}{uart\+\_\+ringbuffer} {\bfseries rx\+\_\+buffer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for uart. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{uart_8c_ab5b2eb7c61969e61bef72eeb48dd058d}\label{uart_8c_ab5b2eb7c61969e61bef72eeb48dd058d}} 
+\index{uart.\+c@{uart.\+c}!configure\+\_\+uart@{configure\+\_\+uart}}
+\index{configure\+\_\+uart@{configure\+\_\+uart}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{configure\+\_\+uart()}{configure\_uart()}}
+{\footnotesize\ttfamily void configure\+\_\+uart (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configure U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 34 of file uart.\+c.
+
+\mbox{\Hypertarget{uart_8c_a1c201c2740c7aa7102270bb667069f38}\label{uart_8c_a1c201c2740c7aa7102270bb667069f38}} 
+\index{uart.\+c@{uart.\+c}!uart\+\_\+getchar@{uart\+\_\+getchar}}
+\index{uart\+\_\+getchar@{uart\+\_\+getchar}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+getchar()}{uart\_getchar()}}
+{\footnotesize\ttfamily int uart\+\_\+getchar (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Get character from U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$c} & location of character\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Success(0)} & or failure(1) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 99 of file uart.\+c.
+

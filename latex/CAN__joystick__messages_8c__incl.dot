@@ -1,0 +1,44 @@
+digraph "Node1/CAN_joystick_messages.c"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="Node1/CAN_joystick\l_messages.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="CAN_joystick_messages.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CAN__joystick__messages_8h.html",tooltip="Library for using sending joystick-information on CAN. "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="CAN_communication.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CAN__communication_8h.html",tooltip="Library for using CAN. "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="mcp2515.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mcp2515_8h.html",tooltip="MCP2515 registers. "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="mcp2515_driver.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mcp2515__driver_8h.html",tooltip="Library for using can controller mcp2515. "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="avr/io.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="stdio.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="util/delay.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="spi_driver.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$spi__driver_8h.html",tooltip="Library for using SPI. "];
+  Node8 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="stdint.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="iom162.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$iom162_8h_source.html"];
+  Node4 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="avr/interrupt.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="pos_read.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pos__read_8h.html",tooltip="Library for using ADC to read joystick information. "];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="ADC_driver.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ADC__driver_8h.html",tooltip="Library for using ADC. "];
+  Node13 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="stdlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node13 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="math.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

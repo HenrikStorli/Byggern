@@ -4,6 +4,12 @@
  * Created: 02.09.2020 15:02:14
  *  Author: Herbe
  */
+
+/**
+* @file
+* @brief Implementation file for UART_driver
+*/
+
 #include "UART_driver.h"
 
 

@@ -8,6 +8,11 @@
  *
  */ 
 
+/**
+* @file
+* @brief Implementation file for can_interrupt
+*/
+
 #include "can_interrupt.h"
 
 #include <stdio.h>

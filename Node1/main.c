@@ -5,6 +5,11 @@
  * Author : Herbe
 */
 
+/**
+* @file
+* @brief Main file for Node 1
+*/
+
 #define F_CPU  4915200
 
 #include <stdio.h>
@@ -44,5 +49,4 @@ int main(void)
 	
 	// Where all interactions occur
     menu();
-
 } 

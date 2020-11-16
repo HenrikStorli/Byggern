@@ -5,6 +5,11 @@
  *  Author: henri
  */ 
 
+/**
+* @file
+* @brief Implementation file for servo_motor
+*/
+
 #include "servo_ctrl.h"
 
 void servo_pwm_init(void){

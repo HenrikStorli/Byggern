@@ -4,6 +4,14 @@
  * Created: 14.10.2020 16:04:06
  *  Author: Herbe
  */ 
+
+
+/**
+* @file
+* @brief Implementation file for CAN_joystick_message
+*/
+
+
 #include "CAN_joystick_messages.h"
 
 

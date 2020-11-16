@@ -5,6 +5,12 @@
  *  Author: henri
  */ 
 
+
+/**
+* @file
+* @brief Implementation file for motor_controller
+*/
+
 #include "motor_controller.h"
 
 void init_motor_controller_parameters(float K_i, float K_p, float K_d){

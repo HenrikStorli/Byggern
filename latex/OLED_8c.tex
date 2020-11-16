@@ -1,0 +1,277 @@
+\hypertarget{OLED_8c}{}\section{Node1/\+O\+L\+ED.c File Reference}
+\label{OLED_8c}\index{Node1/\+O\+L\+E\+D.\+c@{Node1/\+O\+L\+E\+D.\+c}}
+
+
+Implementation file for O\+L\+ED.  
+
+
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fonts.\+h\char`\"{}}\newline
+Include dependency graph for O\+L\+E\+D.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{OLED_8c_a113e0ac4d2d1a07e24e0d3ac4f6e9ee7}\label{OLED_8c_a113e0ac4d2d1a07e24e0d3ac4f6e9ee7}} 
+\#define {\bfseries P\+X\+L\+\_\+\+W\+I\+D\+TH}~127
+\item 
+\mbox{\Hypertarget{OLED_8c_a3d2e9a0abfad3ab6b2aee8abaf79814a}\label{OLED_8c_a3d2e9a0abfad3ab6b2aee8abaf79814a}} 
+\#define {\bfseries P\+X\+L\+\_\+\+H\+E\+I\+G\+HT}~63
+\item 
+\mbox{\Hypertarget{OLED_8c_a8565b3b0fb92bd2474b1d7a8a6bc9c55}\label{OLED_8c_a8565b3b0fb92bd2474b1d7a8a6bc9c55}} 
+\#define {\bfseries O\+L\+E\+D\+\_\+\+C\+M\+D\+\_\+\+A\+DR}~0x1000
+\item 
+\mbox{\Hypertarget{OLED_8c_a77ce40949fe378da444c408c90c36227}\label{OLED_8c_a77ce40949fe378da444c408c90c36227}} 
+\#define {\bfseries O\+L\+E\+D\+\_\+\+D\+A\+T\+A\+\_\+\+A\+DR}~0x1200
+\item 
+\mbox{\Hypertarget{OLED_8c_a8566f57797dd700490e0ab6e45029a09}\label{OLED_8c_a8566f57797dd700490e0ab6e45029a09}} 
+\#define {\bfseries H\+O\+R\+I\+Z\+O\+N\+T\+A\+L\+\_\+\+A\+D\+R\+S\+N\+G\+\_\+\+M\+O\+DE}~0x22
+\item 
+\mbox{\Hypertarget{OLED_8c_a9ba7cbb4431ca61e6dbfa6f23ce932bc}\label{OLED_8c_a9ba7cbb4431ca61e6dbfa6f23ce932bc}} 
+\#define {\bfseries V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+A\+R\+D\+S\+N\+G\+\_\+\+M\+O\+DE}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{OLED_8c_afb6f3107e48d72be03cb3781374e1391}\label{OLED_8c_afb6f3107e48d72be03cb3781374e1391}} 
+void \hyperlink{OLED_8c_afb6f3107e48d72be03cb3781374e1391}{O\+L\+E\+D\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Initializes the O\+L\+ED module. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_ace3cdfd9b9340c234db47e92ebfcecf3}{write\+\_\+data} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em writes data on the oled-\/screen \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_a27022bd83812561568d304a82aa4929a}{write\+\_\+cmd} (uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em Writes a command to the O\+L\+ED. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_af4f99a6c352d4a03d22fcc5cc0da9eaf}{oled\+\_\+sel\+\_\+row} (uint8\+\_\+t page)
+\begin{DoxyCompactList}\small\item\em Selects a given page, so it can be written on. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_adb9592a9d85c872be96781be10c6d83f}{oled\+\_\+sel\+\_\+col} (uint8\+\_\+t col)
+\begin{DoxyCompactList}\small\item\em Selects a given coloumn, so it can be written to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{OLED_8c_ac3d3bd3760c4da609cc310cba9887a55}\label{OLED_8c_ac3d3bd3760c4da609cc310cba9887a55}} 
+void \hyperlink{OLED_8c_ac3d3bd3760c4da609cc310cba9887a55}{oled\+\_\+home} (void)
+\begin{DoxyCompactList}\small\item\em Sets the position to be written in top left corner. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_ac823985d98ef4c1a19113548d3feae33}{oled\+\_\+line\+\_\+down} (uint8\+\_\+t line\+NR)
+\begin{DoxyCompactList}\small\item\em Adjust the writing area a numbers of line down. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{OLED_8c_a66cdd05fb3a765535af54825cb9eb26c}\label{OLED_8c_a66cdd05fb3a765535af54825cb9eb26c}} 
+void \hyperlink{OLED_8c_a66cdd05fb3a765535af54825cb9eb26c}{oled\+\_\+clear} (void)
+\begin{DoxyCompactList}\small\item\em Clears the screen. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_a4fb85242f1721856beae7ddb9b30c477}{oled\+\_\+pos\+\_\+set} (uint8\+\_\+t row, uint8\+\_\+t col)
+\begin{DoxyCompactList}\small\item\em Sets the position to be written to. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_a15d79de9c02ea5de36c9dfb92be68b0c}{oled\+\_\+clear\+\_\+line} (uint8\+\_\+t page)
+\begin{DoxyCompactList}\small\item\em Clears a given line on the O\+L\+ED. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_a703cd0522c62333ab04587e9bd675e4f}{oled\+\_\+write\+\_\+character} (uint8\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Writes a char on the O\+L\+ED. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_a3edfa7c4a7a430d411f9effb9e9d7d92}{oled\+\_\+print} (char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Writes a string in the O\+L\+ED. \end{DoxyCompactList}\item 
+void \hyperlink{OLED_8c_aaaa55e6c4d13184ff544b96513b4fd37}{oled\+\_\+print\+\_\+arrow} (uint8\+\_\+t row, uint8\+\_\+t col)
+\begin{DoxyCompactList}\small\item\em Prints an arraow in the screen in the given position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{OLED_8c_a83d5a07d6d73eedca1767d36d8feca16}\label{OLED_8c_a83d5a07d6d73eedca1767d36d8feca16}} 
+volatile char $\ast$ {\bfseries oled\+\_\+write\+\_\+cmd} = (char $\ast$)0x1000
+\item 
+\mbox{\Hypertarget{OLED_8c_ac8625bf70e1b0a901c8294e10a7a6d78}\label{OLED_8c_ac8625bf70e1b0a901c8294e10a7a6d78}} 
+volatile char $\ast$ {\bfseries oled\+\_\+write\+\_\+data} =(char $\ast$)0x1200
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for O\+L\+ED. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{OLED_8c_a15d79de9c02ea5de36c9dfb92be68b0c}\label{OLED_8c_a15d79de9c02ea5de36c9dfb92be68b0c}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+clear\+\_\+line@{oled\+\_\+clear\+\_\+line}}
+\index{oled\+\_\+clear\+\_\+line@{oled\+\_\+clear\+\_\+line}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+clear\+\_\+line()}{oled\_clear\_line()}}
+{\footnotesize\ttfamily void oled\+\_\+clear\+\_\+line (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{page }\end{DoxyParamCaption})}
+
+
+
+Clears a given line on the O\+L\+ED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page} & The page that should be cleared \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_ac823985d98ef4c1a19113548d3feae33}\label{OLED_8c_ac823985d98ef4c1a19113548d3feae33}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+line\+\_\+down@{oled\+\_\+line\+\_\+down}}
+\index{oled\+\_\+line\+\_\+down@{oled\+\_\+line\+\_\+down}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+line\+\_\+down()}{oled\_line\_down()}}
+{\footnotesize\ttfamily void oled\+\_\+line\+\_\+down (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{line\+NR }\end{DoxyParamCaption})}
+
+
+
+Adjust the writing area a numbers of line down. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+NR} & The number of lines to be adjusted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_a4fb85242f1721856beae7ddb9b30c477}\label{OLED_8c_a4fb85242f1721856beae7ddb9b30c477}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+pos\+\_\+set@{oled\+\_\+pos\+\_\+set}}
+\index{oled\+\_\+pos\+\_\+set@{oled\+\_\+pos\+\_\+set}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+pos\+\_\+set()}{oled\_pos\_set()}}
+{\footnotesize\ttfamily void oled\+\_\+pos\+\_\+set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{row,  }\item[{uint8\+\_\+t}]{col }\end{DoxyParamCaption})}
+
+
+
+Sets the position to be written to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row that should be written to \\
+\hline
+{\em col} & The col that should be written to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_a3edfa7c4a7a430d411f9effb9e9d7d92}\label{OLED_8c_a3edfa7c4a7a430d411f9effb9e9d7d92}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+print@{oled\+\_\+print}}
+\index{oled\+\_\+print@{oled\+\_\+print}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+print()}{oled\_print()}}
+{\footnotesize\ttfamily void oled\+\_\+print (\begin{DoxyParamCaption}\item[{char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Writes a string in the O\+L\+ED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & A pointer to a character that is to be written \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 116 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_aaaa55e6c4d13184ff544b96513b4fd37}\label{OLED_8c_aaaa55e6c4d13184ff544b96513b4fd37}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+print\+\_\+arrow@{oled\+\_\+print\+\_\+arrow}}
+\index{oled\+\_\+print\+\_\+arrow@{oled\+\_\+print\+\_\+arrow}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+print\+\_\+arrow()}{oled\_print\_arrow()}}
+{\footnotesize\ttfamily void oled\+\_\+print\+\_\+arrow (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{row,  }\item[{uint8\+\_\+t}]{col }\end{DoxyParamCaption})}
+
+
+
+Prints an arraow in the screen in the given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & row that the arrow should be printed in \\
+\hline
+{\em The} & coloum the arrow should be printed in \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_adb9592a9d85c872be96781be10c6d83f}\label{OLED_8c_adb9592a9d85c872be96781be10c6d83f}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+sel\+\_\+col@{oled\+\_\+sel\+\_\+col}}
+\index{oled\+\_\+sel\+\_\+col@{oled\+\_\+sel\+\_\+col}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+sel\+\_\+col()}{oled\_sel\_col()}}
+{\footnotesize\ttfamily void oled\+\_\+sel\+\_\+col (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{col }\end{DoxyParamCaption})}
+
+
+
+Selects a given coloumn, so it can be written to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The colon that is to be selected \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_af4f99a6c352d4a03d22fcc5cc0da9eaf}\label{OLED_8c_af4f99a6c352d4a03d22fcc5cc0da9eaf}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+sel\+\_\+row@{oled\+\_\+sel\+\_\+row}}
+\index{oled\+\_\+sel\+\_\+row@{oled\+\_\+sel\+\_\+row}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+sel\+\_\+row()}{oled\_sel\_row()}}
+{\footnotesize\ttfamily void oled\+\_\+sel\+\_\+row (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{page }\end{DoxyParamCaption})}
+
+
+
+Selects a given page, so it can be written on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page} & Page to be selected \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_a703cd0522c62333ab04587e9bd675e4f}\label{OLED_8c_a703cd0522c62333ab04587e9bd675e4f}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!oled\+\_\+write\+\_\+character@{oled\+\_\+write\+\_\+character}}
+\index{oled\+\_\+write\+\_\+character@{oled\+\_\+write\+\_\+character}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{oled\+\_\+write\+\_\+character()}{oled\_write\_character()}}
+{\footnotesize\ttfamily void oled\+\_\+write\+\_\+character (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+
+
+Writes a char on the O\+L\+ED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character that is written \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 110 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_a27022bd83812561568d304a82aa4929a}\label{OLED_8c_a27022bd83812561568d304a82aa4929a}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!write\+\_\+cmd@{write\+\_\+cmd}}
+\index{write\+\_\+cmd@{write\+\_\+cmd}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+cmd()}{write\_cmd()}}
+{\footnotesize\ttfamily void write\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Writes a command to the O\+L\+ED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & The command to be executed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{OLED_8c_ace3cdfd9b9340c234db47e92ebfcecf3}\label{OLED_8c_ace3cdfd9b9340c234db47e92ebfcecf3}} 
+\index{O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}!write\+\_\+data@{write\+\_\+data}}
+\index{write\+\_\+data@{write\+\_\+data}!O\+L\+E\+D.\+c@{O\+L\+E\+D.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+data()}{write\_data()}}
+{\footnotesize\ttfamily void write\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+writes data on the oled-\/screen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be written \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file O\+L\+E\+D.\+c.
+

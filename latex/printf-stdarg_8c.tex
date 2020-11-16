@@ -1,0 +1,40 @@
+\hypertarget{printf-stdarg_8c}{}\section{Node2/\+Node2/printf-\/stdarg.c File Reference}
+\label{printf-stdarg_8c}\index{Node2/\+Node2/printf-\/stdarg.\+c@{Node2/\+Node2/printf-\/stdarg.\+c}}
+
+
+Implementation file for print functions using uart.  
+
+
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+Include dependency graph for printf-\/stdarg.c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{printf-stdarg_8c_a6fd5dddc97219412ab1c4483ce144aef}\label{printf-stdarg_8c_a6fd5dddc97219412ab1c4483ce144aef}} 
+\#define {\bfseries P\+A\+D\+\_\+\+R\+I\+G\+HT}~1
+\item 
+\mbox{\Hypertarget{printf-stdarg_8c_a0b08e2c1689b9348d321cdc8846950af}\label{printf-stdarg_8c_a0b08e2c1689b9348d321cdc8846950af}} 
+\#define {\bfseries P\+A\+D\+\_\+\+Z\+E\+RO}~2
+\item 
+\mbox{\Hypertarget{printf-stdarg_8c_a5bf270eda1fe4ed63535e31fab16433e}\label{printf-stdarg_8c_a5bf270eda1fe4ed63535e31fab16433e}} 
+\#define {\bfseries P\+R\+I\+N\+T\+\_\+\+B\+U\+F\+\_\+\+L\+EN}~12
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{printf-stdarg_8c_a98631211a4a8aee62f572375d5b637be}\label{printf-stdarg_8c_a98631211a4a8aee62f572375d5b637be}} 
+int {\bfseries printf} (const char $\ast$format,...)
+\item 
+\mbox{\Hypertarget{printf-stdarg_8c_aa0649118bc3728b2a62af0b47606ff51}\label{printf-stdarg_8c_aa0649118bc3728b2a62af0b47606ff51}} 
+int {\bfseries sprintf} (char $\ast$out, const char $\ast$format,...)
+\item 
+\mbox{\Hypertarget{printf-stdarg_8c_a0b3526078beb75778277d06a066c9508}\label{printf-stdarg_8c_a0b3526078beb75778277d06a066c9508}} 
+int {\bfseries snprintf} (char $\ast$buf, unsigned int count, const char $\ast$format,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for print functions using uart. 
+

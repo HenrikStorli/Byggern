@@ -7,6 +7,14 @@
  * NTNU - Norwegian University of Science and Technology
  *
  */ 
+
+
+/**
+* @file
+* @brief Implementation file for uart
+*/
+
+
 #include <stdint.h>
 
 #include "sam.h"

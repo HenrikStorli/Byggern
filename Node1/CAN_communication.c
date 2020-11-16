@@ -1,3 +1,9 @@
+/**
+* @file
+* @brief Implementation file for CAN_communication
+*/
+
+
 #include "CAN_communication.h"
 
 volatile int flag = 0;

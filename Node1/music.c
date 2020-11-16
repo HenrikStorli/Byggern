@@ -4,6 +4,14 @@
  * Created: 13.11.2020 20:31:04
  *  Author: Herbe
  */ 
+
+
+/**
+* @file
+* @brief Implementation file for music
+*/
+
+
 #include <avr/io.h>
 #include "music.h"
 #include "notes.h"

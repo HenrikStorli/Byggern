@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Implementation file for mcp2515_driver
+*/
+
 #include "mcp2515_driver.h"
 
 

@@ -8,6 +8,11 @@
  *
  */ 
 
+/**
+* @file
+* @brief Implementation file for can_controller
+*/
+
 #include "can_controller.h"
 
 #include "sam.h"

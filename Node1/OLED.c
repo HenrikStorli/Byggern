@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Implementation file for OLED
+*/
+
 #include <avr/io.h>
 #include <stdio.h>
 #include "OLED.h"

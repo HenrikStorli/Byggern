@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Implementation file for OLED_menu
+*/
+
 #include "OLED_menu.h"
 #include "songs.h"
 

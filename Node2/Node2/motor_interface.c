@@ -5,6 +5,13 @@
  *  Author: henri
  */ 
 
+
+/**
+* @file
+* @brief Implementation file for motor_interface
+*/
+
+
 #include "motor_interface.h"
 
 

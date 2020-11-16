@@ -20,6 +20,11 @@ Edited 2020 by Eivind H. Jølsgard and Gustav O. Often for use in course TTK4155
 */
 
 
+/**
+* @file
+* @brief Implementation file for print functions using uart
+*/
+
 #include <stdarg.h>
 #include "uart.h"
 

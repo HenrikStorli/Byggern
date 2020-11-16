@@ -18,5 +18,5 @@ digraph "Node1/mcp2515_driver.h"
   Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node6 [label="iom162.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$iom162_8h_source.html"];
   Node0 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="mcp2515.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mcp2515_8h_source.html"];
+  Node7 [label="mcp2515.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mcp2515_8h.html",tooltip="MCP2515 registers. "];
 }

@@ -11,10 +11,10 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{music_8h_af9723be6d859c7f122f66b049ad4a942}\label{music_8h_af9723be6d859c7f122f66b049ad4a942}} 
-void {\bfseries Init\+Music} (void)
-\item 
+void \hyperlink{music_8h_af9723be6d859c7f122f66b049ad4a942}{Init\+Music} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the pwm signal used for the buzzer. \end{DoxyCompactList}\item 
 void \hyperlink{music_8h_a8b33490d65c0c769f15daea980a7d44e}{play\+Music} (int $\ast$p\+\_\+notes, uint8\+\_\+t scale)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initializes the C\+A\+N-\/controller with the given mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -29,7 +29,18 @@ Library for using buzzer.
 \subsubsection{\texorpdfstring{play\+Music()}{playMusic()}}
 {\footnotesize\ttfamily void play\+Music (\begin{DoxyParamCaption}\item[{int $\ast$}]{p\+\_\+notes,  }\item[{uint8\+\_\+t}]{scale }\end{DoxyParamCaption})}
 
-plays music. paying tempo from 0 to 100. Higher value = slower playback 
 
-Definition at line 34 of file music.\+c.
+
+Initializes the C\+A\+N-\/controller with the given mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+notes} & pointer to the notes that should be played \\
+\hline
+{\em scale} & How the notes should be scaled \\
+\hline
+\end{DoxyParams}
+paying tempo from 0 to 100. Higher value = slower playback 
+
+Definition at line 38 of file music.\+c.
 

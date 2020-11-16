@@ -25,15 +25,14 @@ typedef struct \hyperlink{structregulator__parameter__t}{regulator\+\_\+paramete
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}\label{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}} 
-void {\bfseries init\+\_\+motor\+\_\+controller\+\_\+parameters} (float K\+\_\+i, float K\+\_\+p, float K\+\_\+d)
-\item 
+void \hyperlink{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}{init\+\_\+motor\+\_\+controller\+\_\+parameters} (float K\+\_\+i, float K\+\_\+p, float K\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Initializes the values used in the motor controller. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{motor__controller_8h_aa4bd3774d2dc8b11b5bf2754ac49bc61}\label{motor__controller_8h_aa4bd3774d2dc8b11b5bf2754ac49bc61}} 
-void {\bfseries motor\+\_\+controller\+\_\+update} ()
-\item 
+void \hyperlink{motor__controller_8h_aa4bd3774d2dc8b11b5bf2754ac49bc61}{motor\+\_\+controller\+\_\+update} ()
+\begin{DoxyCompactList}\small\item\em Updates the values used to control the motor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{motor__controller_8h_a2315b1583f13cd77a336b2cdd6d5c332}\label{motor__controller_8h_a2315b1583f13cd77a336b2cdd6d5c332}} 
-void {\bfseries motor\+\_\+controller\+\_\+set\+\_\+input} ()
-\end{DoxyCompactItemize}
+void \hyperlink{motor__controller_8h_a2315b1583f13cd77a336b2cdd6d5c332}{motor\+\_\+controller\+\_\+set\+\_\+input} ()
+\begin{DoxyCompactList}\small\item\em Sets the calculated input out to the motor box. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,4 +43,30 @@ void {\bfseries motor\+\_\+controller\+\_\+set\+\_\+input} ()
 
 \subsection{Detailed Description}
 Library for using motor controller. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}\label{motor__controller_8h_ad10df79052bb87fc344d603ee400de09}} 
+\index{motor\+\_\+controller.\+h@{motor\+\_\+controller.\+h}!init\+\_\+motor\+\_\+controller\+\_\+parameters@{init\+\_\+motor\+\_\+controller\+\_\+parameters}}
+\index{init\+\_\+motor\+\_\+controller\+\_\+parameters@{init\+\_\+motor\+\_\+controller\+\_\+parameters}!motor\+\_\+controller.\+h@{motor\+\_\+controller.\+h}}
+\subsubsection{\texorpdfstring{init\+\_\+motor\+\_\+controller\+\_\+parameters()}{init\_motor\_controller\_parameters()}}
+{\footnotesize\ttfamily void init\+\_\+motor\+\_\+controller\+\_\+parameters (\begin{DoxyParamCaption}\item[{float}]{K\+\_\+i,  }\item[{float}]{K\+\_\+p,  }\item[{float}]{K\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Initializes the values used in the motor controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em K\+\_\+i} & The integral gain \\
+\hline
+{\em K\+\_\+p} & The proportional gain \\
+\hline
+{\em K\+\_\+d} & The derivative gain \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file motor\+\_\+controller.\+c.
 

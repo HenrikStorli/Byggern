@@ -5,6 +5,11 @@
  *  Author: Herbe
  */
 
+/**
+* @file
+* @brief Implementation file for SRAM_driver
+*/
+
 #include "SRAM_driver.h"
 
 void SRAM_init(void){

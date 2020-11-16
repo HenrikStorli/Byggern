@@ -15,26 +15,60 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{Timer_8h_a31b5ba25bd929045b6f0316506239363}\label{Timer_8h_a31b5ba25bd929045b6f0316506239363}} 
-uint32\+\_\+t {\bfseries timer\+\_\+init} (void)
-\item 
+\mbox{\Hypertarget{Timer_8h_a7b8ab79df77b57475a5494f5f81c3bd9}\label{Timer_8h_a7b8ab79df77b57475a5494f5f81c3bd9}} 
+void \hyperlink{Timer_8h_a7b8ab79df77b57475a5494f5f81c3bd9}{timer\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the timer use for controller update and highscore. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{Timer_8h_a2eca52a9a80dbd2067f9dbbba597f63f}\label{Timer_8h_a2eca52a9a80dbd2067f9dbbba597f63f}} 
-void {\bfseries T\+C0\+\_\+\+Handler} (void)
-\item 
-\mbox{\Hypertarget{Timer_8h_a167104520375d36a7d8e8263779920b0}\label{Timer_8h_a167104520375d36a7d8e8263779920b0}} 
-void {\bfseries T\+C1\+\_\+\+Handler} (void)
-\item 
-\mbox{\Hypertarget{Timer_8h_ad8aeec5ab89cc624fdd75f0a788355c2}\label{Timer_8h_ad8aeec5ab89cc624fdd75f0a788355c2}} 
-void {\bfseries Set\+Timer} (uint8\+\_\+t state)
-\item 
-\mbox{\Hypertarget{Timer_8h_a6689f4ea0a14bc213993a3d858db13ee}\label{Timer_8h_a6689f4ea0a14bc213993a3d858db13ee}} 
-uint32\+\_\+t {\bfseries count\+\_\+value} (void)
-\item 
+void \hyperlink{Timer_8h_a2eca52a9a80dbd2067f9dbbba597f63f}{T\+C0\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em I\+SR for tc0\+\_\+handler. \end{DoxyCompactList}\item 
+void \hyperlink{Timer_8h_ad8aeec5ab89cc624fdd75f0a788355c2}{Set\+Timer} (uint8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Starts and stops the timer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{Timer_8h_a6689f4ea0a14bc213993a3d858db13ee}{count\+\_\+value} (void)
+\begin{DoxyCompactList}\small\item\em Checks what the counter is at the current time. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{Timer_8h_a238399bff6ebe0aebbd67935ea41dddd}\label{Timer_8h_a238399bff6ebe0aebbd67935ea41dddd}} 
-void {\bfseries reset\+\_\+count} (void)
-\end{DoxyCompactItemize}
+void \hyperlink{Timer_8h_a238399bff6ebe0aebbd67935ea41dddd}{reset\+\_\+count} (void)
+\begin{DoxyCompactList}\small\item\em Resets count to zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Library for using timers. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{Timer_8h_a6689f4ea0a14bc213993a3d858db13ee}\label{Timer_8h_a6689f4ea0a14bc213993a3d858db13ee}} 
+\index{Timer.\+h@{Timer.\+h}!count\+\_\+value@{count\+\_\+value}}
+\index{count\+\_\+value@{count\+\_\+value}!Timer.\+h@{Timer.\+h}}
+\subsubsection{\texorpdfstring{count\+\_\+value()}{count\_value()}}
+{\footnotesize\ttfamily uint32\+\_\+t count\+\_\+value (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks what the counter is at the current time. 
+
+\begin{DoxyReturn}{Returns}
+The count value 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Timer.\+c.
+
+\mbox{\Hypertarget{Timer_8h_ad8aeec5ab89cc624fdd75f0a788355c2}\label{Timer_8h_ad8aeec5ab89cc624fdd75f0a788355c2}} 
+\index{Timer.\+h@{Timer.\+h}!Set\+Timer@{Set\+Timer}}
+\index{Set\+Timer@{Set\+Timer}!Timer.\+h@{Timer.\+h}}
+\subsubsection{\texorpdfstring{Set\+Timer()}{SetTimer()}}
+{\footnotesize\ttfamily void Set\+Timer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+
+
+Starts and stops the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & If timer should be on or of. Starts if 1, stops if 0 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Timer.\+c.
 
