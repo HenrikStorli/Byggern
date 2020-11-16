@@ -13,7 +13,7 @@ void motor_init_DAC(){
 	REG_PMC_PCER1 |= (1<<6);
 	
 	//Set DACC MODE REGISTER, free running mode
-	REG_DACC_MR = 0x05012000; //0x050012000
+	REG_DACC_MR = 0x05012000;
 	
 	//Set DAC channel to channel 1
 	REG_DACC_CHER = 0b10;
@@ -32,7 +32,7 @@ void motor_init_DAC(){
 }
 
 void motor_set_input(int input){
-	int register_value = (4095.0/255.0)* input; // 4095 for motor reselution (12 bits), and 255 for max slider value.
+	int register_value = (4095.0/255.0)* input; // 4095 for motor resolution (12 bits), and 255 for max slider value.
 	
 	REG_DACC_CDR = register_value;
 }
@@ -40,10 +40,10 @@ void motor_set_input(int input){
 void motor_select_direction(MOTOR_DIRECTION direction){
 
 	if(direction == MOTOR_LEFT){
-		REG_PIOD_SODR =  (1<<10); //ANTAR DIR = 1 gir venstre
+		REG_PIOD_SODR =  (1<<10); 
 	}
 	else if (direction == MOTOR_RIGHT){
-		REG_PIOD_CODR = (1<<10); //ANTAR DIR = 1 gir høyre
+		REG_PIOD_CODR = (1<<10); 
 	}
 }
 
@@ -60,7 +60,6 @@ void motor_reset_counter(void){
 	REG_PIOD_CODR = (1 << 1);
 	
 	//Delay
-	
 	for(int i = 0; i < 400; i++);
 	
 	//Reset pin high
@@ -116,12 +115,6 @@ uint16_t motor_read_counter(){
 	//Read LSB
 	volatile uint16_t least_significant_byte = REG_PIOC_PDSR;
 	least_significant_byte &= 0x000000FF; //Masking out the uninteresting bits
-	
-	//Set !RST low to reset counter
-
-	//Delay 20 ms
-
-	//Set !RST high 
 
 	//Disable output of encoder
 	motor_activate_counter_output(0);

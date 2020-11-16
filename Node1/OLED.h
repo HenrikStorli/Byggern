@@ -16,8 +16,6 @@
 
 #include <string.h>
 
-
-//void OLED_printf(char* data);
 volatile char* oled_write_cmd;
 volatile char* oled_write_data;
 
@@ -86,6 +84,12 @@ void oled_pos_set(uint8_t row, uint8_t col);
  */
 void oled_clear_line(uint8_t page);
 
+
+/**
+ * @brief Updates the highscore list
+ *
+ * @param highscore The value to update the score list
+ */
 void check_highscore(int highscore);
 
 /**

@@ -5,6 +5,10 @@
  *  Author: Herbe
  */ 
 
+/**
+* @file
+* @brief Notes used for buzzer sound
+*/
 
 #ifndef NOTES_H_
 #define NOTES_H_

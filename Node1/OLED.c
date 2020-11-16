@@ -10,11 +10,10 @@
 #include "OLED.h"
 #include "fonts.h"
 
-//#ifndef OLED_CMD_ADR
 #define PXL_WIDTH 127       // begins at 0 |128|
 #define PXL_HEIGHT 63       // begins at 0 |64|
 #define OLED_CMD_ADR 0x1000
-#define OLED_DATA_ADR 0x1200        //ikke brukt enda
+#define OLED_DATA_ADR 0x1200      
 #define HORIZONTAL_ADRSNG_MODE 0x22
 #define VERTICAL_ARDSNG_MODE
 volatile char* oled_write_cmd = (char *)0x1000;
@@ -50,11 +49,11 @@ void OLED_init()    {
 }
 
 void write_data(uint8_t data){
-    oled_write_data[0] = data;      // @SRAM location
+    oled_write_data[0] = data;     
 }
 
 void write_cmd(uint8_t cmd){
-    oled_write_cmd[0] = cmd;      // @SRAM location
+    oled_write_cmd[0] = cmd;     
 }
 
 void oled_sel_row(uint8_t page){
@@ -83,9 +82,7 @@ void oled_clear(void){
         for(uint8_t j = 0; j < 128; j++){
                 for(uint8_t k = 0; k < 8; k++){
                 write_data(pgm_read_byte( &(font8[0][k] ) ) );   // gets blank spaces from font.h //
-               //     ext_oledData[0] = pgm_read_byte( &(font8[0][k] ) );
                 }
-            //
         }
    }
     oled_home();
@@ -129,11 +126,3 @@ void oled_print_arrow(uint8_t row, uint8_t col){
     write_data(0b00111100);
     write_data(0b00011000);
 }
-
-
-/*
-void oled_set_adrsng_mode(adressing_mode mode) {
-	write_command(0x20);
-	write_command(mode);
-}
-*/

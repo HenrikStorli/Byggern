@@ -34,10 +34,23 @@ typedef struct regulator_parameter_t
 
 regulator_parameter reg_parameters;
 
+/**
+ * @brief Initializes the values used in the motor controller
+ *
+ * @param K_i The integral gain
+ * @param K_p The proportional gain
+ * @param K_d The derivative gain
+ */
 void init_motor_controller_parameters(float K_i, float K_p, float K_d);
 
+/**
+ * @brief Updates the values used to control the motor 
+ */
 void motor_controller_update();
 
+/**
+ * @brief Sets the calculated input out to the motor box
+ */
 void motor_controller_set_input();
 
 #endif /* MOTOR_CONTROLLER_H_ */

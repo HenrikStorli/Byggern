@@ -21,17 +21,13 @@
 #include "CAN_joystick_messages.h"
 #include "CAN_communication.h"
 
-//#include "music.h"
-//#include "songs.h"
-//#include "notes.h"
-
 typedef enum{MAIN_MENU, PLAY_GAME, SCORE, SETTING, DIFFICULTY, DEBUGGINGN, END_MENU} MENU_ITEMS;
 
 typedef struct Node_t{
-    struct Node_t *Parent; //
+    struct Node_t *Parent; 
     struct Node_t* children[8];
     int elements_on_screen;
-    void (*functionPtr)(void); // 
+    void (*functionPtr)(void);  
     char name[20];
 }Node;
 

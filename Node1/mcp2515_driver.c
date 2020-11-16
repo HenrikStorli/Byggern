@@ -42,7 +42,7 @@ void mcp_write(uint8_t adrs, uint8_t value){
     spi_master_CS(0); //Select CAN controller
 
     spi_write(MCP_WRITE); // Instruction
-    spi_write(adrs);    //Adress
+    spi_write(adrs);    // Address
     spi_write(value);   // Data
 
     spi_master_CS(1); //Deselect CAN controller
@@ -54,8 +54,8 @@ uint8_t mcp_read(uint8_t adrs){
 
    spi_master_CS(0);
 
-   spi_write(MCP_READ); //Instruction
-   spi_write(adrs); // Adress
+   spi_write(MCP_READ); // Instruction
+   spi_write(adrs); // address
    result =  spi_read(); //Read return value
 
    spi_master_CS(1);
@@ -65,8 +65,6 @@ uint8_t mcp_read(uint8_t adrs){
 
 
 void spi_master_CS(unsigned char state){
-
-    //DDR_SPI |= (1 << SS);
 
     if(!state) {
         //Lower CS pin

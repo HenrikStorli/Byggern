@@ -15,10 +15,8 @@
 #include "servo_ctrl.h"
 #include "motor_interface.h"
 #include "motor_controller.h"
-#include "ADC.h"
+#include "IR.h"
 #include "Timer.h"
-
-#define F_CPU 84E6 //84Mhz
 
 int main(void)
 {
@@ -30,67 +28,41 @@ int main(void)
     IR_init();
     timer_init();
     
-    //init can config     
+    // Initializes can config     
     uint32_t can_msk = 0x00143555;
     uint8_t can_status = can_init(can_msk, 2, 1);
     
-    WDT->WDT_MR = WDT_MR_WDDIS; // Dissable watchdog      
+	// Disable watchdog 
+    WDT->WDT_MR = WDT_MR_WDDIS;      
     
     SetTimer(1);  
-	uint16_t counter_value;
     motor_enable();
 	init_motor_controller_parameters(0.003, 0.9, 0);
 	
+	// Creates game over message
 	CAN_MESSAGE game_over_message;
 	game_over_message.id = 0;
 	game_over_message.data_length = 2;
 	
+	// Value checking if mailbox is busy
 	uint8_t mailbox_busy;
 	
 	
     while (1) 
     {	
-
+		// Set input to the game equipment 
 		motor_controller_set_input();
 		servo_set_angle(received_joystick_data);
 		servo_activate_solonoid(received_joystick_data);
 		
-		
+		// Checks if the game is lost
 		if(IR_check()){
+			
+			// Sends game over message
 			game_over_message.data[0] = 0b10101011;
 			game_over_message.data[1] = count_value();
-			
-			// Reset highscore counter
-			//reset_count();
-			
-			//printf("IR_CHECK FUNGERER");
-			
-			
 			mailbox_busy = can_send(&game_over_message, 0);
 			
-			//printf("MAILBOX BUSY: %d", mailbox_busy);
-			
 		}
-		
-		printf("SCORE VALUE: %d\n\r", count_value());
-		
-
-		
-		//uint16_t ir_value = IR_read();
-		
-		//game_over_message.data[0] = 0b10101010;
-		//mailbox_busy = can_send(&game_over_message, 1);
-		
-		//counter_value = motor_read_counter();
-		
-		//printf("Counter Value: %d\n\r", counter_value);
-		
-		//printf("IR value is: %d\n\r", ir_value);
-
-		
-
-
-    //printf("X = %d Y = %d, joybutton = %d, joydirection = %d, SliderY = %d \n\r", received_joystick_data.posX, received_joystick_data.posY, received_joystick_data.button_pushed, received_joystick_data.joystick_direction, received_joystick_data.sliderRight);
-    
     }
 }

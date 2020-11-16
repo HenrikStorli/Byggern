@@ -14,7 +14,6 @@
 
 void InitMusic()
 {
-	// Configure OC1B pin as output
 
 	DDRE |= (1 << PE2); //OC1B as output
 
@@ -22,17 +21,13 @@ void InitMusic()
     TCCR1A = (1 << COM1B1);  // Clear OC1A/OC1B on compare match
 
 	
-	TCCR1B = (1 << WGM13) 	//mode 8, pWM, phase and Frequency Correct (TOp value is ICR1)
-		   | (1 << CS11); 		//prescaler(8)
+	TCCR1B = (1 << WGM13) 	// mode 8, pWM, phase and Frequency Correct (TOp value is ICR1)
+		   | (1 << CS11); 	// prescaler(8)
 }
 
 
-/**
-	plays music.
-*/
 
-void playMusic( int* p_notes, uint8_t scale)	{							 /** paying tempo from 0 to 100. Higher value = slower playback*/
-//	uint16_t size = sizeof(*p_notes);
+void playMusic(int* p_notes, uint8_t scale)	{/** paying tempo from 0 to 100. Higher value = slower playback*/
 
 	int note;
 	uint8_t i = 0;

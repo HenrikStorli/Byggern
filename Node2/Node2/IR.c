@@ -4,11 +4,11 @@
  * Created: 19.10.2020 14:02:12
  *  Author: Herbe
  */ 
-#include "ADC.h"
+#include "IR.h"
 
 void IR_init(void){
 	
-    REG_PMC_PCER1 |= (1 << 5);  // enable ADC on ID37 could write ID_ADC?
+    REG_PMC_PCER1 |= (1 << 5);  // enable ADC on ID37
     REG_ADC_MR |= (1 << 7); // ADC in free run mode
     REG_ADC_CHER |= ADC_CHER_CH7; //enable as adc channel on AD7 extra func     
 }

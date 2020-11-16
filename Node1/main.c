@@ -27,15 +27,11 @@
 #include "CAN_joystick_messages.h"
 
 #include "music.h"
-//#include "songs.h"
-//#include "notes.h"
-
 
 int main(void)
 {
+	// Initializes everything needed for operation 
     InitMusic();
-	//playMusic(end_melody2, 1, 2);
-	
     SRAM_init();
     ADC_timer_init();
     USART_init();
@@ -46,20 +42,7 @@ int main(void)
     oled_clear();
 	CAN_init(MODE_NORMAL);
 	
+	// Where all interactions occur
     menu();
 
-    printf("Initiating node 1 \n\r");
-    
-    //printf("showscore is: %c")
-    while (1) {
-
-	   joyStick_Can_Message();
-        
-        uint8_t sliderX = ADC_read(3);
-        uint8_t sliderY = ADC_read(2);
-  
-        printf("Pos X val is %4d , Pos Y is %4d, sliderX is %4d,  sliderY is %4d  \n \r", P_pos.posX, P_pos.posY, sliderX, sliderY);
-
-  } // end main loop
-
-} //end main
+} 

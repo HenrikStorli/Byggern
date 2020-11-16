@@ -8,14 +8,18 @@
 #include "OLED_menu.h"
 #include "songs.h"
 
-int _1ST, _2ND, _3RD = 0;
+int _1ST, _2ND, _3RD = 0; // Highscores as global variables
 
 int child = 1; // Which page the selection arrow hovers over.
 
 void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_function)(void), Node *children_nodes[8], int elements_on_screen){
+	
     this_node->Parent = father_node;
+	
     strcpy(this_node->name, node_name);
+	
     this_node->functionPtr = do_function;
+	
     this_node->elements_on_screen = elements_on_screen;
 
     for(int i = 0; i < 8; i++){
@@ -24,18 +28,25 @@ void build_node(Node *this_node, Node* father_node, char node_name[], void (*do_
 }
 
 void go_up(Node **this_node){
-  if((*this_node)->Parent != 0){
-    (*this_node) = (*this_node)->Parent;
-  }
+	
+	if((*this_node)->Parent != 0){
+		
+		(*this_node) = (*this_node)->Parent;
+		
+	}
 }
 
 void go_down(Node **this_node, int child){
 
     if(((*this_node)->children)[child - 1] != 0){
+		
         (*this_node) = ((*this_node)->children)[child - 1];
+		
     }
     else if((*this_node)->functionPtr != 0){
+		
         (*this_node)->functionPtr();
+		
     }else{
 		
     }
@@ -139,7 +150,6 @@ void menu(){
           case BUTTON_PRESS:
               break;
           case UP:
-                //update_screen(current_node, child);
                 child = update_element_up(current_node, child);
               break;
           case DOWN:
@@ -156,7 +166,9 @@ void menu(){
           default:
               break;
         }
+		
         update_screen(current_node, child);
+		
         wait_for_neutral_joystick_position();
     }
 }
@@ -310,6 +322,7 @@ void play_game(){
 }
 
 void set_difficulty(){
+	// Creates the message that communicates the new difficulty setting
 	CAN_message_t difficulty_message;
 	difficulty_message.identifier = 5;
 	difficulty_message.data_length = 1;

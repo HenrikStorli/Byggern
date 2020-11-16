@@ -54,7 +54,8 @@
       <ToolNumber>J41800001531</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterface>JTAG</avrtoolinterface>
+    <avrtoolinterface>
+    </avrtoolinterface>
     <avrtoolinterfaceclock>7500000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -177,10 +178,10 @@
     <Compile Include="Device_Startup\system_sam3xa.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ADC.c">
+    <Compile Include="IR.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ADC.h">
+    <Compile Include="IR.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">

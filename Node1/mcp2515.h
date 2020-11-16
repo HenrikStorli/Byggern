@@ -5,6 +5,11 @@
  *  Author: Herbe
  */ 
 
+/**
+* @file
+* @brief MCP2515 registers
+*/
+
 
 #ifndef __MCP2515_H
 #define __MCP2515_H
