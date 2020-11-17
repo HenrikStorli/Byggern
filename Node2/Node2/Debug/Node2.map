@@ -2890,19 +2890,19 @@ OUTPUT(Node2.elf elf32-littlearm)
  .debug_macro   0x00012fd3      0x4dd servo_ctrl.o
  .debug_macro   0x000134b0      0x374 uart.o
 
-.debug_line     0x00000000     0x5bec
+.debug_line     0x00000000     0x5bf0
  .debug_line    0x00000000      0x7d5 can_controller.o
  .debug_line    0x000007d5      0x8c5 can_interrupt.o
  .debug_line    0x0000109a      0x725 Device_Startup/startup_sam3xa.o
  .debug_line    0x000017bf      0x79b Device_Startup/system_sam3xa.o
- .debug_line    0x00001f5a      0x715 IR.o
- .debug_line    0x0000266f      0x8b0 main.o
- .debug_line    0x00002f1f      0x886 motor_controller.o
- .debug_line    0x000037a5      0x7b3 motor_interface.o
- .debug_line    0x00003f58      0x3bd printf-stdarg.o
- .debug_line    0x00004315      0x8ba Timer.o
- .debug_line    0x00004bcf      0x8b1 servo_ctrl.o
- .debug_line    0x00005480      0x76c uart.o
+ .debug_line    0x00001f5a      0x717 IR.o
+ .debug_line    0x00002671      0x8b0 main.o
+ .debug_line    0x00002f21      0x886 motor_controller.o
+ .debug_line    0x000037a7      0x7b4 motor_interface.o
+ .debug_line    0x00003f5b      0x3bd printf-stdarg.o
+ .debug_line    0x00004318      0x8bb Timer.o
+ .debug_line    0x00004bd3      0x8b1 servo_ctrl.o
+ .debug_line    0x00005484      0x76c uart.o
 
 .debug_str      0x00000000    0x5552c
  .debug_str     0x00000000    0x50511 can_controller.o
@@ -2922,13 +2922,13 @@ OUTPUT(Node2.elf elf32-littlearm)
  .debug_str     0x000550c3       0xe3 motor_interface.o
                               0x50259 (size before relaxing)
  .debug_str     0x000551a6      0x174 printf-stdarg.o
-                               0x365a (size before relaxing)
+                               0x363f (size before relaxing)
  .debug_str     0x0005531a       0xb1 Timer.o
                               0x545e8 (size before relaxing)
  .debug_str     0x000553cb       0x5e servo_ctrl.o
                               0x54406 (size before relaxing)
  .debug_str     0x00055429      0x103 uart.o
-                              0x506b1 (size before relaxing)
+                              0x50696 (size before relaxing)
 
 .debug_frame    0x00000000      0xa54
  .debug_frame   0x00000000       0x78 can_controller.o

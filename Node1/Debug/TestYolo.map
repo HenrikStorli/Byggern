@@ -1245,7 +1245,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3d98
+.debug_info     0x00000000     0x3d9b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5d0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_info    0x000005d0      0x31c ADC_driver.o
@@ -1254,14 +1254,14 @@ END GROUP
  .debug_info    0x0000127d      0x59f mcp2515_driver.o
  .debug_info    0x0000181c      0x164 music.o
  .debug_info    0x00001980      0x92c OLED.o
- .debug_info    0x000022ac     0x1268 OLED_menu.o
- .debug_info    0x00003514      0x2b0 pos_read.o
- .debug_info    0x000037c4      0x2b0 main.o
- .debug_info    0x00003a74       0xe1 spi_driver.o
- .debug_info    0x00003b55      0x17b SRAM_driver.o
- .debug_info    0x00003cd0       0xc8 UART_driver.o
+ .debug_info    0x000022ac     0x126b OLED_menu.o
+ .debug_info    0x00003517      0x2b0 pos_read.o
+ .debug_info    0x000037c7      0x2b0 main.o
+ .debug_info    0x00003a77       0xe1 spi_driver.o
+ .debug_info    0x00003b58      0x17b SRAM_driver.o
+ .debug_info    0x00003cd3       0xc8 UART_driver.o
 
-.debug_abbrev   0x00000000     0x16c2
+.debug_abbrev   0x00000000     0x16dc
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x580 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_abbrev  0x00000580      0x1d1 ADC_driver.o
@@ -1270,28 +1270,28 @@ END GROUP
  .debug_abbrev  0x00000a97      0x1a6 mcp2515_driver.o
  .debug_abbrev  0x00000c3d      0x116 music.o
  .debug_abbrev  0x00000d53      0x1d3 OLED.o
- .debug_abbrev  0x00000f26      0x342 OLED_menu.o
- .debug_abbrev  0x00001268      0x171 pos_read.o
- .debug_abbrev  0x000013d9       0xeb main.o
- .debug_abbrev  0x000014c4       0xad spi_driver.o
- .debug_abbrev  0x00001571       0xbf SRAM_driver.o
- .debug_abbrev  0x00001630       0x92 UART_driver.o
+ .debug_abbrev  0x00000f26      0x35c OLED_menu.o
+ .debug_abbrev  0x00001282      0x171 pos_read.o
+ .debug_abbrev  0x000013f3       0xeb main.o
+ .debug_abbrev  0x000014de       0xad spi_driver.o
+ .debug_abbrev  0x0000158b       0xbf SRAM_driver.o
+ .debug_abbrev  0x0000164a       0x92 UART_driver.o
 
-.debug_line     0x00000000     0x1bc4
+.debug_line     0x00000000     0x1bc7
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x13f C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega162/avr5/crtatmega162.o
  .debug_line    0x0000013f      0x1e8 ADC_driver.o
- .debug_line    0x00000327      0x3bd CAN_communication.o
- .debug_line    0x000006e4      0x135 CAN_joystick_messages.o
- .debug_line    0x00000819      0x30a mcp2515_driver.o
- .debug_line    0x00000b23      0x172 music.o
- .debug_line    0x00000c95      0x2a3 OLED.o
- .debug_line    0x00000f38      0x5c5 OLED_menu.o
- .debug_line    0x000014fd      0x20d pos_read.o
- .debug_line    0x0000170a      0x169 main.o
- .debug_line    0x00001873       0xf5 spi_driver.o
- .debug_line    0x00001968      0x15c SRAM_driver.o
- .debug_line    0x00001ac4      0x100 UART_driver.o
+ .debug_line    0x00000327      0x3bf CAN_communication.o
+ .debug_line    0x000006e6      0x135 CAN_joystick_messages.o
+ .debug_line    0x0000081b      0x30a mcp2515_driver.o
+ .debug_line    0x00000b25      0x172 music.o
+ .debug_line    0x00000c97      0x2a4 OLED.o
+ .debug_line    0x00000f3b      0x5c5 OLED_menu.o
+ .debug_line    0x00001500      0x20d pos_read.o
+ .debug_line    0x0000170d      0x169 main.o
+ .debug_line    0x00001876       0xf5 spi_driver.o
+ .debug_line    0x0000196b      0x15c SRAM_driver.o
+ .debug_line    0x00001ac7      0x100 UART_driver.o
 
 .debug_frame    0x00000000      0x878
  *(.debug_frame)
